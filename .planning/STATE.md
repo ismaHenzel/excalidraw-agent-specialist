@@ -4,8 +4,8 @@ milestone: v1.1
 milestone_name: — Diagram Families & UML Expansion
 status: executing
 stopped_at: v1.1 roadmap created — Phases 4–9 appended to ROADMAP.md, REQUIREMENTS.md traceability mapped, STATE.md updated
-last_updated: "2026-06-03T20:23:56.792Z"
-last_activity: 2026-06-03 -- Phase 04 execution started
+last_updated: "2026-06-03T20:29:28Z"
+last_activity: 2026-06-03 -- Phase 04 Plan 03 Tasks 1-2 complete; Task 3 checkpoint:human-verify reached
 progress:
   total_phases: 9
   completed_phases: 3
@@ -26,9 +26,9 @@ See: .planning/PROJECT.md (updated 2026-06-03)
 ## Current Position
 
 Phase: 04 (taxonomy-spine-star-resolution) — EXECUTING
-Plan: 1 of 3
-Status: Executing Phase 04
-Last activity: 2026-06-03 -- Phase 04 execution started
+Plan: 3 of 3 (Tasks 1-2 complete; Task 3 checkpoint:human-verify awaiting)
+Status: Executing Phase 04 — awaiting smoke-test verification
+Last activity: 2026-06-03 -- Phase 04 Plan 03 Tasks 1-2 complete; Task 3 checkpoint:human-verify reached
 
 ## Performance Metrics
 
@@ -75,6 +75,7 @@ Recent decisions affecting current work:
 - v1.1 roadmap: EX-01/EX-03 ("canonical example passes the full loop") are per-type EXIT CRITERIA of the phase that ships each type, NOT a separate phase
 - v1.1 roadmap: Data Vault (DM-04) kept in v1.1 scope per explicit user decision; sequenced last (Phase 9) as the long pole
 - v1.1 roadmap: v1.0 loop, validator, and verifier are FROZEN — all v1.1 work is additive
+- Phase 04 Plan 03: Two-tier picker (family Q1, type sub-pick) wired into /excalidraw sections 1-3; single authoritative resolver table in diagram-types/README.md; specialist reads diagram-types/<type>.md first (INT-01) — smoke test awaiting human verify
 
 ### Pending Todos
 
@@ -104,6 +105,6 @@ Items acknowledged and carried forward from REQUIREMENTS.md v2 / Out of Scope:
 
 ## Session Continuity
 
-Last session: 2026-06-03T17:30:00.000Z
-Stopped at: v1.1 roadmap created — Phases 4–9 appended to ROADMAP.md, REQUIREMENTS.md traceability mapped, STATE.md updated
-Resume file: .planning/ROADMAP.md (Phase 4: Taxonomy Spine & Star Resolution)
+Last session: 2026-06-03T20:29:28Z
+Stopped at: Phase 04 Plan 03 — Tasks 1-2 complete, Task 3 checkpoint:human-verify reached (smoke test of Tech Architecture resolver path)
+Resume file: .planning/phases/04-taxonomy-spine-star-resolution/04-03-PLAN.md (Task 3: smoke test)

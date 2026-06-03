@@ -98,7 +98,7 @@ Decimal phases appear between their surrounding integers in numeric order. v1.1 
 
 **Wave 2** *(blocked on Wave 1 completion)*
 
-- [ ] 04-03-PLAN.md — /excalidraw two-tier family/type picker + resolver wiring (TAX-01/02/03) + specialist reads type recipe first (INT-01) + end-to-end smoke test (sections 4-6 frozen)
+- [~] 04-03-PLAN.md — /excalidraw two-tier family/type picker + resolver wiring (TAX-01/02/03) + specialist reads type recipe first (INT-01) + end-to-end smoke test (sections 4-6 frozen) — Tasks 1-2 complete; Task 3 awaiting human smoke test
 
 **UI hint**: yes
 
@@ -185,7 +185,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 →
 | 1. Verifier Subagent | 3/3 | Complete | 2026-05-23 |
 | 2. Closed-Loop Specialist Integration | 1/1 | Complete | 2026-05-24 |
 | 3. End-to-End Closed-Loop Validation | 1/1 | Complete (artefact-side; specialist runs are operator-driven) | 2026-05-24 |
-| 4. Taxonomy Spine & Star Resolution | 0/3 | Not started | - |
+| 4. Taxonomy Spine & Star Resolution | 2/3 (Task 3 checkpoint:human-verify) | Executing — awaiting smoke test | 2026-06-03 (partial) |
 | 5. Tech Architecture + Activity | 0/? | Not started | - |
 | 6. Star Schema → Snowflake | 0/? | Not started | - |
 | 7. ER + Class | 0/? | Not started | - |
