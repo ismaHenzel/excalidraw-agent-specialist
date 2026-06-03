@@ -1,0 +1,76 @@
+{
+  "type": "excalidraw",
+  "version": 2,
+  "source": "https://excalidraw.com",
+  "elements": [
+    {
+      "id": "r_db",
+      "type": "rectangle",
+      "x": 200,
+      "y": 200,
+      "width": 180,
+      "height": 80,
+      "backgroundColor": "#3b82f6",
+      "strokeColor": "#1e3a5f",
+      "roughness": 0,
+      "roundness": {
+        "type": 3
+      }
+    },
+    {
+      "id": "r_target",
+      "type": "rectangle",
+      "x": 500,
+      "y": 200,
+      "width": 180,
+      "height": 80,
+      "backgroundColor": "#3b82f6",
+      "strokeColor": "#1e3a5f",
+      "roughness": 0,
+      "roundness": {
+        "type": 3
+      }
+    },
+    {
+      "id": "t_db",
+      "type": "text",
+      "x": 240,
+      "y": 228,
+      "width": 30,
+      "height": 24,
+      "text": "OK",
+      "fontSize": 20,
+      "fontFamily": 3,
+      "strokeColor": "#1e40af",
+      "roughness": 0
+    },
+    {
+      "id": "a_link",
+      "type": "arrow",
+      "x": 380,
+      "y": 240,
+      "width": 120,
+      "height": 1,
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          60,
+          0
+        ],
+        [
+          120,
+          0
+        ]
+      ],
+      "strokeColor": "#1e3a5f",
+      "strokeWidth": 2,
+      "roughness": 0,
+      "roundness": null,
+      "endArrowhead": "arrow",
+      "elbowed": true
+    }
+  ]
+}

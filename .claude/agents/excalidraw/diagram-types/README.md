@@ -1,0 +1,53 @@
+# Diagram Types (the TYPE layer)
+
+This directory is the **TYPE layer** of the two-layer Excalidraw KB. It is a **sibling of `../kb/`**, not nested inside it — a diagram *type* is a **composition of** primitives, not "a kind of" primitive.
+
+## Two-layer KB
+
+| Layer | Directory | Granularity | Answers |
+|---|---|---|---|
+| **TYPE layer** (this dir) | `diagram-types/` | one file per *diagram type* (`tech-architecture.md`, `star-schema.md`, …) | *What is this diagram for, and how do I assemble it from primitives?* |
+| **PRIMITIVE layer** | [`../kb/`](../kb/README.md) | one file per *layout sub-pattern* (`fan-out.md`, `tree-hierarchy.md`, …) | *What is the geometry + JSON skeleton of this reusable shape?* |
+
+A type file **composes primitives by `@`-reference** (`@../kb/<pattern>.md`) and **never re-derives geometry** — coordinate math and JSON skeletons live only in `../kb/`. The two layers cross-reference each other so they cannot silently drift: type files link *down* to the primitives they compose; each composed primitive carries a `> Used by types:` back-ref, and `../kb/README.md` documents this relationship and links back here.
+
+## Resolver table
+
+This is the **single authoritative** family → type map shared by the `/excalidraw` command and the specialist. Do not duplicate it elsewhere — both read this one table to resolve a chosen type into its recipe file, composed `kb/` sub-patterns, and canonical example PNG.
+
+| Family | Type | Type file | Composes (kb sub-patterns) | Example PNG |
+|--------|------|-----------|----------------------------|-------------|
+| Tech Architecture | tech-architecture | `tech-architecture.md` | group-container, icon-block, multi-zoom-overview, fan-out, convergence, linear-pipeline | `../examples/architecture_overview.png` (reuse) |
+| Data Modeling | star-schema | `star-schema.md` _(planned — Phase 6)_ | fan-out, convergence, evidence-card, group-container | `../examples/example_star_schema.png` _(legacy; see below)_ |
+| Data Modeling | snowflake-schema | `snowflake-schema.md` _(planned — Phase 6)_ | star's set + tree-hierarchy + linear-pipeline | _(planned)_ |
+| Data Modeling | er | `er.md` _(planned — Phase 7)_ | evidence-card, group-container, tree-hierarchy | _(planned)_ |
+| Data Modeling | data-vault | `data-vault.md` _(planned — Phase 9)_ | group-container, fan-out, tree-hierarchy, convergence, evidence-card | _(planned)_ |
+| UML | sequence | `sequence.md` _(planned — Phase 8)_ | timeline, task-list, icon-block (+ lifeline/activation primitive) | _(planned)_ |
+| UML | class | `class.md` _(planned — Phase 7)_ | tree-hierarchy, group-container, evidence-card (+ relationship-glyph) | _(planned)_ |
+| UML | use-case | `use-case.md` _(planned — Phase 8)_ | group-container, fan-out, icon-block (+ stick-figure/oval) | _(planned)_ |
+| UML | activity | `activity.md` _(planned — Phase 5)_ | linear-pipeline, decision-branch, decision-marker, feedback-loop, group-container, task-list | _(planned)_ |
+
+> **Wired this phase:** only the **tech-architecture** row is fully authored and wired (the Phase-4 smoke-test type). Rows marked _(planned)_ are placeholders for later phases — their recipe file and/or canonical example are not yet authored, so they MUST NOT be claimed as wired until the phase that ships them.
+
+## Legacy example resolution
+
+**Subject:** the pre-v1.1 legacy data-model example — `examples_excalidraw/star_schema.excalidraw` and its rendered PNG `examples/example_star_schema.png`.
+
+**Disposition: GRANDFATHERED (EX-02, Option B).** The legacy `star_schema.excalidraw` is **grandfathered** as a pre-v1.1 legacy example. Its geometry is **not mutated** in Phase 4.
+
+**Verified non-compliance** (inspected source, 158 elements): every `groupIds` array is empty (0 grouped box units), 0 `containerId`, 0 `boundElements` (all 113 monospace texts are free-floating, manually positioned), arrows have `startBinding`/`endBinding` of `null` (unbound, not glued to borders) and `roundness: {type: 2}`, and the outer container uses `roundness: {type: 3}` (soft, not the sharp `roundness: null` the new recipe mandates for formal boxes and connectors).
+
+**Reason for grandfathering:**
+- The **compliant** star-schema example — authored to the grouped / bound / sharp-roundness compartmented-box recipe — is **deferred to Phase 6** (the phase that establishes the data-modeling table-box recipe). Re-authoring it now is out of Phase 4's critical path.
+- Star is **not** the Phase-4 smoke-test type; **tech-architecture** is. Phase 4 only needs to prove the type→primitive composition plumbing against one existing type.
+
+**Explicit warning:** the legacy `star_schema.excalidraw` is **NOT a safe template** for the new grouped/bound/sharp recipe. Do not imitate its free-floating, unbound, soft-cornered style when authoring new compartmented-box examples. The canonical/compliant star-schema example is deferred to **Phase 6**.
+
+## Adding a diagram type
+
+Mirrors the `../kb/README.md` "Adding a new pattern" procedure:
+
+1. Create `diagram-types/<type>.md` with sections: *Purpose*, *How to draw it*, *Composes (primitive layer)* (`@../kb/<pattern>.md` links — never re-derive geometry), and *Ground truth* (`@../examples/<type>.png`).
+2. Add the canonical example **pair** — `examples_excalidraw/<type>.excalidraw` source + rendered `examples/<type>.png` — and confirm it passes the full validate → render → verify loop before indexing.
+3. Add **exactly ONE** row to the resolver table above, under the correct family, naming the type file, the composed `kb/` sub-patterns, and the example PNG.
+4. Add a `> Used by types: <type>` back-ref line to each composed `../kb/<pattern>.md` so the two-layer link stays bidirectional.

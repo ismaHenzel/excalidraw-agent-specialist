@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "checked_at": "<IGNORED-IN-DIFF>",
+  "source": "<IGNORED-IN-DIFF>",
+  "png": "<IGNORED-IN-DIFF>",
+  "issues": [
+    {
+      "check": "raw_emoji_in_text",
+      "element_id": "t_emoji",
+      "severity": "warning",
+      "detail": "Text element contains raw emoji codepoint U+2705 (allowed as an icon fallback; the visual missing_glyph_box check is the hard gate if it fails to render).",
+      "suggested_fix": "Prefer an image element pointing to .claude/agents/excalidraw/icons/success_icon.png for text element id: t_emoji (an icon exists for U+2705); keep the raw emoji only if no icon matches and the user did not opt out of emojis."
+    }
+  ]
+}

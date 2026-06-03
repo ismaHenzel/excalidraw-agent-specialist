@@ -1,0 +1,15 @@
+{
+  "passed": false,
+  "checked_at": "<IGNORED-IN-DIFF>",
+  "source": "<IGNORED-IN-DIFF>",
+  "png": "<IGNORED-IN-DIFF>",
+  "issues": [
+    {
+      "check": "text_overflow_static",
+      "element_id": "t_db",
+      "severity": "error",
+      "detail": "Text 'Databricks Workspace Setup' (~312px @ fontSize 20) exceeds container 'r_container' width (180px).",
+      "suggested_fix": "Increase rectangle id: r_container width from 180 to >=332, or shorten the label in text element id: t_db."
+    }
+  ]
+}

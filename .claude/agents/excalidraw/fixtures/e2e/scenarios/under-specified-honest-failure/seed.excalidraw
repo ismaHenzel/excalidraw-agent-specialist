@@ -1,0 +1,119 @@
+{
+  "type": "excalidraw",
+  "version": 2,
+  "source": "https://excalidraw.com",
+  "elements": [
+    {
+      "id": "rect_1",
+      "type": "rectangle",
+      "x": 100, "y": 100,
+      "width": 80, "height": 40,
+      "backgroundColor": "#3b82f6",
+      "strokeColor": "#1e3a5f",
+      "roughness": 0,
+      "roundness": { "type": 3 }
+    },
+    {
+      "id": "rect_2",
+      "type": "rectangle",
+      "x": 480, "y": 100,
+      "width": 80, "height": 40,
+      "backgroundColor": "#3b82f6",
+      "strokeColor": "#1e3a5f",
+      "roughness": 0,
+      "roundness": { "type": 3 }
+    },
+    {
+      "id": "rect_3",
+      "type": "rectangle",
+      "x": 540, "y": 260,
+      "width": 80, "height": 40,
+      "backgroundColor": "#3b82f6",
+      "strokeColor": "#1e3a5f",
+      "roughness": 0,
+      "roundness": { "type": 3 }
+    },
+    {
+      "id": "rect_4",
+      "type": "rectangle",
+      "x": 400, "y": 400,
+      "width": 80, "height": 40,
+      "backgroundColor": "#3b82f6",
+      "strokeColor": "#1e3a5f",
+      "roughness": 0,
+      "roundness": { "type": 3 }
+    },
+    {
+      "id": "rect_5",
+      "type": "rectangle",
+      "x": 120, "y": 380,
+      "width": 80, "height": 40,
+      "backgroundColor": "#3b82f6",
+      "strokeColor": "#1e3a5f",
+      "roughness": 0,
+      "roundness": { "type": 3 }
+    },
+    {
+      "id": "arrow_endpoint_unanchored_seed_a1",
+      "type": "arrow",
+      "x": 180, "y": 120,
+      "width": 80, "height": 80,
+      "points": [[0, 0], [40, 0], [80, 80]],
+      "strokeColor": "#1e3a5f",
+      "strokeWidth": 2,
+      "roughness": 0,
+      "roundness": { "type": 2 },
+      "endArrowhead": "arrow"
+    },
+    {
+      "id": "arrow_endpoint_unanchored_seed_a2",
+      "type": "arrow",
+      "x": 520, "y": 140,
+      "width": 170, "height": 90,
+      "points": [[0, 0], [0, 50], [-170, 90]],
+      "strokeColor": "#1e3a5f",
+      "strokeWidth": 2,
+      "roughness": 0,
+      "roundness": { "type": 2 },
+      "endArrowhead": "arrow"
+    },
+    {
+      "id": "arrow_endpoint_unanchored_seed_a3",
+      "type": "arrow",
+      "x": 540, "y": 280,
+      "width": 160, "height": 1,
+      "points": [[0, 0], [-80, 0], [-160, 0]],
+      "strokeColor": "#1e3a5f",
+      "strokeWidth": 2,
+      "roughness": 0,
+      "roundness": { "type": 2 },
+      "endArrowhead": "arrow"
+    },
+    {
+      "id": "arrow_endpoint_unanchored_seed_a4",
+      "type": "arrow",
+      "x": 400, "y": 420,
+      "width": 50, "height": 100,
+      "points": [[0, 0], [0, -50], [-50, -100]],
+      "strokeColor": "#1e3a5f",
+      "strokeWidth": 2,
+      "roughness": 0,
+      "roundness": { "type": 2 },
+      "endArrowhead": "arrow"
+    },
+    {
+      "id": "arrow_endpoint_unanchored_seed_a5",
+      "type": "arrow",
+      "x": 160, "y": 380,
+      "width": 110, "height": 100,
+      "points": [[0, 0], [60, 0], [110, -100]],
+      "strokeColor": "#1e3a5f",
+      "strokeWidth": 2,
+      "roughness": 0,
+      "roundness": { "type": 2 },
+      "endArrowhead": "arrow"
+    }
+  ],
+  "appState": {},
+  "files": {}
+}
