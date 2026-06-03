@@ -12,36 +12,72 @@ Initial request (may be empty): **$ARGUMENTS**
 
 ## Protocol
 
-### 1. Clarify intent — one `AskUserQuestion` call, two questions
+### 1. Clarify intent — two-tier family/type picker + structure approach
 
-**Q1 — diagram kind** ("What kind of diagram do you want to create?")
-- *Architecture / system overview* — multi-component, environments, technologies in scope
-- *Pipeline / flow* — sequential or branching control/data flow
-- *Hierarchy / tree* — folders, namespaces, catalogs, taxonomies
-- *Process / decision* — CI gates, validation, decision branches, timelines
+**IMPORTANT — do NOT present a flat single list of all diagram types.** That exceeds the `AskUserQuestion` 4-option cap and is explicitly prohibited. Always use the two-tier family → type flow below.
 
-**Q2 — structure approach** ("How should we approach the structure?")
+#### Step 1a: Q1 — family pick (one `AskUserQuestion`, exactly four options)
+
+Ask: *"What kind of diagram do you want to create?"*
+
+- *Tech Architecture* — system/platform/service maps, deployment landscapes, cloud environments, technology relationships (e.g. what our stack looks like, how services connect)
+- *Data Modeling* — data warehouse and database structure diagrams (star schema, snowflake, ER, data vault)
+- *UML / SW-Engineering* — software-engineering diagrams (sequence, class, use-case, activity)
+- *Flow / Process* — pipelines, CI/CD flows, decision workflows, timelines, process maps
+
+#### Step 1b: Type sub-pick (only when the family has more than one type)
+
+- **Tech Architecture** — has exactly one type (`tech-architecture`). **Skip the sub-pick** — the family is the type. Proceed directly to Q2.
+- **Data Modeling** — ask a second `AskUserQuestion` with the family's types: *Star Schema* (central fact + dimension tables), *Snowflake Schema* (normalized star with dimension hierarchies), *ER Diagram* (entities with PK/FK relationships and cardinality), *Data Vault* (hubs, links, satellites)
+- **UML / SW-Engineering** — ask a second `AskUserQuestion`: *Sequence* (lifelines, ordered messages), *Class* (compartmented boxes, relationships), *Use-Case* (actors, ovals, system boundary), *Activity* (start/end nodes, decision gates, swimlanes)
+- **Flow / Process** — if the chosen sub-type fits within the 4-option cap use a second `AskUserQuestion`; otherwise use the **plain-text numbered-menu fallback** below.
+
+**Plain-text numbered-menu fallback** (for any family that grows past four types): present the types as a plain-text numbered list and ask the user to reply with a number or type name. Example:
+```
+Which type?
+1. Star Schema
+2. Snowflake Schema
+3. ER Diagram
+4. Data Vault
+5. (future type)
+Reply with a number or name.
+```
+This fallback is the escape hatch when the `AskUserQuestion` 4-option cap cannot fit all types.
+
+#### Step 1c: Q2 — structure approach (unchanged)
+
+Ask: *"How should we approach the structure?"*
 - *Propose options based on my goal (Recommended)* — agent suggests 2–3 layout candidates, user picks
 - *I'll describe the structure* — user provides nodes, edges, groupings
 - *Just generate it* — agent infers everything from the description
 
-### 2. Resolve the structure approach
+### 2. Resolve the type → asset bundle via the authoritative resolver table
 
-- **Propose options:** Read `.claude/agents/excalidraw/kb/README.md` and the most relevant PNG(s) in `.claude/agents/excalidraw/examples/` for the chosen diagram kind. Present **2–3 concrete composition candidates** in plain text, each naming the kb patterns it would use (e.g., *"Multi-zoom overview with a catalog panel + repo tree + pipeline DAG, like `architecture_overview.png`"*; or *"Single horizontal pipeline with color-coded fan-out, inline ✗/✓ gate and feedback loop, like `data_pipeline_flow.png`"*). Wait for the user to pick.
-- **Describe the structure:** ask the user in plain text for the nodes, edges, and groupings. A bullet list is fine. Briefly confirm understanding before dispatching.
-- **Just generate:** proceed directly to dispatch — the subagent will infer.
+After the type is resolved, **Read `.claude/agents/excalidraw/diagram-types/README.md`**. Find the row for the chosen type in the resolver table. The table (and ONLY this table — do NOT hard-code or restate the mapping here) tells you:
+
+- The **type recipe file**: `diagram-types/<type>.md`
+- The **composed `kb/` sub-patterns**: the list of `kb/<pattern>.md` files the type composes
+- The **canonical example PNG**: the reference PNG in `examples/`
+
+If Q2 is "Propose options": read the resolved `diagram-types/<type>.md` and the example PNG. Present **2–3 concrete composition candidates** in plain text, each naming the kb sub-patterns it would use and referencing the example. Wait for the user to pick.
+
+If Q2 is "Describe the structure": ask the user in plain text for the nodes, edges, and groupings. A bullet list is fine. Briefly confirm understanding before dispatching.
+
+If Q2 is "Just generate": proceed directly to dispatch — the subagent will infer from the resolved type bundle.
 
 If the initial description lacks crucial detail (which systems are involved, what the diagram is *arguing*), ask one focused plain-text follow-up. Do not over-question — the subagent will fill in reasonable defaults.
 
 ### 3. Dispatch to the author (specialist, author mode)
 
 Spawn `excalidraw_specialist` via the `Agent` tool with a single prompt containing:
-- The diagram kind (Q1 answer)
+- The resolved **diagram family** and **type** (e.g. "Tech Architecture / tech-architecture")
+- The **absolute path to `diagram-types/<type>.md`** — the specialist must read this file FIRST before consulting any `kb/` primitive
+- The **explicit list of `kb/<pattern>.md` files** named in the resolver table row for this type
+- The **canonical example PNG** path from the resolver table row (visual ground truth)
 - The structure approach (Q2 answer) and the chosen composition, if any
 - The user's full description and the *argument* the diagram should make (per the methodology: *Diagrams ARGUE, not DISPLAY*)
-- An explicit list of relevant `kb/<pattern>.md` files to consult, plus the example PNG(s) to use as visual ground truth
 - The output **absolute** path (snake_case basename derived from the diagram subject) — saved in the current working directory unless the user requested otherwise
-- A reminder that it is in **author mode**: generate → write → render → return the absolute `.excalidraw` and `.png` paths. It must NOT attempt to verify.
+- A reminder that it is in **author mode**: read the type recipe FIRST → generate → write → render → return the absolute `.excalidraw` and `.png` paths. It must NOT attempt to verify.
 
 Capture the absolute `.excalidraw` path the specialist reports back. This path is the single argument every subsequent verify call uses.
 
