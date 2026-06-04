@@ -3,9 +3,9 @@ gsd_state_version: 1.0
 milestone: v1.1
 milestone_name: — Diagram Families & UML Expansion
 status: executing
-stopped_at: v1.1 roadmap created — Phases 4–9 appended to ROADMAP.md, REQUIREMENTS.md traceability mapped, STATE.md updated
-last_updated: "2026-06-03T20:29:28Z"
-last_activity: 2026-06-03 -- Phase 04 Plan 03 Tasks 1-2 complete; Task 3 checkpoint:human-verify reached
+stopped_at: "Phase 04 Plan 03 — Tasks 1-2 complete, Task 3 checkpoint:human-verify reached (smoke test of Tech Architecture resolver path)"
+last_updated: "2026-06-04T05:40:30.836Z"
+last_activity: "2026-06-03 -- Phase 04 Plan 03 Tasks 1-2 complete; Task 3 checkpoint:human-verify reached"
 progress:
   total_phases: 9
   completed_phases: 3
@@ -27,7 +27,7 @@ See: .planning/PROJECT.md (updated 2026-06-03)
 
 Phase: 04 (taxonomy-spine-star-resolution) — EXECUTING
 Plan: 3 of 3 (Tasks 1-2 complete; Task 3 checkpoint:human-verify awaiting)
-Status: Executing Phase 04 — awaiting smoke-test verification
+Status: Ready to execute
 Last activity: 2026-06-03 -- Phase 04 Plan 03 Tasks 1-2 complete; Task 3 checkpoint:human-verify reached
 
 ## Performance Metrics
