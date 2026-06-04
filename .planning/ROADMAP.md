@@ -114,7 +114,16 @@ Decimal phases appear between their surrounding integers in numeric order. v1.1 
   3. A canonical example pair exists and is indexed in `diagram-types/README.md` for each shipped type (Activity gets a new `.excalidraw` + PNG; Tech Architecture reuses the existing `architecture_overview.png`), each passing the full loop
   4. The composed `kb/*.md` primitives gain "Used by types:" back-references so the two-layer link is discoverable from the primitive side
 
-**Plans**: TBD
+**Plans**: 3 plans
+
+**Wave 1**
+
+- [ ] 05-01-PLAN.md — ARCH-01: confirm tech-architecture recipe + complete kb `Used by types:` back-refs (two-layer cross-ref)
+- [ ] 05-02-PLAN.md — UML-04: author `diagram-types/activity.md` recipe composing existing primitives
+
+**Wave 2** *(blocked on Wave 1 completion)*
+
+- [ ] 05-03-PLAN.md — UML-04/EX-01/EX-03: author canonical Activity example pair, pass the full loop (visual checkpoint), promote resolver row
 **UI hint**: yes
 
 ### Phase 6: Star Schema → Snowflake
