@@ -138,7 +138,16 @@ Decimal phases appear between their surrounding integers in numeric order. v1.1 
   3. A canonical example pair (`.excalidraw` + PNG) exists and is indexed for both star schema and snowflake, each passing the full validate→render→verify loop, consistent with the star resolution from Phase 4
   4. The compartmented entity boxes use separate per-row monospace `text` elements (never a single multi-line `text`) so dividers stay placeable and the verifier's width-fit check stays valid
 
-**Plans**: TBD
+**Plans**: 2 plans
+
+**Wave 1**
+
+- [ ] 06-01-PLAN.md — DM-01: finalize compartmented-box offsets + author `star-schema.md` + compliant `star_schema_v2` example pair (full loop) + resolver row + kb back-refs
+
+**Wave 2** *(blocked on Wave 1 — snowflake authored only after star passes, SC-2)*
+
+- [ ] 06-02-PLAN.md — DM-03: author `snowflake-schema.md` (star + normalized dimension tree-hierarchy) + `snowflake_schema` example pair (full loop) + resolver row + tree-hierarchy/linear-pipeline back-refs
+
 **UI hint**: yes
 
 ### Phase 7: ER + Class
@@ -196,7 +205,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 →
 | 3. End-to-End Closed-Loop Validation | 1/1 | Complete (artefact-side; specialist runs are operator-driven) | 2026-05-24 |
 | 4. Taxonomy Spine & Star Resolution | 2/3 (Task 3 checkpoint:human-verify) | Executing — awaiting smoke test | 2026-06-03 (partial) |
 | 5. Tech Architecture + Activity | 0/? | Not started | - |
-| 6. Star Schema → Snowflake | 0/? | Not started | - |
+| 6. Star Schema → Snowflake | 0/2 | Planned | - |
 | 7. ER + Class | 0/? | Not started | - |
 | 8. Sequence + Use-Case | 0/? | Not started | - |
 | 9. Data Vault | 0/? | Not started | - |
