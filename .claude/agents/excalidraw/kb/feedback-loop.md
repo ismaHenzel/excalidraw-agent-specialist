@@ -1,5 +1,7 @@
 # Pattern: Feedback Loop
 
+> Used by types: activity
+
 An arrow that exits a flow midway and **returns to an earlier point**, typically labeled with the trigger condition (Retry, Restart, Reset). The visual rule: the loop must route *around* the main flow, never cross it.
 
 ## When to use

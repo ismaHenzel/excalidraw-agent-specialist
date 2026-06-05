@@ -1,5 +1,7 @@
 # Pattern: Decision Branch
 
+> Used by types: activity
+
 Diamond-style gate with two (or more) labeled outcomes.
 
 ## When to use

@@ -1,5 +1,7 @@
 # Pattern: Task List
 
+> Used by types: activity
+
 A **vertical stack of task nodes inside a container** that represents an ordered procedure (a job, a function body, a runbook). Distinct from a linear pipeline — execution direction is *vertical*, and tasks routinely reach **sideways out of the container** to external resources (databases, APIs).
 
 ## When to use

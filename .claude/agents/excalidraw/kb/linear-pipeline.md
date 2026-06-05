@@ -1,6 +1,6 @@
 # Pattern: Linear Pipeline
 
-> Used by types: tech-architecture
+> Used by types: tech-architecture, activity
 
 Sequential left-to-right flow of N steps connected by single-segment elbow arrows.
 
