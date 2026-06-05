@@ -1,5 +1,7 @@
 # Pattern: Decision Marker (Inline ✗ / ✓)
 
+> Used by types: activity
+
 An **inline binary outcome** rendered as a red ✗ circle and a green ✓ circle directly on the flow, instead of a diamond. Use when the decision is binary, the failure consequence matters more than the condition wording, and the diagram needs visual punch over precision.
 
 ## When to use

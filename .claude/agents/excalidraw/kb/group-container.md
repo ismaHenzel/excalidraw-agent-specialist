@@ -1,6 +1,6 @@
 # Pattern: Group Container
 
-> Used by types: tech-architecture
+> Used by types: tech-architecture, activity
 
 A bordered rounded rectangle that **carries context** for everything inside it: an environment, a technology boundary, a team's surface area. The single most important macro-pattern in the architect's style — almost every other pattern lives inside one of these.
 
