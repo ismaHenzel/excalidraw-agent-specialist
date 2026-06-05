@@ -305,16 +305,18 @@ See Pattern 1 above for the full annotated box JSON (frame + header divider + ti
 | A2 | Recommended offsets (header 40, row pitch 20, left-pad 12, fontSize 16) are *a* valid finalization, not the only one | Pattern 1 | Low — any 20-grid set satisfying the three rules works; these are a concrete, verifier-passing starting point the planner can adopt or adjust |
 | A3 | Snowflake's normalized dimensions render cleanly with `tree-hierarchy` thin elbow connectors anchored to sub-box rectangles | Pattern 3 | Medium — must be proven in the render loop; tree connectors anchor to rectangle borders (OK per verifier), but dense snowflakes may need wider rails to avoid `layout_collision` |
 
-## Open Questions
+## Open Questions (RESOLVED)
 
 1. **Should the new star example fully replace the grandfathered legacy in `kb/README.md`'s reference-example index, or coexist?**
    - What we know: legacy is referenced in `kb/README.md` (row: `example_star_schema.png`) and the resolver row currently points at the legacy PNG.
    - What's unclear: whether to retire the legacy reference now or leave it as a historical artifact.
    - Recommendation: point the resolver row at the NEW compliant PNG (it's the type's canonical ground truth); leave the legacy file on disk but stop indexing it as the star reference. Decide explicitly in planning.
+   - **RESOLVED:** Leave legacy `star_schema.excalidraw` on disk, de-index from resolver only — stop indexing it as the star canonical. The resolver row is updated to point at the new compliant PNG (`star_schema_v2.png`).
 
 2. **Title text: bind via `containerId` or leave free-floating?**
    - What we know: `text_overflow_static` skips text with a `containerId` (it `continue`s). Binding the title makes the header immune to the width check.
    - Recommendation: bind the title to the box (safer header), keep row texts free-floating (they need `line` dividers between them and must be width-checked).
+   - **RESOLVED:** Bind title via `containerId` (safer — skipped by `text_overflow_static`); keep row texts free-floating for divider placement and width checking.
 
 ## Environment Availability
 

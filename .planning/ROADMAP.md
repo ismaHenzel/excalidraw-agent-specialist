@@ -134,7 +134,7 @@ Decimal phases appear between their surrounding integers in numeric order. v1.1 
 **Success Criteria** (what must be TRUE):
 
   1. `diagram-types/star-schema.md` exists and authoring a star-schema request (central fact + dimension entity boxes, fan-out composition) yields a rendered PNG that passes the full loop, with compartment dividers spanning the full box width and rows sharing a common left x
-  2. `diagram-types/snowflake.md` exists (building on star-schema with a normalized dimension tree-hierarchy) and authoring a snowflake request yields a rendered PNG that passes the full loop — and snowflake is authored only after star is passing
+  2. `diagram-types/snowflake-schema.md` exists (building on star-schema with a normalized dimension tree-hierarchy) and authoring a snowflake request yields a rendered PNG that passes the full loop — and snowflake is authored only after star is passing
   3. A canonical example pair (`.excalidraw` + PNG) exists and is indexed for both star schema and snowflake, each passing the full validate→render→verify loop, consistent with the star resolution from Phase 4
   4. The compartmented entity boxes use separate per-row monospace `text` elements (never a single multi-line `text`) so dividers stay placeable and the verifier's width-fit check stays valid
 
