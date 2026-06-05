@@ -25,9 +25,9 @@ This is the **single authoritative** family → type map shared by the `/excalid
 | UML | sequence | `sequence.md` _(planned — Phase 8)_ | timeline, task-list, icon-block (+ lifeline/activation primitive) | _(planned)_ |
 | UML | class | `class.md` _(planned — Phase 7)_ | tree-hierarchy, group-container, evidence-card (+ relationship-glyph) | _(planned)_ |
 | UML | use-case | `use-case.md` _(planned — Phase 8)_ | group-container, fan-out, icon-block (+ stick-figure/oval) | _(planned)_ |
-| UML | activity | `activity.md` _(planned — Phase 5)_ | linear-pipeline, decision-branch, decision-marker, feedback-loop, group-container, task-list | _(planned)_ |
+| UML | activity | `activity.md` | linear-pipeline, decision-branch, decision-marker, feedback-loop, group-container, task-list | `../examples/activity_order_fulfillment.png` |
 
-> **Wired this phase:** only the **tech-architecture** row is fully authored and wired (the Phase-4 smoke-test type). Rows marked _(planned)_ are placeholders for later phases — their recipe file and/or canonical example are not yet authored, so they MUST NOT be claimed as wired until the phase that ships them.
+> **Wired rows:** **tech-architecture** (Phase-4 smoke-test type) and **activity** (wired as of Phase 5 — canonical example `activity_order_fulfillment.excalidraw` passes the full validate→render→verify loop). Rows marked _(planned)_ are placeholders for later phases — their recipe file and/or canonical example are not yet authored, so they MUST NOT be claimed as wired until the phase that ships them.
 
 ## Legacy example resolution
 
