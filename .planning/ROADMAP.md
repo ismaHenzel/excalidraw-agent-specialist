@@ -26,7 +26,7 @@ Decimal phases appear between their surrounding integers in numeric order. v1.1 
 ### Milestone v1.1 — Diagram Families & UML Expansion
 
 - [ ] **Phase 4: Taxonomy Spine & Star Resolution** - Two-tier family/type picker, `diagram-types/` KB layer + resolver table + notation-workaround conventions, specialist wiring, compartmented-box primitive, and resolution of the legacy `star_schema.excalidraw` — all proven against one existing type
-- [ ] **Phase 5: Tech Architecture + Activity** - The two zero/low-new-notation types, proving the type→primitive composition workflow on pure reuse
+- [x] **Phase 5: Tech Architecture + Activity** - The two zero/low-new-notation types, proving the type→primitive composition workflow on pure reuse (completed 2026-06-05)
 - [ ] **Phase 6: Star Schema → Snowflake** - The data-modeling table-box recipe established on star, then extended to its normalized variant
 - [ ] **Phase 7: ER + Class** - The shared relationship-endpoint-glyph convention built once, then both compartmented-relationship types authored against it
 - [ ] **Phase 8: Sequence + Use-Case** - Sequence's geometry-heavy lifeline/activation primitive and the most-native-friendly use-case type
@@ -118,12 +118,13 @@ Decimal phases appear between their surrounding integers in numeric order. v1.1 
 
 **Wave 1**
 
-- [ ] 05-01-PLAN.md — ARCH-01: confirm tech-architecture recipe + complete kb `Used by types:` back-refs (two-layer cross-ref)
-- [ ] 05-02-PLAN.md — UML-04: author `diagram-types/activity.md` recipe composing existing primitives
+- [x] 05-01-PLAN.md — ARCH-01: confirm tech-architecture recipe + complete kb `Used by types:` back-refs (two-layer cross-ref)
+- [x] 05-02-PLAN.md — UML-04: author `diagram-types/activity.md` recipe composing existing primitives
 
 **Wave 2** *(blocked on Wave 1 completion)*
 
-- [ ] 05-03-PLAN.md — UML-04/EX-01/EX-03: author canonical Activity example pair, pass the full loop (visual checkpoint), promote resolver row
+- [x] 05-03-PLAN.md — UML-04/EX-01/EX-03: author canonical Activity example pair, pass the full loop (visual checkpoint), promote resolver row
+
 **UI hint**: yes
 
 ### Phase 6: Star Schema → Snowflake
@@ -204,7 +205,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 →
 | 2. Closed-Loop Specialist Integration | 1/1 | Complete | 2026-05-24 |
 | 3. End-to-End Closed-Loop Validation | 1/1 | Complete (artefact-side; specialist runs are operator-driven) | 2026-05-24 |
 | 4. Taxonomy Spine & Star Resolution | 2/3 (Task 3 checkpoint:human-verify) | Executing — awaiting smoke test | 2026-06-03 (partial) |
-| 5. Tech Architecture + Activity | 0/? | Not started | - |
+| 5. Tech Architecture + Activity | 3/3 | Complete   | 2026-06-05 |
 | 6. Star Schema → Snowflake | 0/2 | Planned | - |
 | 7. ER + Class | 0/? | Not started | - |
 | 8. Sequence + Use-Case | 0/? | Not started | - |
