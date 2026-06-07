@@ -27,7 +27,7 @@ Decimal phases appear between their surrounding integers in numeric order. v1.1 
 
 - [ ] **Phase 4: Taxonomy Spine & Star Resolution** - Two-tier family/type picker, `diagram-types/` KB layer + resolver table + notation-workaround conventions, specialist wiring, compartmented-box primitive, and resolution of the legacy `star_schema.excalidraw` — all proven against one existing type
 - [x] **Phase 5: Tech Architecture + Activity** - The two zero/low-new-notation types, proving the type→primitive composition workflow on pure reuse (completed 2026-06-05)
-- [ ] **Phase 6: Star Schema → Snowflake** - The data-modeling table-box recipe established on star, then extended to its normalized variant
+- [x] **Phase 6: Star Schema → Snowflake** - The data-modeling table-box recipe established on star, then extended to its normalized variant (completed 2026-06-07)
 - [ ] **Phase 7: ER + Class** - The shared relationship-endpoint-glyph convention built once, then both compartmented-relationship types authored against it
 - [ ] **Phase 8: Sequence + Use-Case** - Sequence's geometry-heavy lifeline/activation primitive and the most-native-friendly use-case type
 - [ ] **Phase 9: Data Vault** - The long-pole data-modeling type, layering hub/link/satellite semantics onto the proven recipe
@@ -147,7 +147,7 @@ Decimal phases appear between their surrounding integers in numeric order. v1.1 
 
 **Wave 2** *(blocked on Wave 1 — snowflake authored only after star passes, SC-2)*
 
-- [~] 06-02-PLAN.md — DM-03: author `snowflake-schema.md` (star + normalized dimension tree-hierarchy) + `snowflake_schema` example pair (full loop) + resolver row + tree-hierarchy/linear-pipeline back-refs — Tasks 1-2 complete; Task 3 (EX-03 visual gate) awaiting human-verify checkpoint
+- [x] 06-02-PLAN.md — DM-03: author `snowflake-schema.md` (star + normalized dimension tree-hierarchy) + `snowflake_schema` example pair (full loop) + resolver row + tree-hierarchy/linear-pipeline back-refs (completed 2026-06-07; EX-03 gate approved)
 
 **UI hint**: yes
 
@@ -206,7 +206,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 →
 | 3. End-to-End Closed-Loop Validation | 1/1 | Complete (artefact-side; specialist runs are operator-driven) | 2026-05-24 |
 | 4. Taxonomy Spine & Star Resolution | 2/3 (Task 3 checkpoint:human-verify) | Executing — awaiting smoke test | 2026-06-03 (partial) |
 | 5. Tech Architecture + Activity | 3/3 | Complete   | 2026-06-05 |
-| 6. Star Schema → Snowflake | 1.5/2 (Plan 01 complete; Plan 02 Tasks 1-2 done, Task 3 checkpoint pending) | Executing — awaiting EX-03 human-verify | 2026-06-07 (partial) |
+| 6. Star Schema → Snowflake | 2/2 | Complete   | 2026-06-07 |
 | 7. ER + Class | 0/? | Not started | - |
 | 8. Sequence + Use-Case | 0/? | Not started | - |
 | 9. Data Vault | 0/? | Not started | - |
