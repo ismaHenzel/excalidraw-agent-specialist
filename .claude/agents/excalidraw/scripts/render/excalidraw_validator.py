@@ -36,12 +36,27 @@ def validate_excalidraw(file_path):
     if shapes_with_labels:
         errors.append(f"Found 'label' property in shapes: {', '.join(shapes_with_labels)}. Use standalone text elements instead.")
 
-    # 3. Check for standalone text elements
+    # 3. Check arrowhead-token legality (deny-list)
+    LEGAL_ARROWHEADS = {"arrow", "bar", "dot", "triangle", None}
+    illegal_arrowheads = []
+    for el in elements:
+        for key in ("startArrowhead", "endArrowhead"):
+            if key in el and el[key] not in LEGAL_ARROWHEADS:
+                illegal_arrowheads.append(
+                    f"element '{el.get('id', 'unknown')}': {key}='{el[key]}' "
+                    f"(legal tokens: arrow|bar|dot|triangle|null)"
+                )
+
+    if illegal_arrowheads:
+        for msg in illegal_arrowheads:
+            errors.append(f"Illegal arrowhead token — {msg}")
+
+    # 5. Check for standalone text elements
     text_elements = [el for el in elements if el.get("type") == "text"]
     if not text_elements and len(elements) > 2:
         warnings.append("No text elements found. The diagram might be missing labels.")
 
-    # 4. Check for high-contrast colors
+    # 6. Check for high-contrast colors
     low_contrast_text = []
     for el in text_elements:
         stroke = el.get("strokeColor", "").lower()
