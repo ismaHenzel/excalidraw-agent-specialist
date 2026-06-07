@@ -193,4 +193,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-06-03 — started milestone v1.1 (Diagram Families & UML Expansion)*
+*Last updated: 2026-06-07 — Phase 06 complete: star-schema (DM-01) and snowflake-schema (DM-03) recipes shipped; compartmented-box offsets locked for all later data-modeling/UML types*
