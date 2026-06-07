@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.1
 milestone_name: — Diagram Families & UML Expansion
 status: executing
-stopped_at: Completed 05-tech-architecture-activity Plan 03 — Activity example pair + EX-03 gate satisfied
-last_updated: "2026-06-05T23:19:03.202Z"
-last_activity: 2026-06-05 -- Phase 05 execution started
+stopped_at: Completed 06-02 Tasks 1-2 — snowflake-schema.md + example pair authored; checkpoint:human-verify reached for Task 3 (EX-03 snowflake gate)
+last_updated: "2026-06-07T05:45:00.000Z"
+last_activity: 2026-06-07 -- Phase 06 Plan 02 Tasks 1-2 complete; awaiting EX-03 human verify
 progress:
   total_phases: 9
   completed_phases: 5
   total_plans: 13
-  completed_plans: 11
+  completed_plans: 12
   percent: 56
 ---
 
@@ -21,14 +21,14 @@ progress:
 See: .planning/PROJECT.md (updated 2026-06-03)
 
 **Core value:** The agent draws recognizable, real-world diagram families (tech architecture, data models, UML) correctly — guided by a per-diagram-type knowledge layer — while preserving the self-verifying render→verify→fix loop shipped in v1.0.
-**Current focus:** Phase 05 — tech-architecture-activity
+**Current focus:** Phase 06 — star-schema-snowflake
 
 ## Current Position
 
-Phase: 05 (tech-architecture-activity) — EXECUTING
-Plan: 2 of 3
-Status: Ready to execute
-Last activity: 2026-06-05 -- Phase 05 execution started
+Phase: 06 (star-schema-snowflake) — EXECUTING
+Plan: 2 of 2 (Tasks 1-2 done; Task 3 checkpoint pending)
+Status: Executing Phase 06 Plan 02 — awaiting EX-03 human-verify checkpoint
+Last activity: 2026-06-07 -- snowflake-schema.md + example pair authored; structural verifier empty issues
 
 ## Performance Metrics
 
@@ -78,10 +78,12 @@ Recent decisions affecting current work:
 - v1.1 roadmap: v1.0 loop, validator, and verifier are FROZEN — all v1.1 work is additive
 - Phase 04 Plan 03: Two-tier picker (family Q1, type sub-pick) wired into /excalidraw sections 1-3; single authoritative resolver table in diagram-types/README.md; specialist reads diagram-types/<type>.md first (INT-01) — smoke test awaiting human verify
 - [Phase ?]: EX-03 gate: both structural (automated) and visual (human approval) halves required before activity resolver row wired; Activity example omits swimlanes to eliminate layout-collision risk
+- Phase 06 Plan 02: SC-2 gate enforced (star must pass before snowflake authored); Plan 01 commits cherry-picked to master; snowflake normalizes dim_product->dim_category->dim_department; structural verifier passes (empty issues); EX-03 visual gate awaiting human-verify
 
 ### Pending Todos
 
-- Resolve the CRITICAL open decision in Phase 4: re-author `star_schema.excalidraw` to the grouped/bound/sharp recipe vs. grandfather it with a documented reason (gates all new canonical-example authoring)
+- Resolve the CRITICAL open decision in Phase 4: re-author `star_schema.excalidraw` to the grouped/bound/sharp recipe vs. grandfather it with a documented reason (gates all new canonical-example authoring) — NOTE: RESOLVED in Phase 06 Plan 01 via grandfathering (EX-02 Option B); new compliant star_schema_v2.* authored and resolver updated
+- EX-03 human-verify gate for snowflake_schema.excalidraw awaiting operator approval
 
 ### Blockers/Concerns
 

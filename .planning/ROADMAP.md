@@ -143,11 +143,11 @@ Decimal phases appear between their surrounding integers in numeric order. v1.1 
 
 **Wave 1**
 
-- [ ] 06-01-PLAN.md — DM-01: finalize compartmented-box offsets + author `star-schema.md` + compliant `star_schema_v2` example pair (full loop) + resolver row + kb back-refs
+- [x] 06-01-PLAN.md — DM-01: finalize compartmented-box offsets + author `star-schema.md` + compliant `star_schema_v2` example pair (full loop) + resolver row + kb back-refs
 
 **Wave 2** *(blocked on Wave 1 — snowflake authored only after star passes, SC-2)*
 
-- [ ] 06-02-PLAN.md — DM-03: author `snowflake-schema.md` (star + normalized dimension tree-hierarchy) + `snowflake_schema` example pair (full loop) + resolver row + tree-hierarchy/linear-pipeline back-refs
+- [~] 06-02-PLAN.md — DM-03: author `snowflake-schema.md` (star + normalized dimension tree-hierarchy) + `snowflake_schema` example pair (full loop) + resolver row + tree-hierarchy/linear-pipeline back-refs — Tasks 1-2 complete; Task 3 (EX-03 visual gate) awaiting human-verify checkpoint
 
 **UI hint**: yes
 
@@ -206,7 +206,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 →
 | 3. End-to-End Closed-Loop Validation | 1/1 | Complete (artefact-side; specialist runs are operator-driven) | 2026-05-24 |
 | 4. Taxonomy Spine & Star Resolution | 2/3 (Task 3 checkpoint:human-verify) | Executing — awaiting smoke test | 2026-06-03 (partial) |
 | 5. Tech Architecture + Activity | 3/3 | Complete   | 2026-06-05 |
-| 6. Star Schema → Snowflake | 0/2 | Planned | - |
+| 6. Star Schema → Snowflake | 1.5/2 (Plan 01 complete; Plan 02 Tasks 1-2 done, Task 3 checkpoint pending) | Executing — awaiting EX-03 human-verify | 2026-06-07 (partial) |
 | 7. ER + Class | 0/? | Not started | - |
 | 8. Sequence + Use-Case | 0/? | Not started | - |
 | 9. Data Vault | 0/? | Not started | - |
