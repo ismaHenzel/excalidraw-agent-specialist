@@ -191,7 +191,21 @@ Decimal phases appear between their surrounding integers in numeric order. v1.1 
   2. `diagram-types/use-case.md` exists and authoring a use-case request (actors via the committed convention, use-case ovals, system boundary via group-container) yields a rendered PNG that passes the full loop
   3. A canonical example pair (`.excalidraw` + PNG) exists and is indexed for both sequence and use-case, each passing the full validate→render→verify loop
 
-**Plans**: TBD
+**Plans**: 4 plans
+
+**Wave 1**
+
+- [ ] 08-01-PLAN.md — UML-01 foundation: shared `kb/lifeline-activation.md` geometry primitive + center-x verifier-check decision (RESEARCH Open Question 1)
+
+**Wave 2** *(blocked on Wave 1 — both depend on 08-01; independent of each other)*
+
+- [ ] 08-02-PLAN.md — UML-01: author `diagram-types/sequence.md` recipe + canonical `sequence_login_flow` example pair (full loop, EX-03 visual gate)
+- [ ] 08-03-PLAN.md — UML-03: author `diagram-types/use-case.md` recipe + canonical `use_case_checkout` example pair (full loop, EX-03 visual gate)
+
+**Wave 3** *(blocked on Wave 2 — wire resolver rows only after both examples pass, Pitfall 5)*
+
+- [ ] 08-04-PLAN.md — wire `sequence` + `use-case` resolver rows + complete two-layer back-refs + mark UML-01/UML-03 complete + end-to-end regression
+
 **UI hint**: yes
 
 ### Phase 9: Data Vault
@@ -222,5 +236,5 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 →
 | 5. Tech Architecture + Activity | 3/3 | Complete   | 2026-06-05 |
 | 6. Star Schema → Snowflake | 2/2 | Complete    | 2026-06-07 |
 | 7. ER + Class | 1/4 | In Progress|  |
-| 8. Sequence + Use-Case | 0/? | Not started | - |
+| 8. Sequence + Use-Case | 0/4 | Planned | - |
 | 9. Data Vault | 0/? | Not started | - |
