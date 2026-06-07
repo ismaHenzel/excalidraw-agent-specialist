@@ -30,6 +30,7 @@ key-files:
     - .claude/agents/excalidraw/diagram-types/snowflake-schema.md
     - .claude/agents/excalidraw/examples_excalidraw/snowflake_schema.excalidraw
     - .claude/agents/excalidraw/examples/snowflake_schema.png
+    - .claude/agents/excalidraw/examples_excalidraw/snowflake_schema.verifier-report.json
   modified:
     - .claude/agents/excalidraw/diagram-types/README.md
     - .claude/agents/excalidraw/kb/tree-hierarchy.md
@@ -39,6 +40,7 @@ key-decisions:
   - "SC-2 gate enforced: Plan 01 commits (9a70df2, 85269c5) were dangling on master; cherry-picked to master before authoring snowflake — gate satisfied before any snowflake file created"
   - "Snowflake normalizes dim_product into a 3-level chain (dim_product->dim_category->dim_department) as the canonical normalization example; fact + dim_date + dim_customer + dim_store remain as-is from the star base"
   - "Tree connector geometry: horizontal direct arrows (3 points including a mid-point) at strokeWidth 1.5; verifier warns on 2-point arrows so 3-point form used throughout"
+  - "EX-03 human-verify gate: operator confirmed snowflake shape, SC-1 (full-width dividers, common left x), SC-4 (no multi-line rows), and consistent box style across all 7 boxes — checkpoint resolved with 'approved'"
 
 patterns-established:
   - "Snowflake = star base (verbatim box construction + fan-out arrows) + normalized sub-table chain via tree-hierarchy (indented +60px x, ~40px y-step, thin elbow connectors at strokeWidth 1.5)"
@@ -53,13 +55,13 @@ completed: 2026-06-07
 
 # Phase 6 Plan 02: Snowflake Schema Summary
 
-**Authored `snowflake-schema.md` building on star's locked geometry + `tree-hierarchy` normalization, and produced the first compliant snowflake canonical example (Sales star with `dim_product` normalized into a `dim_product → dim_category → dim_department` chain) — passing the structural verifier (empty issues) and awaiting the human-verify checkpoint (EX-03 / SC-1/SC-2 gate).**
+**Authored `snowflake-schema.md` building on star's locked geometry + `tree-hierarchy` normalization, and produced the compliant snowflake canonical example (Sales star with `dim_product` normalized into a `dim_product → dim_category → dim_department` chain) — passing the full validate->render->structural-verify+human-verify loop (DM-03 complete).**
 
 ## Performance
 
-- **Duration:** ~25 min
-- **Tasks:** 2 of 3 complete; Task 3 is the blocking human-verify checkpoint
-- **Files modified/created:** 6
+- **Duration:** ~30 min
+- **Tasks:** 3 of 3 complete (Task 3 blocking human-verify checkpoint APPROVED by operator)
+- **Files modified/created:** 7
 
 ## Accomplishments
 
@@ -74,14 +76,17 @@ completed: 2026-06-07
 
 1. **Task 1: Author snowflake-schema.md** - `e7d025a` (feat)
 2. **Task 2: Author snowflake_schema example pair + wire resolver + back-refs** - `70ae403` (feat)
-3. **Task 3: Verify snowflake example (EX-03 / SC-1/SC-2 gate)** - AWAITING human-verify checkpoint.
+3. **Task 3: Verify snowflake example (EX-03 / SC-1/SC-2 gate)** - `9445a2f` (docs, checkpoint resolution — verifier report committed; operator approved)
+
+**Plan metadata:** (final commit — this SUMMARY)
 
 ## Files Created/Modified
 
-- `.claude/agents/excalidraw/diagram-types/snowflake-schema.md` - NEW snowflake-schema TYPE recipe
-- `.claude/agents/excalidraw/examples_excalidraw/snowflake_schema.excalidraw` - NEW compliant canonical source
-- `.claude/agents/excalidraw/examples/snowflake_schema.png` - NEW rendered ground truth
-- `.claude/agents/excalidraw/diagram-types/README.md` - Resolver row -> snowflake-schema.md + snowflake_schema.png; wired-rows note updated
+- `.claude/agents/excalidraw/diagram-types/snowflake-schema.md` - NEW snowflake-schema TYPE recipe composing star + tree-hierarchy; no re-derived geometry
+- `.claude/agents/excalidraw/examples_excalidraw/snowflake_schema.excalidraw` - NEW compliant canonical source; 7 compartmented boxes (star + normalized dim chain)
+- `.claude/agents/excalidraw/examples/snowflake_schema.png` - NEW rendered ground truth (validate_and_render.sh output)
+- `.claude/agents/excalidraw/examples_excalidraw/snowflake_schema.verifier-report.json` - Structural verifier report (passed:true, empty issues)
+- `.claude/agents/excalidraw/diagram-types/README.md` - Resolver row -> snowflake-schema.md + snowflake_schema.png (no longer _(planned)_); wired-rows note updated
 - `.claude/agents/excalidraw/kb/tree-hierarchy.md` - Added `> Used by types: snowflake-schema` back-ref
 - `.claude/agents/excalidraw/kb/linear-pipeline.md` - Appended `snowflake-schema` to `Used by types:` line
 
@@ -102,6 +107,23 @@ completed: 2026-06-07
 - **Fix:** Upgraded both tree arrows to 3-point form (mid-point waypoint); verifier re-run confirmed empty issues
 - **Files modified:** snowflake_schema.excalidraw
 
+## Checkpoint Resolution (Task 3 — blocking human-verify: APPROVED)
+
+- Structural verifier on `snowflake_schema.excalidraw`: **`passed:true`, empty issues array** (EX-03 structural gate satisfied; report at `snowflake_schema.verifier-report.json`).
+- PNG inspected by operator:
+  - Snowflake shape confirmed: fact_sales center + dim_date/dim_customer/dim_store as star dimensions + dim_product->dim_category->dim_department as normalized sub-table chain.
+  - SC-1 confirmed: full-width dividers touching both borders, common left x for all row texts.
+  - No text overflow; sharp corners; arrows anchored to box borders (not texts/dividers).
+  - Consistent box style: all 7 boxes (star + normalized sub-tables) use the same locked geometry.
+  - SC-4 confirmed: no multi-line row texts in any box.
+- **Operator reply: "approved"** — all visual checks passed. Checkpoint closed; DM-03 fully satisfied.
+
+## Next Phase Readiness
+
+- DM-03 satisfied: `snowflake-schema.md` recipe exists (building on star + tree-hierarchy) and the canonical snowflake example passes the full validate->render->verify loop.
+- Phase 6 complete: both DM-01 (star) and DM-03 (snowflake) delivered; the compartmented table-box recipe is proven at two levels of normalization.
+- Phase 7 (ER + Class) can begin: the compartmented-box offsets are locked; ER and class will inherit them verbatim and add only the relationship-endpoint-glyph layer.
+
 ## Known Stubs
 
 None — the snowflake example is fully wired. The tree-hierarchy connectors are 3-point elbow arrows anchored to box rectangle borders; all boxes have data rows.
@@ -115,9 +137,11 @@ None — no new network endpoints, auth paths, file access patterns, or schema c
 - `.claude/agents/excalidraw/diagram-types/snowflake-schema.md` — exists on disk
 - `.claude/agents/excalidraw/examples_excalidraw/snowflake_schema.excalidraw` — exists on disk
 - `.claude/agents/excalidraw/examples/snowflake_schema.png` — exists on disk
+- `.claude/agents/excalidraw/examples_excalidraw/snowflake_schema.verifier-report.json` — exists on disk
 - Task 1 commit `e7d025a` — present in git log
 - Task 2 commit `70ae403` — present in git log
+- Task 3 commit `9445a2f` — present in git log
 
 ---
 *Phase: 06-star-schema-snowflake*
-*Completed: 2026-06-07 (Tasks 1-2 complete; Task 3 human-verify checkpoint in progress)*
+*Completed: 2026-06-07 (Tasks 1-3; Task 3 human-verify checkpoint APPROVED)*
