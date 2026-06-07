@@ -167,7 +167,7 @@ Decimal phases appear between their surrounding integers in numeric order. v1.1 
 
 **Wave 1**
 
-- [ ] 07-01-PLAN.md — shared `kb/relationship-endpoint.md` glyph primitive (pin deferred pixel geometry) + arrowhead-enum validator decision (Open Question 1) — foundation for SC-1
+- [x] 07-01-PLAN.md — shared `kb/relationship-endpoint.md` glyph primitive (pin deferred pixel geometry) + arrowhead-enum validator decision (Open Question 1) — foundation for SC-1
 
 **Wave 2** *(blocked on Wave 1 — both type files @-reference the shared primitive)*
 
@@ -221,6 +221,6 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 →
 | 4. Taxonomy Spine & Star Resolution | 2/3 (Task 3 checkpoint:human-verify) | Executing — awaiting smoke test | 2026-06-03 (partial) |
 | 5. Tech Architecture + Activity | 3/3 | Complete   | 2026-06-05 |
 | 6. Star Schema → Snowflake | 2/2 | Complete    | 2026-06-07 |
-| 7. ER + Class | 0/4 | Planned | - |
+| 7. ER + Class | 1/4 | In Progress|  |
 | 8. Sequence + Use-Case | 0/? | Not started | - |
 | 9. Data Vault | 0/? | Not started | - |
