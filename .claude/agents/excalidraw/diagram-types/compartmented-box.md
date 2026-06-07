@@ -55,9 +55,36 @@ desyncing from the rows. The legacy `star_schema.excalidraw` is NOT a safe templ
 this construction: it uses **0 `groupIds`**, free-floating unbound text, and soft
 `roundness`, directly contradicting this recipe. Do not copy its structure.
 
-## Scope of this file
+## Finalized parametric offsets (locked — reused by every compartmented type)
 
-This file fixes the CONSTRUCTION and the alignment RULES. The exact PARAMETRIC OFFSETS —
-header height, the specific row-pitch number, divider Y formulas, left-pad value — are
-finalized in Phase 6 (the first compartmented type to ship). Later type files reference
-those finalized offsets and this construction rather than re-deriving the geometry.
+The exact parametric offsets below are **FINALIZED** — they are no longer deferred.
+They were proven against the frozen `validate_and_render.sh` + `excalidraw_verifier`
+loop by the first compartmented type to ship (star-schema). Every later compartmented
+type — snowflake, ER, class, data-vault — references these numbers **verbatim** and does
+NOT re-derive them. A change here propagates to every type.
+
+| Offset | Locked value | Meaning |
+|--------|--------------|---------|
+| **Header height** | **40px** | The header (title) compartment is 40px tall. The header divider sits at `box.y + 40`. |
+| **Row pitch** | **20px** | Vertical spacing between successive row texts (the row pitch, and divider Y step). On the 20-grid. |
+| **Left-pad** | **12px** | Every title text and every row text uses left x = `box.x + 12`. A per-element inset; the only value not on the 20-grid. |
+| **fontSize** | **16** | All title and row texts use `fontSize: 16` with `fontFamily: 3` (monospace). |
+
+**Derived placement formulas (use these exactly):**
+
+- **Header divider Y** = `box.y + 40` (header height). `x == box.x`, `points = [[0,0],[width,0]]`.
+- **Title text** at `x = box.x + 12`, `y = box.y + 10` (vertically inset inside the 40px header).
+- **First row text** at `x = box.x + 12`, `y = box.y + 50` (10px below the header divider).
+- **Row i (1-based)** at `y = box.y + 40 + 10 + (i-1) * 20` — i.e. first row 50, then +20 per row.
+- **Between-row dividers** (optional, for grouped sections) land on `box.y + 40 + 20*k` — a
+  20-grid Y that sits ON a row boundary and never bisects a row.
+- **Box width rule (PASSES `text_overflow_static`):**
+  `box.width >= max_over_rows(len(row.text) * 0.6 * fontSize)`, rounded **UP** to the next
+  20-grid value. At `fontSize:16` that is `9.6px` per character; size the box to the LONGEST
+  row, then round up. (The verifier estimates text width as `len(text)*0.6*fontSize` and
+  flags an `error` if it exceeds the enclosing rectangle's width — author TO this formula.)
+- **Box height** = `40 (header) + rows*20 + 10` bottom-pad, rounded up to the 20-grid.
+
+These offsets are FINALIZED (no longer deferred). The alignment rules above (common left x,
+full-width dividers `x==box.x` and `points[-1][0]==box.width`, 20-grid) and the HARD
+prohibition on multi-line single text remain in force and are NOT weakened by this section.
