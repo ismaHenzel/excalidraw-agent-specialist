@@ -1,5 +1,7 @@
 # Pattern: Tree / Hierarchy
 
+> Used by types: snowflake-schema
+
 Vertical parent → children rendering for folder structures, repo layouts, namespace trees, catalog schemas. Children indent right and connect to the parent with right-angle elbow arrows.
 
 ## When to use
