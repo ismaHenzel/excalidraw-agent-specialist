@@ -192,12 +192,12 @@ border by more than the 8px tolerance.
 
 ## See in examples
 
-- `../examples/er_<subject>.png` — canonical ER example (authored in Phase 7 Plan 02; fill the real filename there)
-- `../examples/class_<subject>.png` — canonical class example (authored in Phase 7 Plan 03; fill the real filename there)
+- `../examples/er_retail_orders.png` — canonical ER example: a retail domain with `customer`, `order`, and `product` entity boxes connected by bound elbow connectors encoding explicit ER cardinality endpoints (`bar` for "one", `dot`/textual label for "optional"/"many").
+- `../examples/class_order_domain.png` — canonical UML Class Diagram example: an order-management domain showing `Order`, `OrderLine`, `Customer`, `PremiumCustomer`, `Discount`, and a `«Payable»` interface; exercises the full aggregation/composition white and solid diamond glyphs, generalization and realization filled-triangle arrowheads, and plain association arrow.
 
-Both must pass the full validate→render→verify loop (structural automated + EX-03 visual
-human approval) before the resolver rows for `er` and `class` are wired in
-`diagram-types/README.md`.
+Both pass the full validate→render→verify loop (structural automated + EX-03 visual
+human approval); resolver rows for `er` and `class` are wired in
+`diagram-types/README.md` as of Phase 7.
 
 ## Notes
 
