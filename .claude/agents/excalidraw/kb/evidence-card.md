@@ -1,5 +1,7 @@
 # Pattern: Evidence Card
 
+> Used by types: star-schema
+
 A small card carrying **real data** — a cost, a metric, a real output sample. Turns "Diagrams ARGUE not DISPLAY" from a slogan into an artifact: the viewer sees actual numbers, not a label that *claims* numbers exist.
 
 ## When to use

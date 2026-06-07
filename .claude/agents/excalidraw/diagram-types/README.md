@@ -18,7 +18,7 @@ This is the **single authoritative** family → type map shared by the `/excalid
 | Family | Type | Type file | Composes (kb sub-patterns) | Example PNG |
 |--------|------|-----------|----------------------------|-------------|
 | Tech Architecture | tech-architecture | `tech-architecture.md` | group-container, icon-block, multi-zoom-overview, fan-out, convergence, linear-pipeline | `../examples/architecture_overview.png` (reuse) |
-| Data Modeling | star-schema | `star-schema.md` _(planned — Phase 6)_ | fan-out, convergence, evidence-card, group-container | `../examples/example_star_schema.png` _(legacy; see below)_ |
+| Data Modeling | star-schema | `star-schema.md` | fan-out, convergence, evidence-card, group-container | `../examples/star_schema_v2.png` |
 | Data Modeling | snowflake-schema | `snowflake-schema.md` _(planned — Phase 6)_ | star's set + tree-hierarchy + linear-pipeline | _(planned)_ |
 | Data Modeling | er | `er.md` _(planned — Phase 7)_ | evidence-card, group-container, tree-hierarchy | _(planned)_ |
 | Data Modeling | data-vault | `data-vault.md` _(planned — Phase 9)_ | group-container, fan-out, tree-hierarchy, convergence, evidence-card | _(planned)_ |
@@ -27,7 +27,7 @@ This is the **single authoritative** family → type map shared by the `/excalid
 | UML | use-case | `use-case.md` _(planned — Phase 8)_ | group-container, fan-out, icon-block (+ stick-figure/oval) | _(planned)_ |
 | UML | activity | `activity.md` | linear-pipeline, decision-branch, decision-marker, feedback-loop, group-container, task-list | `../examples/activity_order_fulfillment.png` |
 
-> **Wired rows:** **tech-architecture** (Phase-4 smoke-test type) and **activity** (wired as of Phase 5 — canonical example `activity_order_fulfillment.excalidraw` passes the full validate→render→verify loop). Rows marked _(planned)_ are placeholders for later phases — their recipe file and/or canonical example are not yet authored, so they MUST NOT be claimed as wired until the phase that ships them.
+> **Wired rows:** **tech-architecture** (Phase-4 smoke-test type), **activity** (wired as of Phase 5 — canonical example `activity_order_fulfillment.excalidraw` passes the full validate→render→verify loop), and **star-schema** (wired as of Phase 6 — canonical example `star_schema_v2.excalidraw` passes the full loop; resolver points at the new compliant `star_schema_v2.png`, the legacy `example_star_schema.png` is de-indexed). Rows marked _(planned)_ are placeholders for later phases — their recipe file and/or canonical example are not yet authored, so they MUST NOT be claimed as wired until the phase that ships them.
 
 ## Legacy example resolution
 
@@ -41,7 +41,9 @@ This is the **single authoritative** family → type map shared by the `/excalid
 - The **compliant** star-schema example — authored to the grouped / bound / sharp-roundness compartmented-box recipe — is **deferred to Phase 6** (the phase that establishes the data-modeling table-box recipe). Re-authoring it now is out of Phase 4's critical path.
 - Star is **not** the Phase-4 smoke-test type; **tech-architecture** is. Phase 4 only needs to prove the type→primitive composition plumbing against one existing type.
 
-**Explicit warning:** the legacy `star_schema.excalidraw` is **NOT a safe template** for the new grouped/bound/sharp recipe. Do not imitate its free-floating, unbound, soft-cornered style when authoring new compartmented-box examples. The canonical/compliant star-schema example is deferred to **Phase 6**.
+**Explicit warning:** the legacy `star_schema.excalidraw` is **NOT a safe template** for the new grouped/bound/sharp recipe. Do not imitate its free-floating, unbound, soft-cornered style when authoring new compartmented-box examples.
+
+**Phase 6 resolution (DM-01):** the compliant canonical star example is now authored — `examples_excalidraw/star_schema_v2.excalidraw` + `examples/star_schema_v2.png` — and the resolver row points at it. The legacy `star_schema.excalidraw` / `example_star_schema.png` remain on disk as historical artifacts but are **de-indexed** as the star canonical (per RESEARCH Open Question 1 resolution).
 
 ## Adding a diagram type
 
