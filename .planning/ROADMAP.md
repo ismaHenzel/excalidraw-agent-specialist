@@ -171,8 +171,8 @@ Decimal phases appear between their surrounding integers in numeric order. v1.1 
 
 **Wave 2** *(blocked on Wave 1 — both type files @-reference the shared primitive)*
 
-- [ ] 07-02-PLAN.md — DM-02: author `diagram-types/er.md` recipe + canonical `er_retail_orders` example pair (full loop, EX-03 visual gate)
-- [ ] 07-03-PLAN.md — UML-02: author `diagram-types/class.md` recipe + canonical `class_order_domain` example pair (full loop, EX-03 visual gate)
+- [x] 07-02-PLAN.md — DM-02: author `diagram-types/er.md` recipe + canonical `er_retail_orders` example pair (full loop, EX-03 visual gate)
+- [x] 07-03-PLAN.md — UML-02: author `diagram-types/class.md` recipe + canonical `class_order_domain` example pair (full loop, EX-03 visual gate)
 
 **Wave 3** *(blocked on Wave 2 — wire resolver only after both examples pass, Pitfall 6)*
 
@@ -235,6 +235,6 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 →
 | 4. Taxonomy Spine & Star Resolution | 2/3 (Task 3 checkpoint:human-verify) | Executing — awaiting smoke test | 2026-06-03 (partial) |
 | 5. Tech Architecture + Activity | 3/3 | Complete   | 2026-06-05 |
 | 6. Star Schema → Snowflake | 2/2 | Complete    | 2026-06-07 |
-| 7. ER + Class | 1/4 | In Progress|  |
+| 7. ER + Class | 3/4 | In Progress|  |
 | 8. Sequence + Use-Case | 0/4 | Planned | - |
 | 9. Data Vault | 0/? | Not started | - |
