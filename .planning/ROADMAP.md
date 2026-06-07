@@ -163,7 +163,21 @@ Decimal phases appear between their surrounding integers in numeric order. v1.1 
   3. `diagram-types/class.md` exists and authoring a class request (three-compartment boxes, association/aggregation/composition/generalization via the committed glyph workarounds, stereotypes via guillemets) yields a rendered PNG that passes the full loop
   4. A canonical example pair (`.excalidraw` + PNG) exists and is indexed for both ER and class, each passing the full validate→render→verify loop
 
-**Plans**: TBD
+**Plans**: 4 plans
+
+**Wave 1**
+
+- [ ] 07-01-PLAN.md — shared `kb/relationship-endpoint.md` glyph primitive (pin deferred pixel geometry) + arrowhead-enum validator decision (Open Question 1) — foundation for SC-1
+
+**Wave 2** *(blocked on Wave 1 — both type files @-reference the shared primitive)*
+
+- [ ] 07-02-PLAN.md — DM-02: author `diagram-types/er.md` recipe + canonical `er_retail_orders` example pair (full loop, EX-03 visual gate)
+- [ ] 07-03-PLAN.md — UML-02: author `diagram-types/class.md` recipe + canonical `class_order_domain` example pair (full loop, EX-03 visual gate)
+
+**Wave 3** *(blocked on Wave 2 — wire resolver only after both examples pass, Pitfall 6)*
+
+- [ ] 07-04-PLAN.md — wire `er` + `class` resolver rows + fill relationship-endpoint back-link + mark DM-02/UML-02 complete + end-to-end regression (SC-4)
+
 **UI hint**: yes
 
 ### Phase 8: Sequence + Use-Case
@@ -207,6 +221,6 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 →
 | 4. Taxonomy Spine & Star Resolution | 2/3 (Task 3 checkpoint:human-verify) | Executing — awaiting smoke test | 2026-06-03 (partial) |
 | 5. Tech Architecture + Activity | 3/3 | Complete   | 2026-06-05 |
 | 6. Star Schema → Snowflake | 2/2 | Complete    | 2026-06-07 |
-| 7. ER + Class | 0/? | Not started | - |
+| 7. ER + Class | 0/4 | Planned | - |
 | 8. Sequence + Use-Case | 0/? | Not started | - |
 | 9. Data Vault | 0/? | Not started | - |
