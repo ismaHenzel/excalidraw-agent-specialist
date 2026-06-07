@@ -494,20 +494,25 @@ Not applicable in the usual sense — this is a closed, pinned authoring environ
 
 ---
 
-## Open Questions
+## Open Questions (RESOLVED)
 
-1. **Add the monotonic-Y and center-x verifier checks, or rely on KB + visual review?**
+> All three open questions were resolved during Phase 8 planning. Q1 is delegated to a `checkpoint:decision` task in plan `08-01` (Task 1); Q2 and Q3 are decided and baked into the canonical-example plans. Inline `(RESOLVED)` annotations below record each resolution.
+
+1. **Add the monotonic-Y and center-x verifier checks, or rely on KB + visual review?** **(RESOLVED — delegated to plan `08-01` Task 1 `checkpoint:decision`, options: `add-center-x` vs. `kb-and-visual-only`)**
    - What we know: `verifier_structural.py` does not currently check message-Y ordering or activation bar center-x alignment (verified by reading the source — only `check_arrow_endpoint_unanchored`, `check_arrow_not_elbow`, `check_raw_emoji_in_text`, `check_text_overflow_static`, `check_roughness_nonzero`, `check_fontfamily_nonmonospace`, `check_arrow_points_too_few` exist). PITFALLS.md Pitfall 4 explicitly names these as assertions to add in the Sequence phase. Phase 7 established the precedent that additive hardening of the verifier/validator is acceptable.
    - What's unclear: Whether the cost of these checks is justified given sequence's relatively small canonical example. The monotonic-Y check in particular requires identifying which elements are message arrows and computing their Y order — more complex than the arrowhead deny-list.
-   - Recommendation: **Add the center-x check** (simpler: verify each activation-bar rectangle center-x equals the nearest lifeline line element's x). **Defer monotonic-Y** to be enforced by KB discipline + verifier visual review (the check is complex and the visual review catches it). Surface this decision explicitly in the plan.
+   - Recommendation: **Add the center-x check** (simpler: verify each activation-bar rectangle center-x equals the nearest lifeline line element's x). **Defer monotonic-Y** to be enforced by KB discipline + verifier visual review (the check is complex and the visual review catches it).
+   - **Resolution:** This decision is NOT auto-applied. It is surfaced to the developer as a `checkpoint:decision` task in plan `08-01` (Task 1), with two options — `add-center-x` (add the center-x structural check, defer monotonic-Y to visual review) vs. `kb-and-visual-only` (ship neither check; rely on KB discipline + verifier visual review for both). The recommendation above is presented as the default option in that checkpoint.
 
-2. **What subject domain to use for the canonical sequence example?**
+2. **What subject domain to use for the canonical sequence example?** **(RESOLVED — login/authentication flow: `User → AuthService → UserDB`, 4–6 messages including a dashed return)**
    - What we know: Prior canonical examples used domain-relevant subjects (retail orders for ER, order domain for class, order fulfilment for activity). A login flow or checkout flow are natural sequence diagram subjects.
    - Recommendation: Use a login/authentication sequence — "User sends login request to AuthService, which validates credentials against UserDB and returns a token." Approximately 3 participants, 4-6 messages including a dashed return. Keeps element count modest (avoids 3-iteration cap pressure).
+   - **Resolution:** Adopted. The canonical sequence example is a login/auth flow with 3 participants (`User`, `AuthService`, `UserDB`) and 4–6 ordered messages including at least one dashed return. The corresponding canonical-example plan authors `sequence_login.excalidraw` against this subject.
 
-3. **What subject domain to use for the canonical use-case example?**
+3. **What subject domain to use for the canonical use-case example?** **(RESOLVED — e-commerce "Checkout System": Customer + Admin actors, 5 use-case ovals, 1 `«include»`)**
    - What we know: Use-case examples are typically system-scoped scenarios with 2-4 actors and 4-8 use cases.
    - Recommendation: Use an e-commerce checkout system — "Customer actor, Admin actor, system boundary 'Checkout System', use cases: Browse Products, Add to Cart, Place Order, Process Payment (included from Place Order), View Reports (admin only)." 2 actors, 5 use cases, 1 include, covers all canonical elements.
+   - **Resolution:** Adopted. The canonical use-case example is an e-commerce "Checkout System" with 2 actors (`Customer`, `Admin`), a `group-container` system boundary, 5 use-case ovals (Browse Products, Add to Cart, Place Order, Process Payment, View Reports), and 1 `«include»` dashed relationship (Place Order → Process Payment). The corresponding canonical-example plan authors `use_case_checkout.excalidraw` against this subject.
 
 ---
 
