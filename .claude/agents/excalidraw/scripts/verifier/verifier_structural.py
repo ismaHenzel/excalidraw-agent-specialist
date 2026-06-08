@@ -437,6 +437,60 @@ def check_arrow_not_elbow(elements):
     return issues
 
 
+def check_sequence_activation_center_x(elements):
+    """Check that each activation-bar rectangle is centered on its nearest lifeline line.
+
+    Heuristic:
+    - Lifeline candidates: `line` elements with strokeStyle == "dashed" and width == 0
+    - Activation-bar candidates: `rectangle` elements with 10 <= width <= 16
+    For each bar, find lifelines whose x is within 8px of the bar center. If any such
+    lifeline's x differs from the bar center by more than 1px, report an error.
+
+    Issue key: activation_bar_center_x_mismatch
+    """
+    issues = []
+    line_elements = [
+        e for e in elements
+        if e.get("type") == "line"
+        and e.get("strokeStyle") == "dashed"
+        and e.get("width", 0) == 0
+    ]
+    activation_bars = [
+        e for e in elements
+        if e.get("type") == "rectangle"
+        and 10 <= e.get("width", 0) <= 16
+    ]
+    for bar in activation_bars:
+        bar_center_x = bar["x"] + bar["width"] / 2
+        nearby_lines = [
+            ln for ln in line_elements
+            if abs(ln["x"] - bar_center_x) < 8
+        ]
+        for ln in nearby_lines:
+            if abs(ln["x"] - bar_center_x) > 1:
+                issues.append(
+                    issue(
+                        "activation_bar_center_x_mismatch",
+                        bar.get("id", "unknown"),
+                        "error",
+                        "Activation bar center x "
+                        + format(bar_center_x, ".1f")
+                        + " != nearest lifeline x "
+                        + format(ln["x"], ".1f")
+                        + " (bar id: "
+                        + bar.get("id", "unknown")
+                        + ").",
+                        "Set bar x to "
+                        + format(ln["x"] - bar["width"] / 2, ".1f")
+                        + " so that bar center ("
+                        + format(ln["x"], ".1f")
+                        + ") aligns with lifeline x. "
+                        + "Formula: bar.x = lifeline_center_x - bar.width / 2.",
+                    )
+                )
+    return issues
+
+
 def main():
     try:
         if len(sys.argv) < 2:
@@ -496,6 +550,7 @@ def main():
         issues.extend(check_fontfamily_nonmonospace(elements))
         issues.extend(check_arrow_points_too_few(elements))
         issues.extend(check_arrow_not_elbow(elements))
+        issues.extend(check_sequence_activation_center_x(elements))
 
         print(json.dumps(issues))
         sys.exit(0)
