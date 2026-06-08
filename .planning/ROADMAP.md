@@ -195,7 +195,7 @@ Decimal phases appear between their surrounding integers in numeric order. v1.1 
 
 **Wave 1**
 
-- [ ] 08-01-PLAN.md — UML-01 foundation: shared `kb/lifeline-activation.md` geometry primitive + center-x verifier-check decision (RESEARCH Open Question 1)
+- [x] 08-01-PLAN.md — UML-01 foundation: shared `kb/lifeline-activation.md` geometry primitive + center-x verifier-check decision (RESEARCH Open Question 1)
 
 **Wave 2** *(blocked on Wave 1 — both depend on 08-01; independent of each other)*
 
@@ -236,5 +236,5 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 →
 | 5. Tech Architecture + Activity | 3/3 | Complete   | 2026-06-05 |
 | 6. Star Schema → Snowflake | 2/2 | Complete    | 2026-06-07 |
 | 7. ER + Class | 4/4 | Complete    | 2026-06-08 |
-| 8. Sequence + Use-Case | 0/4 | Planned | - |
+| 8. Sequence + Use-Case | 1/4 | In Progress|  |
 | 9. Data Vault | 0/? | Not started | - |
