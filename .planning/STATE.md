@@ -4,14 +4,14 @@ milestone: v1.1
 milestone_name: — Diagram Families & UML Expansion
 status: executing
 stopped_at: context exhaustion at 76% (2026-06-07)
-last_updated: "2026-06-07T23:51:03.404Z"
-last_activity: 2026-06-07 -- Phase 07 execution started
+last_updated: "2026-06-08T18:52:12.091Z"
+last_activity: 2026-06-08
 progress:
   total_phases: 9
-  completed_phases: 6
-  total_plans: 17
-  completed_plans: 15
-  percent: 67
+  completed_phases: 7
+  total_plans: 21
+  completed_plans: 18
+  percent: 78
 ---
 
 # Project State
@@ -21,20 +21,20 @@ progress:
 See: .planning/PROJECT.md (updated 2026-06-03)
 
 **Core value:** The agent draws recognizable, real-world diagram families (tech architecture, data models, UML) correctly — guided by a per-diagram-type knowledge layer — while preserving the self-verifying render→verify→fix loop shipped in v1.0.
-**Current focus:** Phase 07 — er-class
+**Current focus:** Phase 08 — Sequence + Use-Case
 
 ## Current Position
 
-Phase: 07 (er-class) — EXECUTING
-Plan: 1 of 4
-Status: Ready to execute
-Last activity: 2026-06-07 -- Phase 07 execution started
+Phase: 08
+Plan: Not started
+Status: Executing Phase 08
+Last activity: 2026-06-08
 
 ## Performance Metrics
 
 **Velocity:**
 
-- Total plans completed: 7 (v1.0)
+- Total plans completed: 11 (v1.0)
 - Average duration: —
 - Total execution time: 0 hours
 
@@ -52,6 +52,7 @@ Last activity: 2026-06-07 -- Phase 07 execution started
 | 8. Sequence + Use-Case | 0/? | — | — |
 | 9. Data Vault | 0/? | — | — |
 | 06 | 2 | - | - |
+| 07 | 4 | - | - |
 
 **Recent Trend:**
 
