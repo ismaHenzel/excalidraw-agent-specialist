@@ -28,7 +28,7 @@ Decimal phases appear between their surrounding integers in numeric order. v1.1 
 - [ ] **Phase 4: Taxonomy Spine & Star Resolution** - Two-tier family/type picker, `diagram-types/` KB layer + resolver table + notation-workaround conventions, specialist wiring, compartmented-box primitive, and resolution of the legacy `star_schema.excalidraw` — all proven against one existing type
 - [x] **Phase 5: Tech Architecture + Activity** - The two zero/low-new-notation types, proving the type→primitive composition workflow on pure reuse (completed 2026-06-05)
 - [x] **Phase 6: Star Schema → Snowflake** - The data-modeling table-box recipe established on star, then extended to its normalized variant (completed 2026-06-07)
-- [ ] **Phase 7: ER + Class** - The shared relationship-endpoint-glyph convention built once, then both compartmented-relationship types authored against it
+- [x] **Phase 7: ER + Class** - The shared relationship-endpoint-glyph convention built once, then both compartmented-relationship types authored against it (completed 2026-06-08)
 - [ ] **Phase 8: Sequence + Use-Case** - Sequence's geometry-heavy lifeline/activation primitive and the most-native-friendly use-case type
 - [ ] **Phase 9: Data Vault** - The long-pole data-modeling type, layering hub/link/satellite semantics onto the proven recipe
 
@@ -176,7 +176,7 @@ Decimal phases appear between their surrounding integers in numeric order. v1.1 
 
 **Wave 3** *(blocked on Wave 2 — wire resolver only after both examples pass, Pitfall 6)*
 
-- [ ] 07-04-PLAN.md — wire `er` + `class` resolver rows + fill relationship-endpoint back-link + mark DM-02/UML-02 complete + end-to-end regression (SC-4)
+- [x] 07-04-PLAN.md — wire `er` + `class` resolver rows + fill relationship-endpoint back-link + mark DM-02/UML-02 complete + end-to-end regression (SC-4)
 
 **UI hint**: yes
 
@@ -235,6 +235,6 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 →
 | 4. Taxonomy Spine & Star Resolution | 2/3 (Task 3 checkpoint:human-verify) | Executing — awaiting smoke test | 2026-06-03 (partial) |
 | 5. Tech Architecture + Activity | 3/3 | Complete   | 2026-06-05 |
 | 6. Star Schema → Snowflake | 2/2 | Complete    | 2026-06-07 |
-| 7. ER + Class | 3/4 | In Progress|  |
+| 7. ER + Class | 4/4 | Complete   | 2026-06-08 |
 | 8. Sequence + Use-Case | 0/4 | Planned | - |
 | 9. Data Vault | 0/? | Not started | - |
