@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.1
 milestone_name: — Diagram Families & UML Expansion
 status: executing
-stopped_at: context exhaustion at 76% (2026-06-07)
-last_updated: "2026-06-08T18:52:12.091Z"
+stopped_at: "08-01-PLAN.md completed (2026-06-08)"
+last_updated: "2026-06-08T19:15:00.000Z"
 last_activity: 2026-06-08
 progress:
   total_phases: 9
   completed_phases: 7
   total_plans: 21
-  completed_plans: 18
-  percent: 78
+  completed_plans: 19
+  percent: 81
 ---
 
 # Project State
@@ -26,7 +26,7 @@ See: .planning/PROJECT.md (updated 2026-06-03)
 ## Current Position
 
 Phase: 08
-Plan: Not started
+Plan: 2 of 4
 Status: Executing Phase 08
 Last activity: 2026-06-08
 
@@ -82,6 +82,7 @@ Recent decisions affecting current work:
 - Phase 04 Plan 03: Two-tier picker (family Q1, type sub-pick) wired into /excalidraw sections 1-3; single authoritative resolver table in diagram-types/README.md; specialist reads diagram-types/<type>.md first (INT-01) — smoke test awaiting human verify
 - [Phase ?]: EX-03 gate: both structural (automated) and visual (human approval) halves required before activity resolver row wired; Activity example omits swimlanes to eliminate layout-collision risk
 - Phase 06 Plan 02: SC-2 gate enforced (star must pass before snowflake authored); Plan 01 commits cherry-picked to master; snowflake normalizes dim_product->dim_category->dim_department; structural verifier passes (empty issues); EX-03 visual gate awaiting human-verify
+- Phase 08 Plan 01: add-center-x decision — check_sequence_activation_center_x added to verifier_structural.py; monotonic-Y deferred to KB+visual review; lifeline-activation.md primitive authored (200 lines, all pixel values [ASSUMED] per RESEARCH A1)
 
 ### Pending Todos
 
@@ -112,6 +113,6 @@ Items acknowledged and carried forward from REQUIREMENTS.md v2 / Out of Scope:
 
 ## Session Continuity
 
-Last session: 2026-06-07T23:24:07.766Z
-Stopped at: context exhaustion at 76% (2026-06-07)
+Last session: 2026-06-08T19:15:00.000Z
+Stopped at: 08-01-PLAN.md completed
 Resume file: None
