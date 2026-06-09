@@ -39,9 +39,9 @@ diagram-type knowledge layer plus UML and data-modeling types.
 
 ### UML Types (UML)
 
-- [ ] **UML-01**: A `diagram-types/sequence.md` recipe exists and the agent can author a UML sequence diagram (lifelines, activation bars, ordered solid messages, dashed returns) that passes the full loop
+- [x] **UML-01**: A `diagram-types/sequence.md` recipe exists and the agent can author a UML sequence diagram (lifelines, activation bars, ordered solid messages, dashed returns) that passes the full loop
 - [x] **UML-02**: A `diagram-types/class.md` recipe exists and the agent can author a UML class diagram (compartmented boxes, association/aggregation/composition/generalization via the committed glyph workarounds) that passes the full loop
-- [ ] **UML-03**: A `diagram-types/use-case.md` recipe exists and the agent can author a UML use-case diagram (actors, ovals, system boundary via group-container) that passes the full loop
+- [x] **UML-03**: A `diagram-types/use-case.md` recipe exists and the agent can author a UML use-case diagram (actors, ovals, system boundary via group-container) that passes the full loop
 - [x] **UML-04**: A `diagram-types/activity.md` recipe exists and the agent can author a UML activity diagram (start/end nodes, actions, decision-branch gates, optional swimlanes) that passes the full loop
 
 ### Tech Architecture (ARCH)
@@ -104,8 +104,8 @@ Updated during roadmap creation (v1.1 phases 4–9).
 | DM-03 | Phase 6 | Complete |
 | DM-02 | Phase 7 | Complete |
 | UML-02 | Phase 7 | Complete |
-| UML-01 | Phase 8 | Pending |
-| UML-03 | Phase 8 | Pending |
+| UML-01 | Phase 8 | Complete |
+| UML-03 | Phase 8 | Complete |
 | DM-04 | Phase 9 | Pending |
 | EX-01 | Phases 5–9 | Pending |
 | EX-03 | Phases 5–9 | Pending |
