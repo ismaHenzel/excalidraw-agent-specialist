@@ -383,20 +383,16 @@ Not a moving ecosystem — a closed, pinned authoring environment. The only rele
 | A4 | The reserved resolver composition list (group-container, fan-out, tree-hierarchy, convergence, evidence-card) is the right set; the recipe honors it | File Structure / resolver | LOW — if the example uses a subset (e.g. fan-out + tree-hierarchy only), update the resolver row's composition list to match what is actually composed |
 | A5 | Standard Data Vault column conventions (HK/BK/LOAD_DTS/RECORD_SRC/HASH_DIFF) are the right row content for a recognizable example | Pattern 1 | LOW — these are the canonical Data Vault 2.0 raw-vault columns; example fidelity is about being recognizable, and the loop only checks width/structure, not DV correctness |
 
-## Open Questions
+## Open Questions (RESOLVED)
 
 1. **Exact 3-role palette — adopt the recommended triad or pick another documented triad?**
-   - What we know: SC-2 mandates documented + grayscale-safe + label; the existing palette fills cluster at high luminance (0.68–0.89), so hue alone is weak in grayscale.
-   - What's unclear: which specific triad the operator prefers; whether to extend the documented palette with a darker hub fill for stronger spread.
-   - Recommendation: adopt `#93c5fd`/`#fed7aa`/`#fef3c7` (≈0.53/0.73/0.89 luminance) as the starting triad, ALWAYS with the mandatory role label + legend; confirm at the EX-03 grayscale check. Surface as a discuss-phase / plan decision since it is the phase's one real design choice.
+   - RESOLVED: hub `#93c5fd` / link `#fed7aa` / satellite `#fef3c7` — encoded as HARD RULE in 09-01-PLAN.md Task 2 action (e). Grayscale-sufficiency confirmed at EX-03 visual gate.
 
 2. **Role label form — guillemet stereotype `«hub»` vs. ASCII `[HUB]` vs. header role band?**
-   - What we know: guillemets are the class-diagram convention and are safe under `fontFamily:3`; ASCII is zero-risk; a colored header band is the strongest grayscale signal but adds elements.
-   - Recommendation: `«hub»`/`«link»`/`«sat»` for consistency with the class-diagram stereotype convention; fall back to ASCII if any tofu appears; consider a header role band only if the visual gate flags ambiguity.
+   - RESOLVED: `«hub»`/`«link»`/`«sat»` guillemet form (consistent with class-diagram stereotype convention; safe under `fontFamily:3`). ASCII fallback if tofu appears. Encoded in 09-01-PLAN.md Task 2 action (e).
 
 3. **Satellite attachment layout — `tree-hierarchy` (indented) or `fan-out` (radial)?**
-   - What we know: both are in the reserved composition list and both are proven primitives.
-   - Recommendation: pick per example density — indented tree reads as "belongs to the hub", radial reads as "satellites orbit the hub". Decide when authoring the example.
+   - RESOLVED: `tree-hierarchy` thin elbows for satellite attachments (reads as "belongs to the hub"). Encoded in 09-01-PLAN.md Task 2 action (d), step 5.
 
 ## Environment Availability
 
