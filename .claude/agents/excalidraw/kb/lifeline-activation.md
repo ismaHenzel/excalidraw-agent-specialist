@@ -164,11 +164,10 @@ or adjusts through the render loop.
 
 ## See in examples
 
-- `../examples/sequence_login.png` — canonical UML sequence diagram example: a
-  login/authentication flow with participants `User`, `AuthService`, and `UserDB`; 4–6
-  ordered messages including at least one dashed return. (Filename filled by
-  `08-02-PLAN.md` once the example passes the full validate→render→verify loop and EX-03
-  visual gate.)
+- `../examples/sequence_login_flow.png` — canonical UML sequence diagram example: a
+  login/authentication flow with participants `User`, `AuthService`, and `UserDB`; 4
+  ordered messages including two dashed returns (`userRecord`, `token`). Passes the full
+  validate→render→verify loop; EX-03 visual gate cleared 2026-06-08.
 
 ## Notes
 
