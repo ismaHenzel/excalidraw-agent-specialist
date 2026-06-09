@@ -223,7 +223,7 @@ Decimal phases appear between their surrounding integers in numeric order. v1.1 
 
 **Wave 1**
 
-- [ ] 09-01-PLAN.md — DM-04: author `diagram-types/data-vault.md` recipe composing the locked compartmented-box + fan-out + tree-hierarchy + convergence primitives + the NEW 3-role palette + mandatory role label + legend (SC-2)
+- [x] 09-01-PLAN.md — DM-04: author `diagram-types/data-vault.md` recipe composing the locked compartmented-box + fan-out + tree-hierarchy + convergence primitives + the NEW 3-role palette + mandatory role label + legend (SC-2)
 
 **Wave 2** *(blocked on Wave 1 — example authored to the recipe)*
 
@@ -250,4 +250,4 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 →
 | 6. Star Schema → Snowflake | 2/2 | Complete    | 2026-06-07 |
 | 7. ER + Class | 4/4 | Complete    | 2026-06-08 |
 | 8. Sequence + Use-Case | 1/4 | In Progress|  |
-| 9. Data Vault | 0/3 | Planned | - |
+| 9. Data Vault | 1/3 | In Progress|  |
