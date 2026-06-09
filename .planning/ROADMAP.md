@@ -219,7 +219,20 @@ Decimal phases appear between their surrounding integers in numeric order. v1.1 
   2. The hub/link/satellite distinction uses a documented 3-role palette paired with a text role label so the three classes remain distinguishable in grayscale (no color-only distinction)
   3. A canonical example pair (`.excalidraw` + PNG) exists and is indexed for data vault, passing the full loop
 
-**Plans**: TBD
+**Plans**: 3 plans
+
+**Wave 1**
+
+- [ ] 09-01-PLAN.md — DM-04: author `diagram-types/data-vault.md` recipe composing the locked compartmented-box + fan-out + tree-hierarchy + convergence primitives + the NEW 3-role palette + mandatory role label + legend (SC-2)
+
+**Wave 2** *(blocked on Wave 1 — example authored to the recipe)*
+
+- [ ] 09-02-PLAN.md — DM-04/EX-01/EX-03: author canonical `data_vault_sales` example pair, pass the full loop + EX-03 visual gate WITH explicit grayscale confirmation (SC-2)
+
+**Wave 3** *(blocked on Wave 2 — wire resolver only after the example passes EX-03, Pitfall 7)*
+
+- [ ] 09-03-PLAN.md — DM-04: wire the reserved `data-vault` resolver row + complete two-layer back-refs + mark DM-04 complete + end-to-end regression
+
 **UI hint**: yes
 
 ## Progress
@@ -237,4 +250,4 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 →
 | 6. Star Schema → Snowflake | 2/2 | Complete    | 2026-06-07 |
 | 7. ER + Class | 4/4 | Complete    | 2026-06-08 |
 | 8. Sequence + Use-Case | 1/4 | In Progress|  |
-| 9. Data Vault | 0/? | Not started | - |
+| 9. Data Vault | 0/3 | Planned | - |
