@@ -18,7 +18,7 @@ correct.** No more silent broken diagrams. If verification fails after 3 attempt
 user sees the failed PNG, the structured issue list, and the source JSON — never a
 "done" message hiding broken output.
 
-## Current Milestone: v1.1 Diagram Families & UML Expansion
+## Current Milestone: v1.1 Diagram Families & UML Expansion — Phase 9 Complete (2026-06-10)
 
 **Goal:** Reorganize the plugin around recognizable real-world diagram families and add a
 diagram-type knowledge layer so the agent draws UML, data models, and tech architectures
@@ -193,4 +193,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-06-07 — Phase 06 complete: star-schema (DM-01) and snowflake-schema (DM-03) recipes shipped; compartmented-box offsets locked for all later data-modeling/UML types*
+*Last updated: 2026-06-10
