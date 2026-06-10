@@ -98,6 +98,14 @@ Recent decisions affecting current work:
 
 ## Deferred Items
 
+Items acknowledged and deferred at milestone close on 2026-06-10:
+
+| Category | Item | Status |
+|----------|------|--------|
+| uat_gap | 09-HUMAN-UAT.md [partial] — 1 pending scenario (grayscale gate approved by user) | acknowledged |
+| verification_gap | 06-VERIFICATION.md [human_needed] | acknowledged |
+| verification_gap | 09-VERIFICATION.md [human_needed] | acknowledged |
+
 Items acknowledged and carried forward from REQUIREMENTS.md v2 / Out of Scope:
 
 | Category | Item | Status | Deferred At |
