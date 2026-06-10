@@ -30,7 +30,7 @@ Decimal phases appear between their surrounding integers in numeric order. v1.1 
 - [x] **Phase 6: Star Schema → Snowflake** - The data-modeling table-box recipe established on star, then extended to its normalized variant (completed 2026-06-07)
 - [x] **Phase 7: ER + Class** - The shared relationship-endpoint-glyph convention built once, then both compartmented-relationship types authored against it (completed 2026-06-08)
 - [ ] **Phase 8: Sequence + Use-Case** - Sequence's geometry-heavy lifeline/activation primitive and the most-native-friendly use-case type
-- [ ] **Phase 9: Data Vault** - The long-pole data-modeling type, layering hub/link/satellite semantics onto the proven recipe
+- [x] **Phase 9: Data Vault** - The long-pole data-modeling type, layering hub/link/satellite semantics onto the proven recipe (completed 2026-06-10)
 
 ## Phase Details
 
@@ -231,7 +231,7 @@ Decimal phases appear between their surrounding integers in numeric order. v1.1 
 
 **Wave 3** *(blocked on Wave 2 — wire resolver only after the example passes EX-03, Pitfall 7)*
 
-- [ ] 09-03-PLAN.md — DM-04: wire the reserved `data-vault` resolver row + complete two-layer back-refs + mark DM-04 complete + end-to-end regression
+- [x] 09-03-PLAN.md — DM-04: wire the reserved `data-vault` resolver row + complete two-layer back-refs + mark DM-04 complete + end-to-end regression
 
 **UI hint**: yes
 
@@ -250,4 +250,4 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 →
 | 6. Star Schema → Snowflake | 2/2 | Complete    | 2026-06-07 |
 | 7. ER + Class | 4/4 | Complete    | 2026-06-08 |
 | 8. Sequence + Use-Case | 1/4 | In Progress|  |
-| 9. Data Vault | 2/3 | In Progress|  |
+| 9. Data Vault | 3/3 | Complete   | 2026-06-10 |
