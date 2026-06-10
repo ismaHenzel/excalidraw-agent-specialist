@@ -1,6 +1,6 @@
 # Pattern: Fan-out
 
-> Used by types: tech-architecture, star-schema
+> Used by types: tech-architecture, star-schema, data-vault
 
 One upstream source dispatches to N downstream consumers. Event bus, scheduler, orchestrator, pub/sub.
 

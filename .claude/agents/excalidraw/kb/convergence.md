@@ -1,6 +1,6 @@
 # Pattern: Convergence
 
-> Used by types: tech-architecture, star-schema
+> Used by types: tech-architecture, star-schema, data-vault
 
 N upstream sources merge into one downstream sink. The mirror of fan-out.
 
