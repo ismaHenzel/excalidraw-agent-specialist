@@ -1,11 +1,11 @@
 ---
 gsd_state_version: 1.0
 milestone: v1.1
-milestone_name: — Diagram Families & UML Expansion
-status: executing
-stopped_at: 09-02-PLAN.md completed
-last_updated: "2026-06-10T00:56:52.464Z"
-last_activity: 2026-06-10
+milestone_name: Diagram Families & UML Expansion
+status: shipped
+stopped_at: milestone close
+last_updated: "2026-06-09T00:00:00.000Z"
+last_activity: 2026-06-09
 progress:
   total_phases: 9
   completed_phases: 9
@@ -18,17 +18,17 @@ progress:
 
 ## Project Reference
 
-See: .planning/PROJECT.md (updated 2026-06-03)
+See: .planning/PROJECT.md (updated 2026-06-09)
 
-**Core value:** The agent draws recognizable, real-world diagram families (tech architecture, data models, UML) correctly — guided by a per-diagram-type knowledge layer — while preserving the self-verifying render→verify→fix loop shipped in v1.0.
-**Current focus:** Phase 09 — data-vault
+**Core value:** Every diagram the agent delivers has been rendered, inspected, and confirmed visually correct using the right drawing conventions for its type.
+**Current focus:** v1.1 shipped — start `/gsd-new-milestone` for v2 planning
 
 ## Current Position
 
-Phase: 09
-Plan: Not started
-Status: Executing Phase 09
-Last activity: 2026-06-10
+Phase: v1.1 complete
+Plan: all 19 plans done
+Status: Milestone shipped 2026-06-09
+Last activity: 2026-06-09
 
 ## Performance Metrics
 
