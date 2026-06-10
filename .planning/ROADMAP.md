@@ -227,7 +227,7 @@ Decimal phases appear between their surrounding integers in numeric order. v1.1 
 
 **Wave 2** *(blocked on Wave 1 — example authored to the recipe)*
 
-- [ ] 09-02-PLAN.md — DM-04/EX-01/EX-03: author canonical `data_vault_sales` example pair, pass the full loop + EX-03 visual gate WITH explicit grayscale confirmation (SC-2)
+- [x] 09-02-PLAN.md — DM-04/EX-01/EX-03: author canonical `data_vault_sales` example pair, pass the full loop + EX-03 visual gate WITH explicit grayscale confirmation (SC-2)
 
 **Wave 3** *(blocked on Wave 2 — wire resolver only after the example passes EX-03, Pitfall 7)*
 
@@ -250,4 +250,4 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 →
 | 6. Star Schema → Snowflake | 2/2 | Complete    | 2026-06-07 |
 | 7. ER + Class | 4/4 | Complete    | 2026-06-08 |
 | 8. Sequence + Use-Case | 1/4 | In Progress|  |
-| 9. Data Vault | 1/3 | In Progress|  |
+| 9. Data Vault | 2/3 | In Progress|  |

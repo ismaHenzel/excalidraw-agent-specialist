@@ -35,7 +35,7 @@ diagram-type knowledge layer plus UML and data-modeling types.
 - [x] **DM-01**: A `diagram-types/star-schema.md` recipe exists and the agent can author a star-schema diagram (central fact + dimension entity boxes, fan-out composition) that passes the full loop
 - [x] **DM-02**: A `diagram-types/er.md` recipe exists and the agent can author an ER diagram (entity boxes with PK/FK rows, committed cardinality notation) that passes the full loop
 - [x] **DM-03**: A `diagram-types/snowflake-schema.md` recipe exists (building on star-schema with normalized dimension tree-hierarchy) and the agent can author a snowflake diagram that passes the full loop
-- [ ] **DM-04**: A `diagram-types/data-vault.md` recipe exists (hub / link / satellite, distinguished by the semantic palette) and the agent can author a data-vault diagram that passes the full loop
+- [x] **DM-04**: A `diagram-types/data-vault.md` recipe exists (hub / link / satellite, distinguished by the semantic palette) and the agent can author a data-vault diagram that passes the full loop
 
 ### UML Types (UML)
 
@@ -106,7 +106,7 @@ Updated during roadmap creation (v1.1 phases 4–9).
 | UML-02 | Phase 7 | Complete |
 | UML-01 | Phase 8 | Complete |
 | UML-03 | Phase 8 | Complete |
-| DM-04 | Phase 9 | Pending |
+| DM-04 | Phase 9 | Complete |
 | EX-01 | Phases 5–9 | Pending |
 | EX-03 | Phases 5–9 | Pending |
 
