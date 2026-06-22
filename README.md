@@ -28,10 +28,10 @@
 
 These are real outputs from the Excalidraw Visual Architect, each rendered and verified through the agent's loop.
 
-### Data Intelligence Platform — multi-zoom architecture overview
-> Group containers, a folder tree inside a panel, real technology logos, an embedded AI-agent lifecycle, and a layered lakehouse foundation — all on one canvas.
+### The agent's own workflow — `/excalidraw` Render → Verify → Fix
+> A UML sequence diagram, drawn by the agent, of the agent itself: User → Orchestrator → Writer → Reviewer, with the verify→fix loop (up to 3 attempts) and the honest-failure escape hatch. It captures the entire flow of the application in one canvas.
 
-![Data Intelligence Platform architecture overview](.claude/agents/excalidraw/kb/diagram-types/architecture_overview.png)
+![/excalidraw Render → Verify → Fix sequence diagram](excalidraw_agent_sequence_v2.png)
 
 ### Azure Synapse Reference Architecture — three-zone network boundary map
 > On-premises → data platform resource group → Synapse managed resource group, with VNets, subnets, private endpoints, a legend, and color-coded connection semantics.
