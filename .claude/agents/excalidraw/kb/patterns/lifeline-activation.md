@@ -164,7 +164,7 @@ or adjusts through the render loop.
 
 ## See in examples
 
-- `../examples/sequence_login_flow.png` — canonical UML sequence diagram example: a
+- `../diagram-types/sequence_login_flow.png` — canonical UML sequence diagram example: a
   login/authentication flow with participants `User`, `AuthService`, and `UserDB`; 4
   ordered messages including two dashed returns (`userRecord`, `token`). Passes the full
   validate→render→verify loop; EX-03 visual gate cleared 2026-06-08.

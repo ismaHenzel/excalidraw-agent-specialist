@@ -2,7 +2,7 @@
 
 A Claude Code plugin that produces professional, architectural-grade technical diagrams in Excalidraw, each one rendered and independently verified before it's called done. Ships as three pieces:
 
-- **Author subagent** (`excalidraw_specialist`) at `.claude/agents/excalidraw/` — the visual standards, pattern KB, reference examples, and icon library. Authors and fixes the `.excalidraw`, and renders it. It does **not** verify.
+- **Author subagent** (`excalidraw_specialist`) at `.claude/agents/excalidraw/` — the visual standards, the two-layer knowledge base (`kb/`), and icon library. Authors and fixes the `.excalidraw`, and renders it. It does **not** verify.
 - **Verifier subagent** (`excalidraw_verifier`) — a read-only fresh-eyes reviewer that inspects the rendered PNG and emits a structured pass/fail report. It never edits or re-renders.
 - **Orchestrator slash command** at `.claude/commands/excalidraw.md` — the `/excalidraw` entry point. It gathers intent, then drives the closed **render → verify → fix** loop, spawning the author and verifier in turn (capped at 3 verify attempts).
 
@@ -24,34 +24,18 @@ Claude Code subagents **cannot spawn other subagents**. So the author cannot cal
 .claude/agents/excalidraw/
 ├── excalidraw_specialist.md   ← author/fixer agent + inlined visual standards + style principles
 ├── excalidraw_verifier.md     ← read-only verifier agent (structural + visual checks → report)
+├── excalidraw_icon_fetcher.md ← icon resolver agent (local-first, then downloads + converts)
 ├── README.md                  ← this file
-├── kb/                        ← compact layout patterns (13 files, categorized)
-│   ├── README.md              ← pattern index + example index
-│   │
-│   │   Macro:
-│   ├── group-container.md
-│   ├── multi-zoom-overview.md
-│   │   Flow:
-│   ├── linear-pipeline.md
-│   ├── fan-out.md
-│   ├── convergence.md
-│   ├── task-list.md
-│   ├── feedback-loop.md
-│   ├── timeline.md
-│   │   Decision:
-│   ├── decision-branch.md
-│   ├── decision-marker.md
-│   │   Structure:
-│   ├── icon-block.md
-│   ├── tree-hierarchy.md
-│   └── evidence-card.md
-├── examples/                  ← canonical reference PNGs (visual ground truth)
-│   ├── architecture_overview.png  ← multi-zoom · group-container · tree · evidence-cards · persona
-│   ├── data_pipeline_flow.png     ← linear-pipeline · fan-out · convergence · feedback-loop · ✗/✓ markers
-│   ├── process_decision.png       ← decision-branch · decision-marker · task-list · timeline · feedback-loop
-│   ├── repo_tree_hierarchy.png    ← tree-hierarchy · group-container · icon-block
-│   └── example_star_schema.png    ← user-authored data-model (star schema)
-├── examples_excalidraw/       ← editable .excalidraw sources for the reference PNGs
+├── kb/                        ← the knowledge base — everything the agent reads on demand
+│   ├── README.md              ← KB hub: the map + reading order
+│   ├── patterns/              ← PRIMITIVE layer: reusable layout sub-patterns
+│   │   ├── README.md          ← primitive index (macro / flow / decision / structure)
+│   │   └── group-container.md, fan-out.md, tree-hierarchy.md, …  (15 files)
+│   └── diagram-types/         ← TYPE layer: one recipe per diagram type, WITH its example assets
+│       ├── README.md          ← type index + authoritative resolver table
+│       ├── tech-architecture.md, star-schema.md, sequence.md, …  (recipe files)
+│       ├── architecture_overview.png  ← canonical render (visual ground truth)
+│       └── architecture_overview.excalidraw  ← editable source, beside its render
 ├── icons/                     ← brand/tech PNG logos
 └── scripts/
     ├── render/                ← specialist's render pipeline (validator + Playwright + Docker)
@@ -59,7 +43,7 @@ Claude Code subagents **cannot spawn other subagents**. So the author cannot cal
     └── e2e/                   ← operator-side end-to-end check runner
 ```
 
-The agent prompt always carries the visual standards (colors, rules, JSON templates) and style principles. Pattern files in `kb/` are read on demand when a diagram matches the pattern. The PNGs in `examples/` are **canonical visual references** — the agent Reads them as ground truth before producing similar diagrams.
+The agent prompt always carries the visual standards (colors, rules, JSON templates) and style principles. The KB under `kb/` is read on demand: `kb/diagram-types/<type>.md` recipes name which `kb/patterns/` primitives to compose, and each type's canonical PNG (plus its editable `.excalidraw` source) sits **right beside the recipe** in `kb/diagram-types/` — the agent Reads the PNG as ground truth before producing similar diagrams. Start at `kb/README.md` for the full map.
 
 ## Installation
 
@@ -105,7 +89,7 @@ This is the recommended entry point precisely because the verify-fix loop only w
 
 ### Via direct invocation (no verification)
 
-You can invoke `excalidraw_specialist` by name. It will identify the matching `kb/` pattern, read the relevant `examples/*.png` as ground truth, Glob `icons/` for logos, generate the JSON, and render it via `scripts/render/validate_and_render.sh`.
+You can invoke `excalidraw_specialist` by name. It will identify the matching `kb/patterns/` pattern, read the relevant `kb/diagram-types/*.png` as ground truth, Glob `icons/` for logos, generate the JSON, and render it via `scripts/render/validate_and_render.sh`.
 
 **Caveat:** invoked directly, the specialist is a subagent and **cannot spawn the verifier** — so you get a rendered PNG but no independent verification or auto-fix loop. For a verified diagram, always go through `/excalidraw` (or otherwise drive the loop from the main conversation: author → verify → fix).
 
@@ -113,27 +97,27 @@ You can invoke `excalidraw_specialist` by name. It will identify the matching `k
 
 To add a new pattern (e.g., swim-lane, hub-and-spoke):
 
-1. Create `kb/<pattern>.md` with sections: *When*, *Geometry*, *JSON skeleton*, *Notes*.
-2. (Optional) Add `kb/<pattern>.png` rendered from a real Excalidraw example.
-3. Add a row to `kb/README.md`'s pattern index.
+1. Create `kb/patterns/<pattern>.md` with sections: *When*, *Geometry*, *JSON skeleton*, *Notes*.
+2. Add a row to `kb/patterns/README.md`'s pattern index.
+3. If a diagram type composes it, add a `> Used by types: <type>` back-ref so the two-layer link stays bidirectional.
 
 The agent will discover it automatically.
 
-## Reference examples (`examples/`)
+## Reference examples (`kb/diagram-types/`)
 
-The PNGs in `examples/` are **the visual style guide**. Every pattern in `kb/` links to the example(s) that demonstrate it, and the agent is instructed to Read them as ground truth before producing a similar diagram. Their editable sources live in `examples_excalidraw/` (one `.excalidraw` per PNG) so you can tweak a reference by hand. Every connector in these examples is a sharp **elbow arrow** (`elbowed: true`, `roundness: null`, orthogonal points) — never a curved `roundness:{type:2}` arrow.
+The canonical PNGs are **the visual style guide**. They live **inside `kb/diagram-types/`, beside the recipe that owns each one**, together with the editable `.excalidraw` source (same basename) — so the diagram type and its image stay together. Every pattern in `kb/patterns/` links to the example(s) that demonstrate it, and the agent is instructed to Read them as ground truth before producing a similar diagram. Every connector in these examples is a sharp **elbow arrow** (`elbowed: true`, `roundness: null`, orthogonal points) — never a curved `roundness:{type:2}` arrow.
 
-Current images (one per diagram kind):
+The authoritative type → example mapping is the resolver table in [`kb/diagram-types/README.md`](kb/diagram-types/README.md); the pattern → example mapping is the reference example index in [`kb/patterns/README.md`](kb/patterns/README.md). A few cross-pattern reference renders (not tied to a single type) also live there:
 
-| File | Use as reference for |
+| File (in `kb/diagram-types/`) | Use as reference for |
 |---|---|
 | `architecture_overview.png` | Multi-zoom architecture overview · group containers · folder tree inside a panel · evidence cards with real data · persona-anchored worked example with a cross-facet trace |
 | `data_pipeline_flow.png` | Left-to-right linear pipeline · color-coded fan-out · convergence into a single sink · inline ✗/✓ decision markers · feedback loop routed outside the forward flow |
 | `process_decision.png` | Vertical task-list runbook · side I/O to external resources · labeled-condition decision-branch diamond · binary ✗/✓ gate · timeline axis · restart feedback loop |
 | `repo_tree_hierarchy.png` | Folder / namespace tree · brand-titled group container · folders mapped to technology icon blocks · thin elbow tree connectors |
-| `example_star_schema.png` | User-authored dimensional / star-schema data model |
+| `example_star_schema.png` | Legacy user-authored star schema (**de-indexed** — see `star_schema_v2.png` for the current canonical) |
 
-To add or refresh an example: edit (or create) the source under `examples_excalidraw/<name>.excalidraw`, re-render it with `scripts/render/validate_and_render.sh`, copy the resulting `<name>.png` into `examples/`, and add/update a row in `kb/README.md`'s reference example index pointing to the patterns it demonstrates.
+To add or refresh an example: edit (or create) the source `kb/diagram-types/<name>.excalidraw`, re-render it with `scripts/render/validate_and_render.sh` so the `<name>.png` beside it updates, and add/update the relevant row in the resolver table ([`kb/diagram-types/README.md`](kb/diagram-types/README.md)) and/or the reference example index ([`kb/patterns/README.md`](kb/patterns/README.md)).
 
 ---
 *Adapted from the Gemini-CLI Excalidraw Visual Architect; restructured for Claude Code.*

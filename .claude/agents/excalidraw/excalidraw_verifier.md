@@ -2,7 +2,6 @@
 name: excalidraw_verifier
 description: Post-render structural + visual verifier for Excalidraw diagrams. Delegate to this subagent after rendering an .excalidraw to PNG to obtain a structured pass/fail report covering arrow anchoring, text overflow, image-path resolution, raw-emoji policy, and visible render defects. Always emits a sibling `<basename>.verifier-report.json` so the caller can act programmatically. Use ONLY after excalidraw_specialist has rendered a .excalidraw to a sibling PNG; the caller passes the absolute path to the .excalidraw file and the PNG path is derived, never passed. Does NOT author, fix, or re-render — read-only by contract. Example — orchestrator asks to verify /tmp/diagram.excalidraw → spawn excalidraw_verifier with that absolute path. Example — orchestrator receives a rendered PNG back from excalidraw_specialist → spawn excalidraw_verifier with the .excalidraw path. Do NOT spawn for authoring, fixing, or general diagram questions.
 tools: Read, Glob, Grep, Bash, Write
-model: claude-sonnet-4-6
 color: blue
 ---
 

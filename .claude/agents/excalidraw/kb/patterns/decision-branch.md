@@ -65,7 +65,7 @@ Label, placed near the horizontal leg:
 
 ## See in examples
 
-- For inline binary pass/fail gates (CI/CD style), prefer `decision-marker.md` and see `../examples/data_pipeline_flow.png` — the diamond is *not* the right tool there. Reserve this pattern for ≥2 *labeled* condition branches, as in `../examples/process_decision.png` (the `Rollout mode?` diamond with `score >= 0.9` / `canary ok` / `score < 0.7`).
+- For inline binary pass/fail gates (CI/CD style), prefer `decision-marker.md` and see `../diagram-types/data_pipeline_flow.png` — the diamond is *not* the right tool there. Reserve this pattern for ≥2 *labeled* condition branches, as in `../diagram-types/process_decision.png` (the `Rollout mode?` diamond with `score >= 0.9` / `canary ok` / `score < 0.7`).
 
 ## Notes
 

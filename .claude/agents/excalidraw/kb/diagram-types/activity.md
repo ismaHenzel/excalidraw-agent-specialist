@@ -1,6 +1,6 @@
 # Diagram Type: Activity
 
-> Layer: TYPE recipe. Composes primitives from [`../kb/`](../kb/README.md); does not re-derive their geometry. Indexed in [`README.md`](./README.md).
+> Layer: TYPE recipe. Composes primitives from [`../patterns/`](../patterns/README.md); does not re-derive their geometry. Indexed in [`README.md`](./README.md).
 
 ## Purpose
 
@@ -24,13 +24,13 @@ Assemble the diagram from the composed primitives below — do not improvise coo
 
 ## Composes (primitive layer)
 
-- [`@../kb/linear-pipeline.md`](../kb/linear-pipeline.md) — sequential left-to-right chain of action nodes.
-- [`@../kb/task-list.md`](../kb/task-list.md) — vertical action stack with side I/O annotations.
-- [`@../kb/decision-branch.md`](../kb/decision-branch.md) — labelled decision diamond with two or more outgoing branches.
-- [`@../kb/decision-marker.md`](../kb/decision-marker.md) — inline binary pass/fail gate (✓/✗) without a full diamond.
-- [`@../kb/feedback-loop.md`](../kb/feedback-loop.md) — loop-back arc routed around the forward flow, never crossing it.
-- [`@../kb/group-container.md`](../kb/group-container.md) — swimlane lanes: N adjacent bordered containers, one per role or partition.
+- [`@../patterns/linear-pipeline.md`](../patterns/linear-pipeline.md) — sequential left-to-right chain of action nodes.
+- [`@../patterns/task-list.md`](../patterns/task-list.md) — vertical action stack with side I/O annotations.
+- [`@../patterns/decision-branch.md`](../patterns/decision-branch.md) — labelled decision diamond with two or more outgoing branches.
+- [`@../patterns/decision-marker.md`](../patterns/decision-marker.md) — inline binary pass/fail gate (✓/✗) without a full diamond.
+- [`@../patterns/feedback-loop.md`](../patterns/feedback-loop.md) — loop-back arc routed around the forward flow, never crossing it.
+- [`@../patterns/group-container.md`](../patterns/group-container.md) — swimlane lanes: N adjacent bordered containers, one per role or partition.
 
 ## Ground truth
 
-- [`../examples/activity_order_fulfillment.png`](../examples/activity_order_fulfillment.png) — the canonical Activity reference (authored this phase). Imitate its start/end node placement, action-chain composition, decision-diamond labelling, and (optionally) swimlane partitioning.
+- [`./activity_order_fulfillment.png`](./activity_order_fulfillment.png) — the canonical Activity reference (authored this phase). Imitate its start/end node placement, action-chain composition, decision-diamond labelling, and (optionally) swimlane partitioning.

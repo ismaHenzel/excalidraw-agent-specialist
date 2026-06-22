@@ -1,6 +1,6 @@
 # Diagram Type: Entity-Relationship (ER) Diagram
 
-> Layer: TYPE recipe. Composes primitives from [`../kb/`](../kb/README.md) and the shared [`compartmented-box.md`](./compartmented-box.md) construction; does not re-derive their geometry. Indexed in [`README.md`](./README.md).
+> Layer: TYPE recipe. Composes primitives from [`../patterns/`](../patterns/README.md) and the shared [`compartmented-box.md`](./compartmented-box.md) construction; does not re-derive their geometry. Indexed in [`README.md`](./README.md).
 
 ## Purpose
 
@@ -78,7 +78,7 @@ per notation-conventions.md. The grouped 3-line crow's-foot glyph is explicitly 
 so cardinality reads consistently across all ER diagrams and never collapses to a plain
 line.
 
-Multiplicity label placement: see glyph geometry in `@../kb/relationship-endpoint.md`.
+Multiplicity label placement: see glyph geometry in `@../patterns/relationship-endpoint.md`.
 
 ### Step 4 — Draw relationship connectors (binding rules — LOCKED)
 
@@ -110,10 +110,10 @@ Every relationship connector is an **elbow arrow** subject to these locked rules
 - **Textual label (many):** add a separate `text` element (`fontFamily: 3`, `fontSize: 16`,
   `strokeColor: "#1e1e1e"`) placed 20-40px from the endpoint OUTSIDE all entity box
   bboxes. Exact font, offset, and strokeColor values come from
-  `@../kb/relationship-endpoint.md` — do NOT re-derive them here.
+  `@../patterns/relationship-endpoint.md` — do NOT re-derive them here.
 - **Ellipse glyph (optional alternative):** if a composed `ellipse` is preferred over the
   `dot` arrowhead for the "zero/optional" end, the glyph geometry (10px x 10px, placement
-  offset) is defined in `@../kb/relationship-endpoint.md` — do NOT re-derive here.
+  offset) is defined in `@../patterns/relationship-endpoint.md` — do NOT re-derive here.
 
 Any composed glyph element (ellipse) must be added to the connector's `groupIds` so it
 travels with the connector as a unit.
@@ -124,7 +124,7 @@ travels with the connector as a unit.
   verbatim: header 40px, row pitch 20px, left-pad 12px, fontSize 16, box-width formula,
   box height formula, divider placement, grouping requirement. Do NOT re-derive any of
   these numbers.
-- [`@../kb/relationship-endpoint.md`](../kb/relationship-endpoint.md) — the shared
+- [`@../patterns/relationship-endpoint.md`](../patterns/relationship-endpoint.md) — the shared
   endpoint-glyph primitive: bar/dot arrowhead semantics, ellipse glyph geometry (10px x
   10px), textual multiplicity label geometry (fontFamily 3, fontSize 16, placement
   20-40px from endpoint outside all bboxes, strokeColor `#1e1e1e`), and Pattern 3
@@ -136,7 +136,7 @@ travels with the connector as a unit.
 
 ## Ground truth
 
-[`../examples/er_retail_orders.png`](../examples/er_retail_orders.png) — the canonical
+[`./er_retail_orders.png`](./er_retail_orders.png) — the canonical
 ER reference: a retail domain with three entity boxes (`customer`, `order`, `product`)
 connected by bound elbow connectors encoding explicit cardinality. Imitate:
 

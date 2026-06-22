@@ -1,6 +1,6 @@
 # Diagram Type: Star Schema
 
-> Layer: TYPE recipe. Composes primitives from [`../kb/`](../kb/README.md) and the shared [`compartmented-box.md`](./compartmented-box.md) construction; does not re-derive their geometry. Indexed in [`README.md`](./README.md).
+> Layer: TYPE recipe. Composes primitives from [`../patterns/`](../patterns/README.md) and the shared [`compartmented-box.md`](./compartmented-box.md) construction; does not re-derive their geometry. Indexed in [`README.md`](./README.md).
 
 ## Purpose
 
@@ -19,10 +19,10 @@ dimension must be decomposed into a sub-hierarchy of normalized tables.
 
 Assemble the diagram from the composed primitives below — do not improvise coordinate math
 here; defer all box geometry to [`compartmented-box.md`](./compartmented-box.md) and all
-connector geometry to [`@../kb/fan-out.md`](../kb/fan-out.md).
+connector geometry to [`@../patterns/fan-out.md`](../patterns/fan-out.md).
 
 - **Build every table as a compartmented box.** Each fact and dimension table is a
-  *compartmented box* per [`@../diagram-types/compartmented-box.md`](./compartmented-box.md):
+  *compartmented box* per [`@./compartmented-box.md`](./compartmented-box.md):
   a SHARP rectangle (`roundness: null`, `roughness: 0`), a **full-width horizontal `line`
   header divider** (`x == box.x`, `points = [[0,0],[width,0]]` so `points[-1][0] == box.width`
   exactly), one title text bound to the box, and **N free-floating per-row monospace texts**
@@ -34,7 +34,7 @@ connector geometry to [`@../kb/fan-out.md`](../kb/fan-out.md).
   the dimension foreign keys (e.g. `date_key   FK`) and the measures (e.g. `quantity`,
   `unit_price`); the dimension boxes radiate around it.
 - **Wire fact → dimension with the fan-out primitive.** Use the
-  [`@../kb/fan-out.md`](../kb/fan-out.md) dispatch geometry for the fact-to-dimension
+  [`@../patterns/fan-out.md`](../patterns/fan-out.md) dispatch geometry for the fact-to-dimension
   connectors — one source (the fact) to N destinations (the dimensions). Connectors are
   bound elbow arrows (`elbowed: true`, `roundness: null`, `>=3` points). Never re-derive the
   arrow coordinate math here.
@@ -55,18 +55,18 @@ connector geometry to [`@../kb/fan-out.md`](../kb/fan-out.md).
 
 - [`@./compartmented-box.md`](./compartmented-box.md) — the shared table-box construction +
   the finalized parametric offsets every fact/dimension box uses.
-- [`@../kb/fan-out.md`](../kb/fan-out.md) — one source (fact) dispatching to N destinations
+- [`@../patterns/fan-out.md`](../patterns/fan-out.md) — one source (fact) dispatching to N destinations
   (dimension tables); the fact-to-dimension connector geometry.
-- [`@../kb/convergence.md`](../kb/convergence.md) — the mirror of fan-out, for reading the
+- [`@../patterns/convergence.md`](../patterns/convergence.md) — the mirror of fan-out, for reading the
   schema in the "dimensions feed the fact" direction.
-- [`@../kb/evidence-card.md`](../kb/evidence-card.md) — an optional real-data card (a row
+- [`@../patterns/evidence-card.md`](../patterns/evidence-card.md) — an optional real-data card (a row
   count, a sample measure) attached beside the model to make it argue, not just display.
-- [`@../kb/group-container.md`](../kb/group-container.md) — an optional bordered scope around
+- [`@../patterns/group-container.md`](../patterns/group-container.md) — an optional bordered scope around
   the whole schema (e.g. "Sales mart").
 
 ## Ground truth
 
-- [`../examples/star_schema_v2.png`](../examples/star_schema_v2.png) — the canonical compliant
+- [`./star_schema_v2.png`](./star_schema_v2.png) — the canonical compliant
   Star Schema reference: a central `fact_sales` box fanned out to `dim_date`, `dim_product`,
   `dim_customer`, and `dim_store`, each a grouped sharp box with a full-width `line` header
   divider and per-row monospace text. Imitate its grouped/bound/sharp compartmented-box

@@ -1,6 +1,6 @@
 # Diagram Type: Snowflake Schema
 
-> Layer: TYPE recipe. Composes primitives from [`../kb/`](../kb/README.md) and the shared [`compartmented-box.md`](./compartmented-box.md) construction; does not re-derive their geometry. Indexed in [`README.md`](./README.md). Builds on [`star-schema.md`](./star-schema.md).
+> Layer: TYPE recipe. Composes primitives from [`../patterns/`](../patterns/README.md) and the shared [`compartmented-box.md`](./compartmented-box.md) construction; does not re-derive their geometry. Indexed in [`README.md`](./README.md). Builds on [`star-schema.md`](./star-schema.md).
 
 ## Purpose
 
@@ -27,7 +27,7 @@ re-derive any box offset numbers. All parametric offsets (header height 40, row 
 left-pad 12, fontSize 16, box-width rule `len*0.6*16`) are locked in
 [`@./compartmented-box.md`](./compartmented-box.md) and inherited from
 [`@./star-schema.md`](./star-schema.md). Only the **normalized dimension extension** is
-added on top via [`@../kb/tree-hierarchy.md`](../kb/tree-hierarchy.md).
+added on top via [`@../patterns/tree-hierarchy.md`](../patterns/tree-hierarchy.md).
 
 ### Step 1 — Build the star base (unchanged from star-schema)
 
@@ -48,7 +48,7 @@ Assemble the fact box and the kept dimension boxes exactly as documented in
 
 Select the dimension(s) to normalize (e.g. `dim_product`) and replace each with a
 **tree-hierarchy of smaller compartmented boxes** per
-[`@../kb/tree-hierarchy.md`](../kb/tree-hierarchy.md):
+[`@../patterns/tree-hierarchy.md`](../patterns/tree-hierarchy.md):
 
 - **Sub-table boxes** use the **same compartmented-box recipe** as the parent dimension —
   the same sharp rectangle, same line header divider, same left-pad 12, same fontSize 16.
@@ -78,15 +78,15 @@ Select the dimension(s) to normalize (e.g. `dim_product`) and replace each with 
 - [`@./compartmented-box.md`](./compartmented-box.md) — the finalized parametric offsets
   (header 40, row pitch 20, left-pad 12, fontSize 16) used verbatim by every box —
   fact, dimension, and normalized sub-tables alike.
-- [`@../kb/tree-hierarchy.md`](../kb/tree-hierarchy.md) — the normalized dimension
+- [`@../patterns/tree-hierarchy.md`](../patterns/tree-hierarchy.md) — the normalized dimension
   sub-table layout: children indent +60px x, ~40px y-step, thin (`strokeWidth: 1.5`)
   elbow connectors anchored to sub-box RECTANGLE borders.
-- [`@../kb/linear-pipeline.md`](../kb/linear-pipeline.md) — optional sequential read
+- [`@../patterns/linear-pipeline.md`](../patterns/linear-pipeline.md) — optional sequential read
   path across the normalization chain.
 
 ## Ground truth
 
-- [`../examples/snowflake_schema.png`](../examples/snowflake_schema.png) — the canonical
+- [`./snowflake_schema.png`](./snowflake_schema.png) — the canonical
   Snowflake Schema reference: a Sales star with `dim_product` normalized into a
   `dim_product → dim_category → dim_department` tree-hierarchy of three smaller
   compartmented boxes. Every box (fact, kept dimensions, and sub-tables) uses the same

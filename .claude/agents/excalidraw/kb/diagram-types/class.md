@@ -1,6 +1,6 @@
 # Diagram Type: UML Class
 
-> Layer: TYPE recipe. Composes primitives from [`../kb/`](../kb/README.md) and the shared [`compartmented-box.md`](./compartmented-box.md) construction; does not re-derive their geometry. Indexed in [`README.md`](./README.md).
+> Layer: TYPE recipe. Composes primitives from [`../patterns/`](../patterns/README.md) and the shared [`compartmented-box.md`](./compartmented-box.md) construction; does not re-derive their geometry. Indexed in [`README.md`](./README.md).
 
 ## Purpose
 
@@ -78,7 +78,7 @@ environment, fall back to ASCII `<<interface>>` and document the fallback.
 ### Step 4 — Relationship glyph set
 
 The full UML class relationship set comes **exclusively** from `@./notation-conventions.md`
-(the legal-encoding table, DTKB-04) and `@../kb/relationship-endpoint.md` (the exact
+(the legal-encoding table, DTKB-04) and `@../patterns/relationship-endpoint.md` (the exact
 diamond/triangle glyph geometry and grouping mechanics). Do not invent new tokens.
 
 | Relationship | Committed encoding |
@@ -132,7 +132,7 @@ box rectangle  <--[arrow endpoint anchored here]---[diamond overlaid, same group
   (header 40, row pitch 20, left-pad 12, fontSize 16) and the HARD no-multi-line-text
   rule; the extra full-width line divider at `box.y + 40 + 20*k` is the "Between-row
   dividers" case documented there. Do NOT re-derive these offsets.
-- [`@../kb/relationship-endpoint.md`](../kb/relationship-endpoint.md) — the diamond/triangle/dashed
+- [`@../patterns/relationship-endpoint.md`](../patterns/relationship-endpoint.md) — the diamond/triangle/dashed
   glyph geometry (diamond: 14x14px, white `#ffffff` for aggregation, solid `#1e1e1e` for
   composition; triangle arrowhead conventions; grouping mechanics for Pattern 3). Do NOT
   re-derive glyph pixel values.
@@ -143,7 +143,7 @@ box rectangle  <--[arrow endpoint anchored here]---[diamond overlaid, same group
 
 ## Ground truth
 
-- [`../examples/class_order_domain.png`](../examples/class_order_domain.png) — the canonical
+- [`./class_order_domain.png`](./class_order_domain.png) — the canonical
   UML Class Diagram reference: an order-management domain showing `Order`, `OrderLine`,
   `Customer`, and a `«Payable»` interface (or `PaymentMethod` abstraction). Each class box
   has three compartments (title + attributes + methods) with ASCII visibility markers and

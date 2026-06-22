@@ -1,6 +1,6 @@
 # Diagram Type: Sequence
 
-> Layer: TYPE recipe. Composes primitives from [`../kb/`](../kb/README.md) and [`./notation-conventions.md`](./notation-conventions.md); does not re-derive their geometry. Indexed in [`README.md`](./README.md).
+> Layer: TYPE recipe. Composes primitives from [`../patterns/`](../patterns/README.md) and [`./notation-conventions.md`](./notation-conventions.md); does not re-derive their geometry. Indexed in [`README.md`](./README.md).
 
 Sequence **reuses `kb/lifeline-activation.md` VERBATIM** — do not re-derive participant
 spacing (180px pitch), activation-bar width (12px), or message Y pitch (40px). All
@@ -27,7 +27,7 @@ Use a sequence diagram when the request is about:
 
 ### Step 1 — Place participant head boxes
 
-Per [`@../kb/lifeline-activation.md`](../kb/lifeline-activation.md):
+Per [`@../patterns/lifeline-activation.md`](../patterns/lifeline-activation.md):
 
 - Each participant gets a `rectangle` of `width: 120`, `height: 40`
 - `roughness: 0`, `roundness: null`, `strokeStyle: "solid"`, mild fill (e.g. `#e0f2fe`)
@@ -40,7 +40,7 @@ Participant 3 at `x: 420` (lifeline_center_x = head.x + 60).
 
 ### Step 2 — Draw dashed vertical lifelines
 
-Per [`@../kb/lifeline-activation.md`](../kb/lifeline-activation.md):
+Per [`@../patterns/lifeline-activation.md`](../patterns/lifeline-activation.md):
 
 - Each lifeline is a `line` element (NOT an `arrow`)
 - `strokeStyle: "dashed"`, `roughness: 0`, `roundness: null`
@@ -52,7 +52,7 @@ Per [`@../kb/lifeline-activation.md`](../kb/lifeline-activation.md):
 
 ### Step 3 — Draw activation bar rectangles
 
-Per [`@../kb/lifeline-activation.md`](../kb/lifeline-activation.md):
+Per [`@../patterns/lifeline-activation.md`](../patterns/lifeline-activation.md):
 
 - Each activation bar is a `rectangle` of `width: 12`
 - **Centering formula:** `x = lifeline_center_x - 6`
@@ -99,7 +99,7 @@ Per [`@./notation-conventions.md`](./notation-conventions.md) Association + Depe
 
 ## Composes (primitive layer)
 
-- [`@../kb/lifeline-activation.md`](../kb/lifeline-activation.md) — all geometry:
+- [`@../patterns/lifeline-activation.md`](../patterns/lifeline-activation.md) — all geometry:
   participant head sizing (120×40), lifeline placement, activation-bar centering
   formula (`x = lifeline_center_x − 6`), message Y pitch (min 40px), participant
   x pitch (180px), JSON skeletons for all element types.
@@ -112,7 +112,7 @@ Per [`@./notation-conventions.md`](./notation-conventions.md) Association + Depe
 
 ## Ground truth
 
-- [`../examples/sequence_login_flow.png`](../examples/sequence_login_flow.png) — the
+- [`./sequence_login_flow.png`](./sequence_login_flow.png) — the
   canonical sequence diagram example: a login/authentication flow with participants
   `User`, `AuthService`, and `UserDB`; 4 ordered messages including dashed returns.
   Imitate its participant spacing, activation-bar placement, and message ordering.

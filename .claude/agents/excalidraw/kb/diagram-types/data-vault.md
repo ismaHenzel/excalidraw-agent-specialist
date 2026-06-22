@@ -1,11 +1,11 @@
 # Diagram Type: Data Vault
 
-> Layer: TYPE recipe. Composes primitives from [`@../diagram-types/compartmented-box.md`](./compartmented-box.md), [`@../kb/fan-out.md`](../kb/fan-out.md), [`@../kb/tree-hierarchy.md`](../kb/tree-hierarchy.md), [`@../kb/convergence.md`](../kb/convergence.md), [`@../kb/group-container.md`](../kb/group-container.md), and [`@./notation-conventions.md`](./notation-conventions.md); does not re-derive their geometry. Indexed in [`README.md`](./README.md).
+> Layer: TYPE recipe. Composes primitives from [`@./compartmented-box.md`](./compartmented-box.md), [`@../patterns/fan-out.md`](../patterns/fan-out.md), [`@../patterns/tree-hierarchy.md`](../patterns/tree-hierarchy.md), [`@../patterns/convergence.md`](../patterns/convergence.md), [`@../patterns/group-container.md`](../patterns/group-container.md), and [`@./notation-conventions.md`](./notation-conventions.md); does not re-derive their geometry. Indexed in [`README.md`](./README.md).
 
 ## Reuse verbatim — do not re-derive
 
 Hub, link, and satellite boxes are the **SAME** compartmented box that star/snowflake/ER/class
-already use. Reuse [`@../diagram-types/compartmented-box.md`](./compartmented-box.md) offsets
+already use. Reuse [`@./compartmented-box.md`](./compartmented-box.md) offsets
 **VERBATIM**:
 
 | Offset | Locked value |
@@ -95,10 +95,10 @@ or source system.
 
 Connect hubs to links using plain elbow arrows. Two patterns from the composed primitives:
 
-- **Fan-out** (`@../kb/fan-out.md`): a hub fanning out to multiple links it participates in.
+- **Fan-out** (`@../patterns/fan-out.md`): a hub fanning out to multiple links it participates in.
   Route through a shared vertical rail between hub and links; all arrows from the same hub
   share the rail x-coordinate.
-- **Convergence** (`@../kb/convergence.md`): two or more hubs converging into one link
+- **Convergence** (`@../patterns/convergence.md`): two or more hubs converging into one link
   (the link holds foreign hash keys for each participating hub). Route through a shared rail.
 
 All spine connectors: `endArrowhead: "arrow"`, `strokeWidth: 2`, `strokeColor: "#1e3a5f"`,
@@ -110,7 +110,7 @@ All spine connectors: `endArrowhead: "arrow"`, `strokeWidth: 2`, `strokeColor: "
 ### Step 5 — Satellite attachment connectors
 
 Attach each satellite to its parent hub or link using thin elbow arrows from
-[`@../kb/tree-hierarchy.md`](../kb/tree-hierarchy.md):
+[`@../patterns/tree-hierarchy.md`](../patterns/tree-hierarchy.md):
 
 - `strokeWidth: 1.5` (thin — structural, not flow), `endArrowhead: "arrow"`
 - `elbowed: true`, `roundness: null`, `roughness: 0`, ≥3 orthogonal points
@@ -148,12 +148,12 @@ available (0.53 → 0.73 → 0.89):
    DISALLOWED.** A diagram where the three roles are only distinguishable by fill color
    fails the SC-2 grayscale-safety requirement. The fill is decorative reinforcement only.
 
-2. **MANDATORY in-canvas legend.** Include a small legend (a `@../kb/group-container.md`
+2. **MANDATORY in-canvas legend.** Include a small legend (a `@../patterns/group-container.md`
    bordered box or a 3-row swatch+label strip) that decodes role↔color so a grayscale
    reader recovers the mapping. Minimum: a 3-row strip with a colored swatch rectangle
    and a text label per role (`Hub / Link / Satellite`).
 
-   Example legend structure (from `@../kb/group-container.md`): a bordered rectangle
+   Example legend structure (from `@../patterns/group-container.md`): a bordered rectangle
    containing three swatch rectangles (each with the role fill + `roundness: null`) and
    three text labels placed to their right, all sharing one `groupIds`.
 
@@ -197,18 +197,18 @@ Box construction rules (same as snowflake/ER/class):
 
 ## Composes (primitive layer)
 
-- [`@../diagram-types/compartmented-box.md`](./compartmented-box.md) — the single reusable
+- [`@./compartmented-box.md`](./compartmented-box.md) — the single reusable
   box construction: finalized offsets (header 40px, row pitch 20px, left-pad 12px,
   fontSize 16, fontFamily 3, width rule `len*0.6*16` rounded to 20-grid); HARD prohibition
   on multi-line single text; alignment rules (full-width dividers, common left x, 20-grid
   coordinates). Reused verbatim by hub, link, and satellite boxes.
-- [`@../kb/fan-out.md`](../kb/fan-out.md) — hub→link spine geometry: one hub radiating
+- [`@../patterns/fan-out.md`](../patterns/fan-out.md) — hub→link spine geometry: one hub radiating
   arrow elbows to multiple links through a shared vertical rail.
-- [`@../kb/tree-hierarchy.md`](../kb/tree-hierarchy.md) — satellite attachment: thin
+- [`@../patterns/tree-hierarchy.md`](../patterns/tree-hierarchy.md) — satellite attachment: thin
   (`strokeWidth: 1.5`) elbow connectors, +60px x indent, anchored to RECTANGLE borders.
-- [`@../kb/convergence.md`](../kb/convergence.md) — ≥2 hubs converging into one link:
+- [`@../patterns/convergence.md`](../patterns/convergence.md) — ≥2 hubs converging into one link:
   shared rail geometry, all hubs' arrows routing to the rail before turning into the link.
-- [`@../kb/group-container.md`](../kb/group-container.md) — the in-canvas legend box: a
+- [`@../patterns/group-container.md`](../patterns/group-container.md) — the in-canvas legend box: a
   bordered named scope housing the 3-row swatch+label strip that decodes role↔color for
   grayscale readers.
 - [`@./notation-conventions.md`](./notation-conventions.md) — legal arrowhead encoding
@@ -217,7 +217,7 @@ Box construction rules (same as snowflake/ER/class):
 
 ## Ground truth
 
-- [`../examples/data_vault_sales.png`](../examples/data_vault_sales.png) — the canonical
+- [`./data_vault_sales.png`](./data_vault_sales.png) — the canonical
   Data Vault reference: a Sales raw-vault slice with hub boxes (`«hub»`, `#93c5fd`),
   link boxes (`«link»`, `#fed7aa`), and satellite boxes (`«sat»`, `#fef3c7`); hub→link
   spine connectors via fan-out and convergence geometry; satellite attachments via thin

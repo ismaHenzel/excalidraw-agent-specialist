@@ -53,13 +53,13 @@ Ask: *"How should we approach the structure?"*
 
 ### 2. Resolve the type → asset bundle via the authoritative resolver table
 
-After the type is resolved, **Read `.claude/agents/excalidraw/diagram-types/README.md`**. Find the row for the chosen type in the resolver table. The table (and ONLY this table — do NOT hard-code or restate the mapping here) tells you:
+After the type is resolved, **Read `.claude/agents/excalidraw/kb/diagram-types/README.md`**. Find the row for the chosen type in the resolver table. The table (and ONLY this table — do NOT hard-code or restate the mapping here) tells you:
 
-- The **type recipe file**: `diagram-types/<type>.md`
-- The **composed `kb/` sub-patterns**: the list of `kb/<pattern>.md` files the type composes
-- The **canonical example PNG**: the reference PNG in `examples/`
+- The **type recipe file**: `kb/diagram-types/<type>.md`
+- The **composed `kb/patterns/` sub-patterns**: the list of `kb/patterns/<pattern>.md` files the type composes
+- The **canonical example PNG**: the reference PNG that sits beside the recipe in `kb/diagram-types/<name>.png`
 
-If Q2 is "Propose options": read the resolved `diagram-types/<type>.md` and the example PNG. Present **2–3 concrete composition candidates** in plain text, each naming the kb sub-patterns it would use and referencing the example. Wait for the user to pick.
+If Q2 is "Propose options": read the resolved `kb/diagram-types/<type>.md` and the example PNG. Present **2–3 concrete composition candidates** in plain text, each naming the kb sub-patterns it would use and referencing the example. Wait for the user to pick.
 
 If Q2 is "Describe the structure": ask the user in plain text for the nodes, edges, and groupings. A bullet list is fine. Briefly confirm understanding before dispatching.
 
@@ -67,16 +67,50 @@ If Q2 is "Just generate": proceed directly to dispatch — the subagent will inf
 
 If the initial description lacks crucial detail (which systems are involved, what the diagram is *arguing*), ask one focused plain-text follow-up. Do not over-question — the subagent will fill in reasonable defaults.
 
+### 2.5. Q3 — Icon search (optional, asked once after Q2 answer is known)
+
+Ask the user whether to search for technology icons before drawing:
+
+```
+AskUserQuestion(
+  question: "Search for icons matching this diagram's technologies?",
+  header: "Icon search",
+  options: [
+    { label: "Yes — fetch icons for all technologies (Recommended)",
+      description: "I'll search local icons/, then download missing ones from public sources (Azure, AWS, open-source tools). Diagram nodes will use real logos." },
+    { label: "No — use local icons only",
+      description: "Only icons already in the icons/ folder are used. Missing ones fall back to emoji." }
+  ]
+)
+```
+
+**If "Yes":** Before dispatching the specialist, extract a list of every distinct technology or concept name from the user's request and the chosen composition (e.g. "Azure Synapse, Apache Spark, Delta Lake, Managed Firewall, Key Vault"). Then spawn `excalidraw_icon_fetcher`:
+
+```
+Agent(
+  subagent_type="excalidraw_icon_fetcher",
+  description="Fetch icons for diagram technologies",
+  prompt="<comma-separated list of all technology/concept names in the diagram>"
+)
+```
+
+Parse the returned JSON manifest. Pass the full manifest to the specialist in the dispatch prompt (step 3) under the key `<icon_manifest>`.
+
+**If "No":** Skip this step. Pass `<icon_manifest>none</icon_manifest>` to the specialist.
+
+**Skip Q3 entirely** (treat as "No") when `$ARGUMENTS` contains `--no-icons`.
+
 ### 3. Dispatch to the author (specialist, author mode)
 
 Spawn `excalidraw_specialist` via the `Agent` tool with a single prompt containing:
 - The resolved **diagram family** and **type** (e.g. "Tech Architecture / tech-architecture")
-- The **absolute path to `diagram-types/<type>.md`** — the specialist must read this file FIRST before consulting any `kb/` primitive
-- The **explicit list of `kb/<pattern>.md` files** named in the resolver table row for this type
+- The **absolute path to `kb/diagram-types/<type>.md`** — the specialist must read this file FIRST before consulting any `kb/patterns/` primitive
+- The **explicit list of `kb/patterns/<pattern>.md` files** named in the resolver table row for this type
 - The **canonical example PNG** path from the resolver table row (visual ground truth)
 - The structure approach (Q2 answer) and the chosen composition, if any
 - The user's full description and the *argument* the diagram should make (per the methodology: *Diagrams ARGUE, not DISPLAY*)
 - The output **absolute** path (snake_case basename derived from the diagram subject) — saved in the current working directory unless the user requested otherwise
+- The `<icon_manifest>` block from step 2.5 (either the JSON manifest or `none`)
 - A reminder that it is in **author mode**: read the type recipe FIRST → generate → write → render → return the absolute `.excalidraw` and `.png` paths. It must NOT attempt to verify.
 
 Capture the absolute `.excalidraw` path the specialist reports back. This path is the single argument every subsequent verify call uses.

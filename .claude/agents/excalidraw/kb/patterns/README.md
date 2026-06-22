@@ -1,10 +1,10 @@
-# Excalidraw Layout Patterns
+# Excalidraw Layout Patterns (the PRIMITIVE layer)
 
-Compact pattern references for the Excalidraw Visual Architect agent. Each pattern file is small enough to read on demand. Reference PNGs in `../examples/` show the patterns in real diagrams the agent should imitate.
+Compact pattern references for the Excalidraw Visual Architect agent. Each pattern file is small enough to read on demand. The canonical reference PNGs that show these patterns in real diagrams live one level over in [`../diagram-types/`](../diagram-types/README.md), beside the diagram-type recipe that owns each image.
 
 ## Layers
 
-This directory is the **PRIMITIVE layer** — one file per reusable layout sub-pattern (geometry + JSON skeletons). Per-type recipes live one layer up in [`../diagram-types/`](../diagram-types/README.md), the **TYPE layer**: one file per diagram type (tech-architecture, star-schema, sequence, …). A type file *composes* these primitives by `@`-reference and never re-derives their geometry. The two layers cross-reference each other so they cannot silently drift — composed primitives below carry `> Used by types:` back-refs, and the [diagram-types resolver table](../diagram-types/README.md) is the single family→type map. See [`../diagram-types/README.md`](../diagram-types/README.md).
+This directory is the **PRIMITIVE layer** — one file per reusable layout sub-pattern (geometry + JSON skeletons). Per-type recipes live in the sibling [`../diagram-types/`](../diagram-types/README.md), the **TYPE layer**: one file per diagram type (tech-architecture, star-schema, sequence, …). A type file *composes* these primitives by `@`-reference and never re-derives their geometry. The two layers cross-reference each other so they cannot silently drift — composed primitives below carry `> Used by types:` back-refs, and the [diagram-types resolver table](../diagram-types/README.md) is the single family→type map. For the whole-KB map start at the [kb hub README](../README.md).
 
 ## Index
 
@@ -36,18 +36,22 @@ This directory is the **PRIMITIVE layer** — one file per reusable layout sub-p
 | Icon Block | `icon-block.md` | The atomic node: tech logo + label inside a container |
 | Tree / Hierarchy | `tree-hierarchy.md` | Folder trees, catalog schemas, namespace breakdowns |
 | Evidence Card | `evidence-card.md` | Real-data cards (cost, metrics, output samples) |
+| Relationship Endpoint | `relationship-endpoint.md` | ER / UML connector endpoints (cardinality bars, diamonds, arrowheads) |
+| Lifeline / Activation | `lifeline-activation.md` | Sequence-diagram lifelines and activation bars |
 
 ## Reference example index
 
+The reference PNGs now live **beside the diagram-type recipe that owns each one**, in `../diagram-types/`. Each pattern file's *See in examples* section links the specific PNG(s) that demonstrate it.
+
 | Image | Patterns demonstrated |
 |---|---|
-| `../examples/architecture_overview.png` | `multi-zoom-overview`, `group-container`, `icon-block`, `tree-hierarchy`, `evidence-card`, persona worked-example |
-| `../examples/data_pipeline_flow.png` | `linear-pipeline`, `fan-out`, `convergence`, `feedback-loop`, `decision-marker`, `group-container` |
-| `../examples/process_decision.png` | `decision-branch`, `decision-marker`, `task-list`, `timeline`, `feedback-loop`, side I/O |
-| `../examples/repo_tree_hierarchy.png` | `tree-hierarchy`, `group-container`, `icon-block` |
-| `../examples/example_star_schema.png` | user-authored data-model example (dimensional / star schema); edit its source under `../examples_excalidraw/` if present |
+| `../diagram-types/architecture_overview.png` | `multi-zoom-overview`, `group-container`, `icon-block`, `tree-hierarchy`, `evidence-card`, persona worked-example |
+| `../diagram-types/data_pipeline_flow.png` | `linear-pipeline`, `fan-out`, `convergence`, `feedback-loop`, `decision-marker`, `group-container` |
+| `../diagram-types/process_decision.png` | `decision-branch`, `decision-marker`, `task-list`, `timeline`, `feedback-loop`, side I/O |
+| `../diagram-types/repo_tree_hierarchy.png` | `tree-hierarchy`, `group-container`, `icon-block` |
+| `../diagram-types/example_star_schema.png` | legacy user-authored data-model example (dimensional / star schema); **de-indexed** as the star canonical — see `../diagram-types/star_schema_v2.png` |
 
-> Source `.excalidraw` files for these reference images live in `../examples_excalidraw/`. Edit a source there, re-render it, and copy the PNG into `../examples/` to refresh a reference. All connectors in these examples are sharp elbow arrows (`elbowed: true`, `roundness: null`, orthogonal points).
+> Each reference image's editable `.excalidraw` source sits next to it in `../diagram-types/` (same basename). Edit the source there, re-render it, and the PNG beside it refreshes the reference. All connectors in these examples are sharp elbow arrows (`elbowed: true`, `roundness: null`, orthogonal points).
 
 ## Conventions used across all patterns
 
@@ -58,6 +62,6 @@ This directory is the **PRIMITIVE layer** — one file per reusable layout sub-p
 
 ## Adding a new pattern
 
-1. Create `kb/<pattern-name>.md` with sections: *When*, *Geometry*, *JSON skeleton*, *Notes*. Include a *See in examples* section pointing to any PNG that demonstrates it.
-2. (Optional) Add `kb/<pattern-name>.png` for a dedicated visual reference.
-3. Add a row to the index above (in the right category).
+1. Create `kb/patterns/<pattern-name>.md` with sections: *When*, *Geometry*, *JSON skeleton*, *Notes*. Include a *See in examples* section pointing to any `../diagram-types/<name>.png` that demonstrates it.
+2. Add a row to the index above (in the right category).
+3. If a diagram type composes the new pattern, add a `> Used by types: <type>` back-ref so the two-layer link stays bidirectional.

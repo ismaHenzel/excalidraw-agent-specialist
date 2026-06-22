@@ -39,7 +39,7 @@ Leaves source at `(x_s + 180, y_s_i + 40)`, horizontal to rail, vertical to sink
 
 ## See in examples
 
-- `../examples/data_pipeline_flow.png` — the three parallel Workers converge into the single `Test Gate` sink.
+- `../diagram-types/data_pipeline_flow.png` — the three parallel Workers converge into the single `Test Gate` sink.
 
 ## Notes
 
