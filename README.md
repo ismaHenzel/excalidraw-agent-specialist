@@ -14,15 +14,11 @@
 
 Two diagrams — both drawn by this agent — say more than a feature list. The first shows **what it produces**; the second shows **how it produces it**.
 
-### What it produces — an architecture overview
-> A multi-zoom **tech-architecture** diagram: a data-platform system overview with an evidence strip of real metrics on top, three branded zones (Unity Catalog · Repository · DLT Pipeline) wired with sharp 90° elbow connectors, and a worked end-to-end example tracing one component (`dim_customers`) across all three facets. This is the kind of architecture-review-grade output the agent is built for.
-
-![Tech architecture overview — multi-zoom system map](.claude/agents/excalidraw/kb/diagram-types/tech-architecture/architecture_overview.png)
-
 ### How it works — the self-verifying loop
 > The agent drawing **itself**: a UML sequence diagram of the `/excalidraw` Render → Verify → Fix loop. User → Orchestrator → Writer → Reviewer, with the verify→fix loop (up to 3 attempts) and the honest-failure escape hatch. Notice the straight lifeline/message arrows — the one place the agent intentionally drops the default elbow arrows because a forced 90° jog on a lifeline reads as noise.
 
 ![/excalidraw Render → Verify → Fix sequence diagram](excalidraw_agent_sequence_v2.png)
+![Architecture draw](excalidraw_plugin_architecture.png)
 
 ---
 
