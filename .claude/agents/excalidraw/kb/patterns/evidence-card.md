@@ -81,7 +81,7 @@ Architectural diagrams about cost, throughput, scale, latency, or any decision t
 
 ## See in examples
 
-- `examples/architecture_overview.png` — evidence strip on top: four dark-header cards with real numbers (monthly compute $4,182.55, 1,996,344 gold rows, 3m 12s p95 latency, 99.7% data-quality pass rate).
+- `../diagram-types/tech-architecture/architecture_overview.png` — evidence strip on top: four dark-header cards with real numbers (monthly compute $4,182.55, 1,996,344 gold rows, 3m 12s p95 latency, 99.7% data-quality pass rate).
 
 ## Notes
 

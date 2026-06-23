@@ -45,11 +45,10 @@ The reference PNGs now live **beside the diagram-type recipe that owns each one*
 
 | Image | Patterns demonstrated |
 |---|---|
-| `../diagram-types/architecture_overview.png` | `multi-zoom-overview`, `group-container`, `icon-block`, `tree-hierarchy`, `evidence-card`, persona worked-example |
-| `../diagram-types/data_pipeline_flow.png` | `linear-pipeline`, `fan-out`, `convergence`, `feedback-loop`, `decision-marker`, `group-container` |
-| `../diagram-types/process_decision.png` | `decision-branch`, `decision-marker`, `task-list`, `timeline`, `feedback-loop`, side I/O |
-| `../diagram-types/repo_tree_hierarchy.png` | `tree-hierarchy`, `group-container`, `icon-block` |
-| `../diagram-types/example_star_schema.png` | legacy user-authored data-model example (dimensional / star schema); **de-indexed** as the star canonical — see `../diagram-types/star_schema_v2.png` |
+| `../diagram-types/tech-architecture/architecture_overview.png` | `multi-zoom-overview`, `group-container`, `icon-block`, `tree-hierarchy`, `evidence-card`, persona worked-example |
+| `../diagram-types/tech-architecture/data_pipeline_flow.png` | `linear-pipeline`, `fan-out`, `convergence`, `feedback-loop`, `decision-marker`, `group-container` |
+| `../diagram-types/tech-architecture/process_decision.png` | `decision-branch`, `decision-marker`, `task-list`, `timeline`, `feedback-loop`, side I/O |
+| `../diagram-types/star-schema/example_star_schema.png` | legacy user-authored data-model example (dimensional / star schema); **de-indexed** as the star canonical — see `../diagram-types/star-schema/star_schema_v2.png` |
 
 > Each reference image's editable `.excalidraw` source sits next to it in `../diagram-types/` (same basename). Edit the source there, re-render it, and the PNG beside it refreshes the reference. All connectors in these examples are sharp elbow arrows (`elbowed: true`, `roundness: null`, orthogonal points).
 

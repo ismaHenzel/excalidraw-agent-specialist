@@ -1,6 +1,6 @@
 # Diagram Type: UML Class
 
-> Layer: TYPE recipe. Composes primitives from [`../patterns/`](../patterns/README.md) and the shared [`compartmented-box.md`](./compartmented-box.md) construction; does not re-derive their geometry. Indexed in [`README.md`](./README.md).
+> Layer: TYPE recipe. Composes primitives from [`../../patterns/`](../../patterns/README.md) and the shared [`compartmented-box.md`](../compartmented-box.md) construction; does not re-derive their geometry. Indexed in [`README.md`](../README.md).
 
 ## Purpose
 
@@ -20,7 +20,7 @@ classes and their relationships are the primary concern.
 Class boxes **reuse the compartmented-box construction VERBATIM** — do not re-derive any
 box offset numbers. All parametric offsets (header height 40, row pitch 20, left-pad 12,
 fontSize 16, box-width rule `len*0.6*16`) are locked in
-[`@./compartmented-box.md`](./compartmented-box.md). Only the class-specific extensions
+[`@../compartmented-box.md`](../compartmented-box.md). Only the class-specific extensions
 are added on top, as described below.
 
 ### Step 1 — Build each class box (three compartments)
@@ -35,10 +35,10 @@ Each class box is the **compartmented-box construction** with **THREE compartmen
 The three-compartment extension adds **exactly ONE extra full-width `line` divider** at
 `box.y + 40 + 20*k` where `k` is the number of attribute rows — i.e. the second divider
 sits on the row boundary immediately after the last attribute row, per
-`@./compartmented-box.md` "Between-row dividers". The first divider (header divider) is at
+`@../compartmented-box.md` "Between-row dividers". The first divider (header divider) is at
 `box.y + 40`, unchanged from all other compartmented types.
 
-All offsets are inherited verbatim from `@./compartmented-box.md` (INT-02):
+All offsets are inherited verbatim from `@../compartmented-box.md` (INT-02):
 
 | Offset | Locked value |
 |--------|--------------|
@@ -60,7 +60,7 @@ row text) share ONE `groupIds` id.
 Every attribute row and every method row is a **separate `text` element** — one `text` per
 row, `fontFamily: 3`, `fontSize: 16`. **Never pack multiple rows into a single multi-line
 text element using `\n`** (Pitfall — violates the HARD prohibition in
-`@./compartmented-box.md`).
+`@../compartmented-box.md`).
 
 Visibility markers use **ASCII**: `+` (public), `-` (private), `#` (protected). **Never
 use lock/key emoji or any Unicode emoji character as a visibility prefix** — raw Unicode
@@ -77,8 +77,8 @@ environment, fall back to ASCII `<<interface>>` and document the fallback.
 
 ### Step 4 — Relationship glyph set
 
-The full UML class relationship set comes **exclusively** from `@./notation-conventions.md`
-(the legal-encoding table, DTKB-04) and `@../patterns/relationship-endpoint.md` (the exact
+The full UML class relationship set comes **exclusively** from `@../notation-conventions.md`
+(the legal-encoding table, DTKB-04) and `@../../patterns/relationship-endpoint.md` (the exact
 diamond/triangle glyph geometry and grouping mechanics). Do not invent new tokens.
 
 | Relationship | Committed encoding |
@@ -128,15 +128,15 @@ box rectangle  <--[arrow endpoint anchored here]---[diamond overlaid, same group
 
 ## Composes (primitive layer)
 
-- [`@./compartmented-box.md`](./compartmented-box.md) — the finalized parametric offsets
+- [`@../compartmented-box.md`](../compartmented-box.md) — the finalized parametric offsets
   (header 40, row pitch 20, left-pad 12, fontSize 16) and the HARD no-multi-line-text
   rule; the extra full-width line divider at `box.y + 40 + 20*k` is the "Between-row
   dividers" case documented there. Do NOT re-derive these offsets.
-- [`@../patterns/relationship-endpoint.md`](../patterns/relationship-endpoint.md) — the diamond/triangle/dashed
+- [`@../../patterns/relationship-endpoint.md`](../../patterns/relationship-endpoint.md) — the diamond/triangle/dashed
   glyph geometry (diamond: 14x14px, white `#ffffff` for aggregation, solid `#1e1e1e` for
   composition; triangle arrowhead conventions; grouping mechanics for Pattern 3). Do NOT
   re-derive glyph pixel values.
-- [`@./notation-conventions.md`](./notation-conventions.md) — the one binding legal-encoding
+- [`@../notation-conventions.md`](../notation-conventions.md) — the one binding legal-encoding
   table for every notation (which token, which glyph, which dashed/solid stroke), the five
   legal arrowhead tokens, and the guillemet stereotype convention. Do NOT re-derive or
   override these conventions.

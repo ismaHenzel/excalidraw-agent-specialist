@@ -43,7 +43,7 @@ The `[90, ±delta]` segment is the destination-specific offset; everything else 
 
 ## See in examples
 
-- `../diagram-types/data_pipeline_flow.png` — `Build` fans out into `Worker 1/2/3` with color-coded strokes, then the workers converge into `Test Gate`.
+- `../diagram-types/tech-architecture/data_pipeline_flow.png` — `Build` fans out into `Worker 1/2/3` with color-coded strokes, then the workers converge into `Test Gate`.
 
 ## Notes
 

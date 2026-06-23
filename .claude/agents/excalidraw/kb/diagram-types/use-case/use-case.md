@@ -1,6 +1,6 @@
 # Diagram Type: Use-Case
 
-> Layer: TYPE recipe. Composes primitives from [`../patterns/`](../patterns/README.md) and shared notation conventions; does not re-derive their geometry. Indexed in [`README.md`](./README.md).
+> Layer: TYPE recipe. Composes primitives from [`../../patterns/`](../../patterns/README.md) and shared notation conventions; does not re-derive their geometry. Indexed in [`README.md`](../README.md).
 
 ## Purpose
 
@@ -12,15 +12,15 @@ Reach for this type when a request is about: system scope for a product or servi
 
 Assemble the diagram from the composed primitives below — do not improvise coordinate math here; defer all geometry to the primitive files.
 
-- **Actor = labelled box (NOT stick-figure, NOT emoji).** The committed convention per `@./notation-conventions.md` DTKB-04 is: a `rectangle` (100px wide, 60px high), `roughness: 0`, `roundness: null`, `backgroundColor: "transparent"`, plus two sibling `text` elements sharing one `groupId` with the box: `«actor»` stereotype label (`fontFamily: 3`, `fontSize: 14`) and the actor name label (`fontFamily: 3`, `fontSize: 16`). Group all three elements (box + stereotype text + name text) under a single `groupId`. Place actors **outside** the system-boundary rectangle.
+- **Actor = labelled box (NOT stick-figure, NOT emoji).** The committed convention per `@../notation-conventions.md` DTKB-04 is: a `rectangle` (100px wide, 60px high), `roughness: 0`, `roundness: null`, `backgroundColor: "transparent"`, plus two sibling `text` elements sharing one `groupId` with the box: `«actor»` stereotype label (`fontFamily: 3`, `fontSize: 14`) and the actor name label (`fontFamily: 3`, `fontSize: 16`). Group all three elements (box + stereotype text + name text) under a single `groupId`. Place actors **outside** the system-boundary rectangle.
 
 - **Use-case oval = native `ellipse`.** Each use case is a native `ellipse` element with `roughness: 0`, `strokeStyle: "solid"`, `backgroundColor: "transparent"`, and **no `roundness` override** (ellipses are inherently round; adding `roundness: null` is wrong — omit the field entirely or leave it at the ellipse default). Pair each oval with a sibling `text` label; group oval + label under a single `groupId`. Place all use-case ovals **inside** the system boundary.
 
-- **System boundary = `@../patterns/group-container.md` rectangle.** The system boundary is a `group-container` rounded rectangle: `roundness: {"type": 3}` (the one place where a rounded rectangle is intentional and correct), `strokeColor: "#1e3a5f"`, `strokeWidth: 2`, `roughness: 0`, `backgroundColor: "transparent"`. Add a `text` element near the top of the boundary for the system name. This is the only rounded rectangle in a use-case diagram.
+- **System boundary = `@../../patterns/group-container.md` rectangle.** The system boundary is a `group-container` rounded rectangle: `roundness: {"type": 3}` (the one place where a rounded rectangle is intentional and correct), `strokeColor: "#1e3a5f"`, `strokeWidth: 2`, `roughness: 0`, `backgroundColor: "transparent"`. Add a `text` element near the top of the boundary for the system name. This is the only rounded rectangle in a use-case diagram.
 
 - **Association (actor to oval) = undirected arrow.** Actor–use-case associations use `arrow` with `endArrowhead: null`, `startArrowhead: null`, `strokeStyle: "solid"`, `elbowed: true`, `roundness: null`, `roughness: 0`. Bind via `startBinding` to the actor `rectangle` id and `endBinding` to the oval `ellipse` id (both with `gap: 4`). This is the plain "line" that connects an actor to a use case.
 
-- **Include/extend = dashed arrow + stereotype text label.** Include and extend relationships use `arrow` with `endArrowhead: "arrow"`, `startArrowhead: null`, `strokeStyle: "dashed"`, `elbowed: true`, `roundness: null`, `roughness: 0` per `@./notation-conventions.md` Dependency row. Add a sibling `text` element (`«include»` or `«extend»`, `fontFamily: 3`, `fontSize: 14`) near the midpoint of the arrow. The arrow runs from the base use-case oval to the included/extended oval (Place Order → Process Payment for `«include»`).
+- **Include/extend = dashed arrow + stereotype text label.** Include and extend relationships use `arrow` with `endArrowhead: "arrow"`, `startArrowhead: null`, `strokeStyle: "dashed"`, `elbowed: true`, `roundness: null`, `roughness: 0` per `@../notation-conventions.md` Dependency row. Add a sibling `text` element (`«include»` or `«extend»`, `fontFamily: 3`, `fontSize: 14`) near the midpoint of the arrow. The arrow runs from the base use-case oval to the included/extended oval (Place Order → Process Payment for `«include»`).
 
 - **All connectors are sharp elbow arrows.** Every arrow uses `elbowed: true`, `roundness: null`. No soft curves.
 
@@ -32,8 +32,8 @@ Assemble the diagram from the composed primitives below — do not improvise coo
 
 ## Composes (primitive layer)
 
-- [`@../patterns/group-container.md`](../patterns/group-container.md) — system boundary: a bordered rounded rectangle (`roundness: {"type": 3}`) that scopes all use-case ovals inside it. The one place where a rounded rectangle is correct and intentional in this diagram type.
-- [`@./notation-conventions.md`](./notation-conventions.md) — actor=labelled-box convention (DTKB-04; NOT stick-figure, NOT emoji); legal arrowhead tokens (`arrow | bar | dot | triangle | null`); Association encoding (undirected: `endArrowhead: null`, `startArrowhead: null`, solid); Dependency encoding (include/extend: `endArrowhead: "arrow"`, dashed + stereotype text label).
+- [`@../../patterns/group-container.md`](../../patterns/group-container.md) — system boundary: a bordered rounded rectangle (`roundness: {"type": 3}`) that scopes all use-case ovals inside it. The one place where a rounded rectangle is correct and intentional in this diagram type.
+- [`@../notation-conventions.md`](../notation-conventions.md) — actor=labelled-box convention (DTKB-04; NOT stick-figure, NOT emoji); legal arrowhead tokens (`arrow | bar | dot | triangle | null`); Association encoding (undirected: `endArrowhead: null`, `startArrowhead: null`, solid); Dependency encoding (include/extend: `endArrowhead: "arrow"`, dashed + stereotype text label).
 
 ## Ground truth
 

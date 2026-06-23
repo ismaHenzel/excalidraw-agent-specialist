@@ -62,8 +62,8 @@ Mid-arrow text on the longest (return) leg, **above** the segment, in Body/Detai
 
 ## See in examples
 
-- `examples/data_pipeline_flow.png` — `on fail → retry from Commit` loops from the ✗ marker around the bottom, outside the forward flow, back into `Commit`.
-- `examples/process_decision.png` — `Restart on fail` loops from the ✗ gate outside the container back to the `Lint` task.
+- `../diagram-types/tech-architecture/data_pipeline_flow.png` — `on fail → retry from Commit` loops from the ✗ marker around the bottom, outside the forward flow, back into `Commit`.
+- `../diagram-types/tech-architecture/process_decision.png` — `Restart on fail` loops from the ✗ gate outside the container back to the `Lint` task.
 
 ## Notes
 

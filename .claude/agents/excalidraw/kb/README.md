@@ -29,18 +29,18 @@ A type file **composes primitives by `@`-reference** (`@../patterns/<pattern>.md
 
 ## Where the example images live
 
-Every canonical example PNG sits **inside `diagram-types/`, next to the recipe that owns it**, together with its editable `.excalidraw` source (same basename). There is no separate `examples/` folder — *the diagram type and its image live together*.
+Every canonical example PNG sits **inside its diagram type's subfolder under `diagram-types/`, next to the recipe that owns it**, together with its editable `.excalidraw` source (same basename) — e.g. `diagram-types/sequence/sequence_login_flow.png`. *The diagram type and its image live together.*
 
-- To **see** what a type should look like: open `diagram-types/<name>.png`.
-- To **edit** a reference: open `diagram-types/<name>.excalidraw`, change it, re-render — the PNG beside it is the output.
+- To **see** what a type should look like: open `diagram-types/<type>/<name>.png`.
+- To **edit** a reference: open `diagram-types/<type>/<name>.excalidraw`, change it, re-render — the PNG beside it is the output.
 - To find **which image demonstrates which pattern**: see the reference example index in [`patterns/README.md`](patterns/README.md); to find **which image belongs to which type**: see the resolver table in [`diagram-types/README.md`](diagram-types/README.md).
 
 ## Reading order for authoring a diagram
 
 1. Resolve the diagram **type** → read [`diagram-types/README.md`](diagram-types/README.md), find the resolver-table row.
-2. Read the type recipe `diagram-types/<type>.md` **first** — it names which primitives to compose and which `.png` is ground truth.
+2. Read the type recipe `diagram-types/<type>/<type>.md` **first** — it names which primitives to compose and which `.png` is ground truth.
 3. Read each composed primitive `patterns/<pattern>.md` for its geometry + JSON skeleton.
-4. Read the canonical `diagram-types/<name>.png` as the visual target.
+4. Read the canonical `diagram-types/<type>/<name>.png` as the visual target.
 
 ## Conventions (all patterns and types)
 

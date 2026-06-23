@@ -43,7 +43,7 @@ When the overview is long, add a `Developer Example ( <persona name> )` containe
 
 ## See in examples
 
-- `examples/architecture_overview.png` — canonical multi-zoom: an evidence strip on top, then `Architecture Draw` with three panels (Catalog · Repository · Pipeline), then a `Developer Example ( Ada Lovelace )` worked-example below, with a violet trace following one component across all three facets.
+- `../diagram-types/tech-architecture/architecture_overview.png` — canonical multi-zoom: an evidence strip on top, then `Architecture Draw` with three panels (Catalog · Repository · Pipeline), then a `Developer Example ( Ada Lovelace )` worked-example below, with a violet trace following one component across all three facets.
 
 ## Notes
 

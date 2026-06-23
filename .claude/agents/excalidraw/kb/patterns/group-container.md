@@ -60,9 +60,8 @@ Whenever a set of elements share a context that needs naming: an environment (De
 
 ## See in examples
 
-- `examples/architecture_overview.png` — the outer `Architecture Draw` scope plus three sibling panel containers (Catalog · Repository · Pipeline), each branded at the top-left.
-- `examples/repo_tree_hierarchy.png` — a single GitLab-branded `data-platform-monorepo` container wrapping the whole tree.
-- `examples/data_pipeline_flow.png` — a GitLab-branded `CI/CD Data Pipeline` container around the flow.
+- `../diagram-types/tech-architecture/architecture_overview.png` — the outer `Architecture Draw` scope plus three sibling panel containers (Catalog · Repository · Pipeline), each branded at the top-left.
+- `../diagram-types/tech-architecture/data_pipeline_flow.png` — a GitLab-branded `CI/CD Data Pipeline` container around the flow.
 
 ## Notes
 

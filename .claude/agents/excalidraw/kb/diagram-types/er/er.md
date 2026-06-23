@@ -1,6 +1,6 @@
 # Diagram Type: Entity-Relationship (ER) Diagram
 
-> Layer: TYPE recipe. Composes primitives from [`../patterns/`](../patterns/README.md) and the shared [`compartmented-box.md`](./compartmented-box.md) construction; does not re-derive their geometry. Indexed in [`README.md`](./README.md).
+> Layer: TYPE recipe. Composes primitives from [`../../patterns/`](../../patterns/README.md) and the shared [`compartmented-box.md`](../compartmented-box.md) construction; does not re-derive their geometry. Indexed in [`README.md`](../README.md).
 
 ## Purpose
 
@@ -28,10 +28,10 @@ model, ERD, or data model with key annotations.
 ### Step 1 — Build entity boxes (compartmented-box construction)
 
 Every entity is a **2-compartment compartmented box** per
-[`@./compartmented-box.md`](./compartmented-box.md): a title compartment (entity name)
+[`@../compartmented-box.md`](../compartmented-box.md): a title compartment (entity name)
 over an attribute compartment (PK/FK and regular column rows).
 
-ALL parametric offsets are **VERBATIM** from `@./compartmented-box.md` — do NOT
+ALL parametric offsets are **VERBATIM** from `@../compartmented-box.md` — do NOT
 re-derive any numbers here:
 
 - **Header height:** 40px (title compartment)
@@ -64,7 +64,7 @@ Rules:
 
 ### Step 3 — Encode cardinality (notation-conventions committed encodings)
 
-Use ONLY the committed encodings from [`@./notation-conventions.md`](./notation-conventions.md).
+Use ONLY the committed encodings from [`@../notation-conventions.md`](../notation-conventions.md).
 The three ER-relevant cardinality values:
 
 | Cardinality | Committed encoding | Arrowhead token |
@@ -78,7 +78,7 @@ per notation-conventions.md. The grouped 3-line crow's-foot glyph is explicitly 
 so cardinality reads consistently across all ER diagrams and never collapses to a plain
 line.
 
-Multiplicity label placement: see glyph geometry in `@../patterns/relationship-endpoint.md`.
+Multiplicity label placement: see glyph geometry in `@../../patterns/relationship-endpoint.md`.
 
 ### Step 4 — Draw relationship connectors (binding rules — LOCKED)
 
@@ -110,26 +110,26 @@ Every relationship connector is an **elbow arrow** subject to these locked rules
 - **Textual label (many):** add a separate `text` element (`fontFamily: 3`, `fontSize: 16`,
   `strokeColor: "#1e1e1e"`) placed 20-40px from the endpoint OUTSIDE all entity box
   bboxes. Exact font, offset, and strokeColor values come from
-  `@../patterns/relationship-endpoint.md` — do NOT re-derive them here.
+  `@../../patterns/relationship-endpoint.md` — do NOT re-derive them here.
 - **Ellipse glyph (optional alternative):** if a composed `ellipse` is preferred over the
   `dot` arrowhead for the "zero/optional" end, the glyph geometry (10px x 10px, placement
-  offset) is defined in `@../patterns/relationship-endpoint.md` — do NOT re-derive here.
+  offset) is defined in `@../../patterns/relationship-endpoint.md` — do NOT re-derive here.
 
 Any composed glyph element (ellipse) must be added to the connector's `groupIds` so it
 travels with the connector as a unit.
 
 ## Composes (primitive layer)
 
-- [`@./compartmented-box.md`](./compartmented-box.md) — the FINALIZED box offsets used
+- [`@../compartmented-box.md`](../compartmented-box.md) — the FINALIZED box offsets used
   verbatim: header 40px, row pitch 20px, left-pad 12px, fontSize 16, box-width formula,
   box height formula, divider placement, grouping requirement. Do NOT re-derive any of
   these numbers.
-- [`@../patterns/relationship-endpoint.md`](../patterns/relationship-endpoint.md) — the shared
+- [`@../../patterns/relationship-endpoint.md`](../../patterns/relationship-endpoint.md) — the shared
   endpoint-glyph primitive: bar/dot arrowhead semantics, ellipse glyph geometry (10px x
   10px), textual multiplicity label geometry (fontFamily 3, fontSize 16, placement
   20-40px from endpoint outside all bboxes, strokeColor `#1e1e1e`), and Pattern 3
   anchoring rule (connector anchors to box rectangle; glyph overlaid and grouped).
-- [`@./notation-conventions.md`](./notation-conventions.md) — the legal-encoding
+- [`@../notation-conventions.md`](../notation-conventions.md) — the legal-encoding
   cardinality table: one=bar, zero/optional=dot/ellipse, many=textual `0..*`/`1..*`
   (crow's-foot glyph explicitly NOT used). Five legal arrowhead tokens. Convention is
   committed — do not re-derive or override per-diagram.

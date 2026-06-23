@@ -52,7 +52,7 @@ For asynchronous tasks, place a small `(async)` text above the task node, in Bod
 
 ## See in examples
 
-- `examples/process_decision.png` — canonical example. Vertical task stack `Lint → Unit Tests → Integration → Package → Release` inside a GitLab CI container, with side I/O arrows to the `Test API` (left) and `Image Registry` (right).
+- `../diagram-types/tech-architecture/process_decision.png` — canonical example. Vertical task stack `Lint → Unit Tests → Integration → Package → Release` inside a GitLab CI container, with side I/O arrows to the `Test API` (left) and `Image Registry` (right).
 
 ## Notes
 

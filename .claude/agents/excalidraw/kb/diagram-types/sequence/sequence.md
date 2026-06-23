@@ -1,11 +1,11 @@
 # Diagram Type: Sequence
 
-> Layer: TYPE recipe. Composes primitives from [`../patterns/`](../patterns/README.md) and [`./notation-conventions.md`](./notation-conventions.md); does not re-derive their geometry. Indexed in [`README.md`](./README.md).
+> Layer: TYPE recipe. Composes primitives from [`../../patterns/`](../../patterns/README.md) and [`../notation-conventions.md`](../notation-conventions.md); does not re-derive their geometry. Indexed in [`README.md`](../README.md).
 
 Sequence **reuses `kb/lifeline-activation.md` VERBATIM** — do not re-derive participant
 spacing (180px pitch), activation-bar width (12px), or message Y pitch (40px). All
 geometry is pinned there. Participant head boxes reuse the 40px header height from
-[`@./compartmented-box.md`](./compartmented-box.md) (INT-02) — no compartment dividers
+[`@../compartmented-box.md`](../compartmented-box.md) (INT-02) — no compartment dividers
 are needed for participant heads.
 
 ## Purpose
@@ -27,7 +27,7 @@ Use a sequence diagram when the request is about:
 
 ### Step 1 — Place participant head boxes
 
-Per [`@../patterns/lifeline-activation.md`](../patterns/lifeline-activation.md):
+Per [`@../../patterns/lifeline-activation.md`](../../patterns/lifeline-activation.md):
 
 - Each participant gets a `rectangle` of `width: 120`, `height: 40`
 - `roughness: 0`, `roundness: null`, `strokeStyle: "solid"`, mild fill (e.g. `#e0f2fe`)
@@ -40,7 +40,7 @@ Participant 3 at `x: 420` (lifeline_center_x = head.x + 60).
 
 ### Step 2 — Draw dashed vertical lifelines
 
-Per [`@../patterns/lifeline-activation.md`](../patterns/lifeline-activation.md):
+Per [`@../../patterns/lifeline-activation.md`](../../patterns/lifeline-activation.md):
 
 - Each lifeline is a `line` element (NOT an `arrow`)
 - `strokeStyle: "dashed"`, `roughness: 0`, `roundness: null`
@@ -52,7 +52,7 @@ Per [`@../patterns/lifeline-activation.md`](../patterns/lifeline-activation.md):
 
 ### Step 3 — Draw activation bar rectangles
 
-Per [`@../patterns/lifeline-activation.md`](../patterns/lifeline-activation.md):
+Per [`@../../patterns/lifeline-activation.md`](../../patterns/lifeline-activation.md):
 
 - Each activation bar is a `rectangle` of `width: 12`
 - **Centering formula:** `x = lifeline_center_x - 6`
@@ -64,7 +64,7 @@ Per [`@../patterns/lifeline-activation.md`](../patterns/lifeline-activation.md):
 
 ### Step 4 — Draw message arrows
 
-Per [`@./notation-conventions.md`](./notation-conventions.md) Association + Dependency rows:
+Per [`@../notation-conventions.md`](../notation-conventions.md) Association + Dependency rows:
 
 - **Synchronous call / message:** solid `arrow`, `endArrowhead: "arrow"`, `strokeStyle: "solid"`
 - **Return / response:** dashed `arrow`, `endArrowhead: "arrow"`, `strokeStyle: "dashed"`
@@ -99,14 +99,14 @@ Per [`@./notation-conventions.md`](./notation-conventions.md) Association + Depe
 
 ## Composes (primitive layer)
 
-- [`@../patterns/lifeline-activation.md`](../patterns/lifeline-activation.md) — all geometry:
+- [`@../../patterns/lifeline-activation.md`](../../patterns/lifeline-activation.md) — all geometry:
   participant head sizing (120×40), lifeline placement, activation-bar centering
   formula (`x = lifeline_center_x − 6`), message Y pitch (min 40px), participant
   x pitch (180px), JSON skeletons for all element types.
-- [`@./notation-conventions.md`](./notation-conventions.md) — legal arrowhead token
+- [`@../notation-conventions.md`](../notation-conventions.md) — legal arrowhead token
   set; Association row (call = `arrow`+solid); Dependency row (return = `arrow`+dashed);
   Actor convention (labelled-box — not used in sequence but locked here for consistency).
-- [`@./compartmented-box.md`](./compartmented-box.md) — participant head box header
+- [`@../compartmented-box.md`](../compartmented-box.md) — participant head box header
   height (40px) reused verbatim; no compartment dividers needed for participant heads
   (they are plain rectangles with a title, not multi-row boxes).
 

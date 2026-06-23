@@ -73,8 +73,7 @@ For grandchildren, repeat the same rule: each level adds `60px` to the x-coordin
 
 ## See in examples
 
-- `examples/repo_tree_hierarchy.png` — canonical example: a two-column folder tree off `repo/` (orchestrators / libs / pipelines), three levels deep, thin elbow connectors.
-- `examples/architecture_overview.png` — the Repository panel renders `lakehouse-dbt/` as a 3-level folder tree inside its container.
+- `../diagram-types/tech-architecture/architecture_overview.png` — the Repository panel renders `lakehouse-dbt/` as a 3-level folder tree inside its container, with thin elbow tree connectors.
 
 ## Notes
 

@@ -1,6 +1,6 @@
 # Diagram Type: Tech Architecture
 
-> Layer: TYPE recipe. Composes primitives from [`../patterns/`](../patterns/README.md); does not re-derive their geometry. Indexed in [`README.md`](./README.md).
+> Layer: TYPE recipe. Composes primitives from [`../../patterns/`](../../patterns/README.md); does not re-derive their geometry. Indexed in [`README.md`](../README.md).
 
 ## Purpose
 
@@ -20,12 +20,12 @@ Assemble the diagram from the composed primitives below — do not improvise coo
 
 ## Composes (primitive layer)
 
-- [`@../patterns/group-container.md`](../patterns/group-container.md) — bordered, branded scope for each environment / technology / logical area.
-- [`@../patterns/icon-block.md`](../patterns/icon-block.md) — the atomic node: a tech logo + label for each service or technology.
-- [`@../patterns/multi-zoom-overview.md`](../patterns/multi-zoom-overview.md) — arranging multiple facets of one platform in a single overview canvas.
-- [`@../patterns/fan-out.md`](../patterns/fan-out.md) — one source dispatching to several downstream technologies.
-- [`@../patterns/convergence.md`](../patterns/convergence.md) — several sources merging into a single destination service.
-- [`@../patterns/linear-pipeline.md`](../patterns/linear-pipeline.md) — sequential left-to-right stages between technologies.
+- [`@../../patterns/group-container.md`](../../patterns/group-container.md) — bordered, branded scope for each environment / technology / logical area.
+- [`@../../patterns/icon-block.md`](../../patterns/icon-block.md) — the atomic node: a tech logo + label for each service or technology.
+- [`@../../patterns/multi-zoom-overview.md`](../../patterns/multi-zoom-overview.md) — arranging multiple facets of one platform in a single overview canvas.
+- [`@../../patterns/fan-out.md`](../../patterns/fan-out.md) — one source dispatching to several downstream technologies.
+- [`@../../patterns/convergence.md`](../../patterns/convergence.md) — several sources merging into a single destination service.
+- [`@../../patterns/linear-pipeline.md`](../../patterns/linear-pipeline.md) — sequential left-to-right stages between technologies.
 
 ## Ground truth
 

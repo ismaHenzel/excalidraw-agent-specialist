@@ -1,6 +1,6 @@
 # Diagram Type: Snowflake Schema
 
-> Layer: TYPE recipe. Composes primitives from [`../patterns/`](../patterns/README.md) and the shared [`compartmented-box.md`](./compartmented-box.md) construction; does not re-derive their geometry. Indexed in [`README.md`](./README.md). Builds on [`star-schema.md`](./star-schema.md).
+> Layer: TYPE recipe. Composes primitives from [`../../patterns/`](../../patterns/README.md) and the shared [`compartmented-box.md`](../compartmented-box.md) construction; does not re-derive their geometry. Indexed in [`README.md`](../README.md). Builds on [`star-schema.md`](../star-schema/star-schema.md).
 
 ## Purpose
 
@@ -25,17 +25,17 @@ attributes have a natural multi-level parent→child hierarchy worth expressing 
 Snowflake **reuses the star schema's compartmented-box geometry VERBATIM** — do not
 re-derive any box offset numbers. All parametric offsets (header height 40, row pitch 20,
 left-pad 12, fontSize 16, box-width rule `len*0.6*16`) are locked in
-[`@./compartmented-box.md`](./compartmented-box.md) and inherited from
-[`@./star-schema.md`](./star-schema.md). Only the **normalized dimension extension** is
-added on top via [`@../patterns/tree-hierarchy.md`](../patterns/tree-hierarchy.md).
+[`@../compartmented-box.md`](../compartmented-box.md) and inherited from
+[`@../star-schema/star-schema.md`](../star-schema/star-schema.md). Only the **normalized dimension extension** is
+added on top via [`@../../patterns/tree-hierarchy.md`](../../patterns/tree-hierarchy.md).
 
 ### Step 1 — Build the star base (unchanged from star-schema)
 
 Assemble the fact box and the kept dimension boxes exactly as documented in
-[`@./star-schema.md`](./star-schema.md):
+[`@../star-schema/star-schema.md`](../star-schema/star-schema.md):
 
 - Each table (fact and every dimension) is a **compartmented box** per
-  [`@./compartmented-box.md`](./compartmented-box.md): sharp rectangle (`roundness: null`,
+  [`@../compartmented-box.md`](../compartmented-box.md): sharp rectangle (`roundness: null`,
   `roughness: 0`), full-width `line` header divider (`x == box.x`,
   `points = [[0,0],[width,0]]`), one title text bound via `containerId`, and N
   free-floating per-row monospace texts (`fontFamily: 3`, `fontSize: 16`). One `groupIds`
@@ -48,7 +48,7 @@ Assemble the fact box and the kept dimension boxes exactly as documented in
 
 Select the dimension(s) to normalize (e.g. `dim_product`) and replace each with a
 **tree-hierarchy of smaller compartmented boxes** per
-[`@../patterns/tree-hierarchy.md`](../patterns/tree-hierarchy.md):
+[`@../../patterns/tree-hierarchy.md`](../../patterns/tree-hierarchy.md):
 
 - **Sub-table boxes** use the **same compartmented-box recipe** as the parent dimension —
   the same sharp rectangle, same line header divider, same left-pad 12, same fontSize 16.
@@ -73,15 +73,15 @@ Select the dimension(s) to normalize (e.g. `dim_product`) and replace each with 
 
 ## Composes (primitive layer)
 
-- [`@./star-schema.md`](./star-schema.md) — the star base: fact box + kept dimensions +
+- [`@../star-schema/star-schema.md`](../star-schema/star-schema.md) — the star base: fact box + kept dimensions +
   fan-out connectors. Snowflake is this composed set, extended.
-- [`@./compartmented-box.md`](./compartmented-box.md) — the finalized parametric offsets
+- [`@../compartmented-box.md`](../compartmented-box.md) — the finalized parametric offsets
   (header 40, row pitch 20, left-pad 12, fontSize 16) used verbatim by every box —
   fact, dimension, and normalized sub-tables alike.
-- [`@../patterns/tree-hierarchy.md`](../patterns/tree-hierarchy.md) — the normalized dimension
+- [`@../../patterns/tree-hierarchy.md`](../../patterns/tree-hierarchy.md) — the normalized dimension
   sub-table layout: children indent +60px x, ~40px y-step, thin (`strokeWidth: 1.5`)
   elbow connectors anchored to sub-box RECTANGLE borders.
-- [`@../patterns/linear-pipeline.md`](../patterns/linear-pipeline.md) — optional sequential read
+- [`@../../patterns/linear-pipeline.md`](../../patterns/linear-pipeline.md) — optional sequential read
   path across the normalization chain.
 
 ## Ground truth

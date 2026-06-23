@@ -10,6 +10,22 @@
 
 ---
 
+## 👀 See it in one glance
+
+Two diagrams — both drawn by this agent — say more than a feature list. The first shows **what it produces**; the second shows **how it produces it**.
+
+### What it produces — an architecture overview
+> A multi-zoom **tech-architecture** diagram: a data-platform system overview with an evidence strip of real metrics on top, three branded zones (Unity Catalog · Repository · DLT Pipeline) wired with sharp 90° elbow connectors, and a worked end-to-end example tracing one component (`dim_customers`) across all three facets. This is the kind of architecture-review-grade output the agent is built for.
+
+![Tech architecture overview — multi-zoom system map](.claude/agents/excalidraw/kb/diagram-types/tech-architecture/architecture_overview.png)
+
+### How it works — the self-verifying loop
+> The agent drawing **itself**: a UML sequence diagram of the `/excalidraw` Render → Verify → Fix loop. User → Orchestrator → Writer → Reviewer, with the verify→fix loop (up to 3 attempts) and the honest-failure escape hatch. Notice the straight lifeline/message arrows — the one place the agent intentionally drops the default elbow arrows because a forced 90° jog on a lifeline reads as noise.
+
+![/excalidraw Render → Verify → Fix sequence diagram](excalidraw_agent_sequence_v2.png)
+
+---
+
 > ### ⚠️ Read this first — token cost
 >
 > This agent is built to return **accurate, professional, architecture-grade results** — not quick sketches. To get there it reads a layered knowledge base, studies reference renders as visual ground truth, writes precise Excalidraw JSON, renders it, and runs an independent verify→fix loop. **That accuracy costs a lot of tokens.** A single polished diagram can burn a meaningful chunk of your budget. That trade is deliberate: you're paying for a diagram you could put in front of an architecture review, not a throwaway. Plan your usage accordingly.
@@ -28,20 +44,20 @@
 
 These are real outputs from the Excalidraw Visual Architect, each rendered and verified through the agent's loop.
 
-### The agent's own workflow — `/excalidraw` Render → Verify → Fix
-> A UML sequence diagram, drawn by the agent, of the agent itself: User → Orchestrator → Writer → Reviewer, with the verify→fix loop (up to 3 attempts) and the honest-failure escape hatch. It captures the entire flow of the application in one canvas.
+### Tech Architecture — multi-zoom platform overview
+> The canonical architecture example (shown at the top too): an evidence strip of real metrics, three branded zones wired with sharp elbow connectors, and a worked example tracing one component end to end across every facet. The reference render that anchors the agent's `tech-architecture` recipe.
 
-![/excalidraw Render → Verify → Fix sequence diagram](excalidraw_agent_sequence_v2.png)
+![Tech architecture overview — multi-zoom system map](.claude/agents/excalidraw/kb/diagram-types/tech-architecture/architecture_overview.png)
 
 ### Azure Synapse Reference Architecture — three-zone network boundary map
 > On-premises → data platform resource group → Synapse managed resource group, with VNets, subnets, private endpoints, a legend, and color-coded connection semantics.
 
-![Azure Synapse three-zone network architecture](.claude/agents/excalidraw/kb/diagram-types/azure_synapse_architecture.png)
+![Azure Synapse three-zone network architecture](.claude/agents/excalidraw/kb/diagram-types/tech-architecture/azure_synapse_architecture.png)
 
 ### CI/CD Data Pipeline — flow with parallel shards and pass/fail gates
 > Color-coded fan-out into parallel test workers, convergence into a single quality gate, inline ✗/✓ decision markers, and a feedback loop routed cleanly outside the forward flow.
 
-![CI/CD data pipeline flow](.claude/agents/excalidraw/kb/diagram-types/data_pipeline_flow.png)
+![CI/CD data pipeline flow](.claude/agents/excalidraw/kb/diagram-types/tech-architecture/data_pipeline_flow.png)
 
 <table>
 <tr>
@@ -49,14 +65,14 @@ These are real outputs from the Excalidraw Visual Architect, each rendered and v
 
 **Data Vault — hub / link / satellite**
 
-![Data Vault model](.claude/agents/excalidraw/kb/diagram-types/data_vault_sales.png)
+![Data Vault model](.claude/agents/excalidraw/kb/diagram-types/data-vault/data_vault_sales.png)
 
 </td>
 <td width="50%" valign="top">
 
 **Star Schema — fact + dimensions**
 
-![Star schema](.claude/agents/excalidraw/kb/diagram-types/star_schema_v2.png)
+![Star schema](.claude/agents/excalidraw/kb/diagram-types/star-schema/star_schema_v2.png)
 
 </td>
 </tr>
@@ -65,20 +81,20 @@ These are real outputs from the Excalidraw Visual Architect, each rendered and v
 
 **UML Sequence — lifelines & activations**
 
-![Sequence diagram](.claude/agents/excalidraw/kb/diagram-types/sequence_login_flow.png)
+![Sequence diagram](.claude/agents/excalidraw/kb/diagram-types/sequence/sequence_login_flow.png)
 
 </td>
 <td width="50%" valign="top">
 
 **Process & Decision — runbook with gates**
 
-![Process decision flow](.claude/agents/excalidraw/kb/diagram-types/process_decision.png)
+![Process decision flow](.claude/agents/excalidraw/kb/diagram-types/tech-architecture/process_decision.png)
 
 </td>
 </tr>
 </table>
 
-More examples live beside their recipes in [`.claude/agents/excalidraw/kb/diagram-types/`](.claude/agents/excalidraw/kb/diagram-types/) — ER diagrams, class diagrams, snowflake schemas, use-case diagrams, activity diagrams, and tree hierarchies.
+More examples live beside their recipes in per-type subfolders under [`.claude/agents/excalidraw/kb/diagram-types/`](.claude/agents/excalidraw/kb/diagram-types/) — ER diagrams, class diagrams, snowflake schemas, use-case diagrams, and activity diagrams.
 
 ---
 
@@ -189,7 +205,7 @@ The render pipeline (`scripts/render/`) renders the diagram to PNG inside Docker
 The agent's brain is a two-layer knowledge base under [`.claude/agents/excalidraw/kb/`](.claude/agents/excalidraw/kb/):
 
 - **`kb/patterns/`** — the PRIMITIVE layer: reusable layout sub-patterns (fan-out, convergence, tree-hierarchy, …), each with geometry + JSON skeletons.
-- **`kb/diagram-types/`** — the TYPE layer: one recipe per diagram type, **with its canonical example PNG and editable `.excalidraw` source sitting right beside it**.
+- **`kb/diagram-types/`** — the TYPE layer: **one subfolder per diagram type** (`tech-architecture/`, `star-schema/`, `sequence/`, …), each holding the recipe plus its canonical example PNG and editable `.excalidraw` source **sitting right beside it**.
 
 A diagram *type* is a **composition of** primitives. Start at [`kb/README.md`](.claude/agents/excalidraw/kb/README.md) for the full map and the authoritative resolver table.
 

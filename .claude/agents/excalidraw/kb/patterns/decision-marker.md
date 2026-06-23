@@ -72,8 +72,8 @@ CI/CD gates (pass/fail). Validation results. Health checks. Anywhere "did it wor
 
 ## See in examples
 
-- `examples/data_pipeline_flow.png` — the canonical use. `Test Gate` forks into ✗ / ✓; ✗ feeds the `retry from Commit` feedback loop; ✓ continues into `Deploy`.
-- `examples/process_decision.png` — the Integration Suite gates into ✗ / ✓ via a small junction; ✗ restarts the runbook, ✓ proceeds to Package.
+- `../diagram-types/tech-architecture/data_pipeline_flow.png` — the canonical use. `Test Gate` forks into ✗ / ✓; ✗ feeds the `retry from Commit` feedback loop; ✓ continues into `Deploy`.
+- `../diagram-types/tech-architecture/process_decision.png` — the Integration Suite gates into ✗ / ✓ via a small junction; ✗ restarts the runbook, ✓ proceeds to Package.
 
 ## Notes
 

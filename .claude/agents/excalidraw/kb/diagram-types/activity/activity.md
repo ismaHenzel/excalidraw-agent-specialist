@@ -1,6 +1,6 @@
 # Diagram Type: Activity
 
-> Layer: TYPE recipe. Composes primitives from [`../patterns/`](../patterns/README.md); does not re-derive their geometry. Indexed in [`README.md`](./README.md).
+> Layer: TYPE recipe. Composes primitives from [`../../patterns/`](../../patterns/README.md); does not re-derive their geometry. Indexed in [`README.md`](../README.md).
 
 ## Purpose
 
@@ -24,12 +24,12 @@ Assemble the diagram from the composed primitives below — do not improvise coo
 
 ## Composes (primitive layer)
 
-- [`@../patterns/linear-pipeline.md`](../patterns/linear-pipeline.md) — sequential left-to-right chain of action nodes.
-- [`@../patterns/task-list.md`](../patterns/task-list.md) — vertical action stack with side I/O annotations.
-- [`@../patterns/decision-branch.md`](../patterns/decision-branch.md) — labelled decision diamond with two or more outgoing branches.
-- [`@../patterns/decision-marker.md`](../patterns/decision-marker.md) — inline binary pass/fail gate (✓/✗) without a full diamond.
-- [`@../patterns/feedback-loop.md`](../patterns/feedback-loop.md) — loop-back arc routed around the forward flow, never crossing it.
-- [`@../patterns/group-container.md`](../patterns/group-container.md) — swimlane lanes: N adjacent bordered containers, one per role or partition.
+- [`@../../patterns/linear-pipeline.md`](../../patterns/linear-pipeline.md) — sequential left-to-right chain of action nodes.
+- [`@../../patterns/task-list.md`](../../patterns/task-list.md) — vertical action stack with side I/O annotations.
+- [`@../../patterns/decision-branch.md`](../../patterns/decision-branch.md) — labelled decision diamond with two or more outgoing branches.
+- [`@../../patterns/decision-marker.md`](../../patterns/decision-marker.md) — inline binary pass/fail gate (✓/✗) without a full diamond.
+- [`@../../patterns/feedback-loop.md`](../../patterns/feedback-loop.md) — loop-back arc routed around the forward flow, never crossing it.
+- [`@../../patterns/group-container.md`](../../patterns/group-container.md) — swimlane lanes: N adjacent bordered containers, one per role or partition.
 
 ## Ground truth
 

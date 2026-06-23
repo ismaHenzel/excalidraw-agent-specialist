@@ -31,11 +31,13 @@ Claude Code subagents **cannot spawn other subagents**. So the author cannot cal
 │   ├── patterns/              ← PRIMITIVE layer: reusable layout sub-patterns
 │   │   ├── README.md          ← primitive index (macro / flow / decision / structure)
 │   │   └── group-container.md, fan-out.md, tree-hierarchy.md, …  (15 files)
-│   └── diagram-types/         ← TYPE layer: one recipe per diagram type, WITH its example assets
+│   └── diagram-types/         ← TYPE layer: one SUBFOLDER per diagram type, WITH its example assets
 │       ├── README.md          ← type index + authoritative resolver table
-│       ├── tech-architecture.md, star-schema.md, sequence.md, …  (recipe files)
-│       ├── architecture_overview.png  ← canonical render (visual ground truth)
-│       └── architecture_overview.excalidraw  ← editable source, beside its render
+│       ├── compartmented-box.md, notation-conventions.md  ← shared cross-type files
+│       └── tech-architecture/ ← one folder per type (star-schema/, er/, sequence/, …)
+│           ├── tech-architecture.md          ← recipe file
+│           ├── architecture_overview.png     ← canonical render (visual ground truth)
+│           └── architecture_overview.excalidraw  ← editable source, beside its render
 ├── icons/                     ← brand/tech PNG logos
 └── scripts/
     ├── render/                ← specialist's render pipeline (validator + Playwright + Docker)
@@ -43,7 +45,7 @@ Claude Code subagents **cannot spawn other subagents**. So the author cannot cal
     └── e2e/                   ← operator-side end-to-end check runner
 ```
 
-The agent prompt always carries the visual standards (colors, rules, JSON templates) and style principles. The KB under `kb/` is read on demand: `kb/diagram-types/<type>.md` recipes name which `kb/patterns/` primitives to compose, and each type's canonical PNG (plus its editable `.excalidraw` source) sits **right beside the recipe** in `kb/diagram-types/` — the agent Reads the PNG as ground truth before producing similar diagrams. Start at `kb/README.md` for the full map.
+The agent prompt always carries the visual standards (colors, rules, JSON templates) and style principles. The KB under `kb/` is read on demand: `kb/diagram-types/<type>/<type>.md` recipes name which `kb/patterns/` primitives to compose, and each type's canonical PNG (plus its editable `.excalidraw` source) sits **right beside the recipe in that type's subfolder** under `kb/diagram-types/` — the agent Reads the PNG as ground truth before producing similar diagrams. Start at `kb/README.md` for the full map.
 
 ## Installation
 
@@ -105,19 +107,18 @@ The agent will discover it automatically.
 
 ## Reference examples (`kb/diagram-types/`)
 
-The canonical PNGs are **the visual style guide**. They live **inside `kb/diagram-types/`, beside the recipe that owns each one**, together with the editable `.excalidraw` source (same basename) — so the diagram type and its image stay together. Every pattern in `kb/patterns/` links to the example(s) that demonstrate it, and the agent is instructed to Read them as ground truth before producing a similar diagram. Every connector in these examples is a sharp **elbow arrow** (`elbowed: true`, `roundness: null`, orthogonal points) — never a curved `roundness:{type:2}` arrow.
+The canonical PNGs are **the visual style guide**. They live **inside each type's subfolder under `kb/diagram-types/`, beside the recipe that owns each one**, together with the editable `.excalidraw` source (same basename) — so the diagram type and its image stay together. Every pattern in `kb/patterns/` links to the example(s) that demonstrate it, and the agent is instructed to Read them as ground truth before producing a similar diagram. Every connector in these examples is a sharp **elbow arrow** (`elbowed: true`, `roundness: null`, orthogonal points) — never a curved `roundness:{type:2}` arrow.
 
 The authoritative type → example mapping is the resolver table in [`kb/diagram-types/README.md`](kb/diagram-types/README.md); the pattern → example mapping is the reference example index in [`kb/patterns/README.md`](kb/patterns/README.md). A few cross-pattern reference renders (not tied to a single type) also live there:
 
-| File (in `kb/diagram-types/`) | Use as reference for |
+| File (under `kb/diagram-types/`) | Use as reference for |
 |---|---|
-| `architecture_overview.png` | Multi-zoom architecture overview · group containers · folder tree inside a panel · evidence cards with real data · persona-anchored worked example with a cross-facet trace |
-| `data_pipeline_flow.png` | Left-to-right linear pipeline · color-coded fan-out · convergence into a single sink · inline ✗/✓ decision markers · feedback loop routed outside the forward flow |
-| `process_decision.png` | Vertical task-list runbook · side I/O to external resources · labeled-condition decision-branch diamond · binary ✗/✓ gate · timeline axis · restart feedback loop |
-| `repo_tree_hierarchy.png` | Folder / namespace tree · brand-titled group container · folders mapped to technology icon blocks · thin elbow tree connectors |
-| `example_star_schema.png` | Legacy user-authored star schema (**de-indexed** — see `star_schema_v2.png` for the current canonical) |
+| `tech-architecture/architecture_overview.png` | Multi-zoom architecture overview · group containers · folder tree inside a panel · evidence cards with real data · persona-anchored worked example with a cross-facet trace |
+| `tech-architecture/data_pipeline_flow.png` | Left-to-right linear pipeline · color-coded fan-out · convergence into a single sink · inline ✗/✓ decision markers · feedback loop routed outside the forward flow |
+| `tech-architecture/process_decision.png` | Vertical task-list runbook · side I/O to external resources · labeled-condition decision-branch diamond · binary ✗/✓ gate · timeline axis · restart feedback loop |
+| `star-schema/example_star_schema.png` | Legacy user-authored star schema (**de-indexed** — see `star-schema/star_schema_v2.png` for the current canonical) |
 
-To add or refresh an example: edit (or create) the source `kb/diagram-types/<name>.excalidraw`, re-render it with `scripts/render/validate_and_render.sh` so the `<name>.png` beside it updates, and add/update the relevant row in the resolver table ([`kb/diagram-types/README.md`](kb/diagram-types/README.md)) and/or the reference example index ([`kb/patterns/README.md`](kb/patterns/README.md)).
+To add or refresh an example: edit (or create) the source `kb/diagram-types/<type>/<name>.excalidraw`, re-render it with `scripts/render/validate_and_render.sh` so the `<name>.png` beside it updates, and add/update the relevant row in the resolver table ([`kb/diagram-types/README.md`](kb/diagram-types/README.md)) and/or the reference example index ([`kb/patterns/README.md`](kb/patterns/README.md)).
 
 ---
 *Adapted from the Gemini-CLI Excalidraw Visual Architect; restructured for Claude Code.*
